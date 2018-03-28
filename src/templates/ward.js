@@ -24,13 +24,6 @@ export const WardItemQuery = graphql`
 			description {
 				description
 			}
-			candidates {
-				id
-				name
-				biography {
-					biography
-				}
-			}
 		}
 	}
 `;

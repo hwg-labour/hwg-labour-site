@@ -1,26 +1,29 @@
 import React from "react";
 import PropTypes from "prop-types";
 
-import DesktopContainer from "./DesktopContainer";
-import TabletContainer from "./TabletContainer";
-import MobileContainer from "./MobileContainer";
+import Header from "./Header";
 
-// ----------------------------------------------------
+import Banner from "../Banner";
 
 // ----------------------------------------------------
 
 const ResponsiveContainer = props => (
 	<div>
-		<DesktopContainer { ...props }>{props.children}</DesktopContainer>
+		<Header
+			{ ...props }
+		/>
 
-		<TabletContainer { ...props }>{props.children}</TabletContainer>
-
-		<MobileContainer { ...props }>{props.children}</MobileContainer>
+		{
+			props.homepage 
+			&& <Banner />
+		}
 	</div>
 );
 
 ResponsiveContainer.propTypes = {
 	children: PropTypes.node,
 };
+
+// ----------------------------------------------------
 
 export default ResponsiveContainer;
