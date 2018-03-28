@@ -23,13 +23,6 @@ export const WardAndCandidateQuery = graphql`
 				node {
 					id
 					name
-					candidates {
-						id
-						name
-						biography {
-							biography
-						}
-					}
 				}
 			}
 		}

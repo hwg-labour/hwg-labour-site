@@ -66,7 +66,7 @@ const TemplateWrapper = props => (
 			] }
 		/>
 
-		{ props.children(...props) }
+		{ console.log(props), props.children(...props) }
 
 		<Footer />
 	</ResponsiveContainer>
