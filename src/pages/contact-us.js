@@ -11,11 +11,7 @@ const IndexPage = props => (
 		<Container text>
 			<Header as = "h1">Contact Us</Header>
 
-			<p>
-				28 Middle Lane,
-				London,
-				N8 8PL
-			</p>
+			<p>28 Middle Lane, London, N8 8PL</p>
 
 			<Button as = "a" size = "large">
 				Read More

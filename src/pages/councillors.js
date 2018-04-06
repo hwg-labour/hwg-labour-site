@@ -17,12 +17,29 @@ import profileImage from "../images/profile-pic.png";
 // ----------------------------------------------------
 
 export const WardAndCandidateQuery = graphql`
-	query AllCandidatesQuery {
+	query WardAndCandidateQuery {
 		contentfulWards: allContentfulWard {
 			edges {
 				node {
 					id
 					name
+				}
+			}
+		}
+		contentfulCandidates: allContentfulCandidate {
+			edges {
+				node {
+					id
+					name
+					shortBiography
+					image {
+						file {
+							url
+						}
+					}
+					ward {
+						id
+					}
 				}
 			}
 		}
@@ -40,59 +57,94 @@ const WardDivider = styled(Divider)`
 const IndexPage = props => (
 	<Segment style = { { padding: "8em 0em", } } vertical>
 		<Container text>
-			<Header as = "h1">Your Councillors</Header>
+			<Header as = "h1">Your Councillor Candidates</Header>
 
 			<p>
-				Morbi leo risus, porta ac consectetur ac, vestibulum at eros.
-				Vivamus sagittis lacus vel augue laoreet rutrum faucibus dolor
-				auctor. Vivamus sagittis lacus vel augue laoreet rutrum faucibus
-				dolor auctor. Nullam quis risus eget urna mollis ornare vel eu
-				leo.
+				There are 30 councillor candidates representing Labour across
+				Hornsey & Wood Green in the upcoming May local elections. Find
+				out who is representing your local area.
 			</p>
 
-			{props.data.contentfulWards.edges.map(ward => (
-				<div key = { ward.node.id + "-ward" }>
-					<Divider as = "h4" className = "header" horizontal>
-						<Link
-							to = { `/wards/${ slugify(ward.node.name, {
-								lower: true,
-							}) }` }
-						>
-							{ward.node.name}
-						</Link>
-					</Divider>
+			<br />
 
-					<Grid columns = { 3 }>
-						<Grid.Row>
-							{ward.node.candidates &&
-								ward.node.candidates.map(councillor => (
-									<Grid.Column
-										key = { councillor.id + "-councillor" }
-										verticalAlign = "middle"
-									>
-										<Image
-											src = {
-												councillor.image
-													? councillor.image.file.url
+			{props.data.contentfulWards.edges
+				.sort((x, y) => {
+					return x.node.name.toUpperCase() < y.node.name.toUpperCase()
+						? -1
+						: 1;
+				})
+				.map(ward => (
+					<Container key = { ward.node.id + "-ward" }>
+						<Divider as = "h4" className = "header" horizontal>
+							<Link
+								to = { `/wards/${ slugify(ward.node.name, {
+									lower: true,
+								}) }` }
+							>
+								{ward.node.name}
+							</Link>
+						</Divider>
+
+						<br />
+
+						<Grid columns = { 3 }>
+							<Grid.Row>
+								{props.data.contentfulCandidates.edges
+									.sort((x, y) => {
+										return x.node.name.toUpperCase() <
+											y.node.name.toUpperCase()
+											? -1
+											: 1;
+									})
+									.map(councillor => {
+										return (
+											councillor.node.ward.id ===
+												ward.node.id && (
+												<Grid.Column
+													key = {
+														councillor.node.id +
+														"-councillor"
+													}
+													verticalAlign = "middle"
+												>
+													<Image
+														src = { `
+														${
+												councillor.node
+													.image
+													? "https://res.cloudinary.com/codogo/image/fetch/h_530,w_430,c_fill,g_face,f_auto/https:" +
+																  councillor
+																  	.node
+																  	.image
+																  	.file
+																  	.url
 													: profileImage
-											}
-											as = { Link }
-											size = "medium"
-											to = { `/councillors/${ slugify(
-												councillor.name,
-												{ lower: true, },
-											) }` }
-										/>
+												}` }
+														as = { Link }
+														size = "medium"
+														to = { `/councillors/${ slugify(
+															councillor.node
+																.name,
+															{ lower: true, },
+														) }` }
+													/>
 
-										<Header as = "h4">
-											{councillor.name}
-										</Header>
-									</Grid.Column>
-								))}
-						</Grid.Row>
-					</Grid>
-				</div>
-			))}
+													<Header
+														as = "h4"
+														textAlign = "center"
+													>
+														{councillor.node.name}
+													</Header>
+												</Grid.Column>
+											)
+										);
+									})}
+							</Grid.Row>
+						</Grid>
+						<br />
+						<br />
+					</Container>
+				))}
 		</Container>
 	</Segment>
 );

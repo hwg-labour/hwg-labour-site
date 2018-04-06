@@ -33,8 +33,8 @@ const NewsDivider = styled(Divider)`
 
 // ----------------------------------------------------
 
-export const WhatsOnQuery = graphql`
-	query WhatsOnQuery {
+export const CampaigningQuery = graphql`
+	query CampaigningQuery {
 		contentfulEvents: allContentfulEvent {
 			edges {
 				node {
@@ -61,7 +61,7 @@ const IndexPage = props => (
 
 		<Segment vertical style = { { padding: "8em 0em", } }>
 			<Container text>
-				<Header as = "h1">What's On</Header>
+				<Header as = "h1">Campaigning</Header>
 
 				<p style = { { fontSize: "1.33em", } }>Get involved with Labour</p>
 
@@ -76,38 +76,38 @@ const IndexPage = props => (
 
 				<Grid columns = { 2 }>
 					{props.data.contentfulEvents.edges
-						.filter(event => event.node.socialEvent === false )
+						.filter(event => event.node.socialEvent === true )
 						.sort(function(a, b) {
 							return (
 								new Date(b.node.publishingDate) -
 								new Date(a.node.publishingDate)
 							);
 						})
-						.map(event => (
-							<Grid.Row key = { event.node.id + "-event" }>
+						.map(newsItem => (
+							<Grid.Row key = { newsItem.node.id + "-newsitem" }>
 								<Grid.Column>
 									<NewsThumbnail
 										src = {
 											"https://res.cloudinary.com/codogo/image/fetch/w_800,c_fill,g_face,f_auto/https:" +
-											event.node.image.file.url
+											newsItem.node.image.file.url
 										}
 										as = { Link }
 										size = "medium"
-										to = { "/events/" + slugify(event.node.title) }
+										to = { "/events/" + slugify(newsItem.node.title) }
 									/>
 								</Grid.Column>
 
 								<Grid.Column>
 									<Header as = "h4">
-										{event.node.title}
+										{newsItem.node.title}
 									</Header>
 
-									<p>{event.node.description}</p>
+									<p>{newsItem.node.description}</p>
 
 									<Button
 										as = { Link }
 										size = "small"
-										to = { "/events/" + slugify(event.node.title) }
+										to = { "/events/" + slugify(newsItem.node.title) }
 									>
 										Read more <Icon name = "right arrow" />
 									</Button>

@@ -9,39 +9,35 @@ import ResponsiveContainer from "../components/ResponsiveContainer";
 
 // ----------------------------------------------------
 
-export const WardAndCandidateQuery = graphql`
-	query MenuWards {
+export const MenuGroupsAndWards = graphql`
+	query MenuGroupsWardsEvents {
 		contentfulWards: allContentfulWard {
 			edges {
 				node {
 					id
 					name
+				}
+			}
+		}
+		contentfulGroups: allContentfulGroup {
+			edges {
+				node {
+					id
+					name
+				}
+			}
+		}
+		contentfulEvents: allContentfulEvent {
+			edges {
+				node {
+					title
+					date
+					socialEvent
 				}
 			}
 		}
 	}
 `;
-/*
-export const WardAndCandidateQuery = graphql`
-	query WardAndCandidateQuery {
-		contentfulWards: allContentfulWard {
-			edges {
-				node {
-					id
-					name
-				}
-			}
-		}
-		contentfulCandidates: allContentfulCandidate {
-			edges {
-				node {
-					id
-					name
-				}
-			}
-		}
-	}
-`;*/
 
 // ----------------------------------------------------
 
@@ -49,6 +45,7 @@ const TemplateWrapper = props => (
 	<ResponsiveContainer
 		homepage = { props.location.pathname === "/" }
 		wards = { props.data.contentfulWards }
+		groups = { props.data.contentfulGroups }
 		candidates = { props.data.contentfulCandidates }
 	>
 		<Helmet
@@ -66,9 +63,11 @@ const TemplateWrapper = props => (
 			] }
 		/>
 
-		{ console.log(props), props.children(...props) }
+		{props.children(...props)}
 
-		<Footer />
+		<Footer
+			events = { props.data.contentfulEvents }
+		/>
 	</ResponsiveContainer>
 );
 

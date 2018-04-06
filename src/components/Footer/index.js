@@ -1,6 +1,7 @@
 import React from "react";
 import PropTypes from "prop-types";
 import Helmet from "react-helmet";
+import moment from "moment";
 
 import Link from "gatsby-link";
 
@@ -10,12 +11,12 @@ import { Container, Grid, Header, List, Segment, } from "semantic-ui-react";
 
 // ----------------------------------------------------
 
-const Footer = () => (
+const Footer = props => (
 	<Segment color = "grey" style = { { padding: "5em 0em", } } inverted vertical>
 		<Container>
 			<Grid divided inverted stackable>
 				<Grid.Row>
-					<Grid.Column width = { 3 }>
+					<Grid.Column width = { 4 }>
 						<Header inverted as = "h4" content = "About" />
 
 						<List link inverted>
@@ -41,7 +42,7 @@ const Footer = () => (
 						</List>
 					</Grid.Column>
 
-					<Grid.Column width = { 3 }>
+					<Grid.Column width = { 4 }>
 						<Header inverted as = "h4" content = "Getting Involved" />
 
 						<List link inverted>
@@ -53,26 +54,38 @@ const Footer = () => (
 								What's On
 							</List.Item>
 
-							<List.Item to = "/volunteering/" as = { Link }>
-								Volunteering
+							<List.Item to = "/campaigning/" as = { Link }>
+								Campaigning
 							</List.Item>
 
 							<List.Item to = "/donate/" as = { Link }>
 								Donate
 							</List.Item>
 
-							<List.Item to = "/newsletter/" as = { Link }>
-								Newsletter
+							<List.Item to = "https://labourinlondon.org.uk/" as = "a">
+								https://labourinlondon.org.uk/
 							</List.Item>
 						</List>
 					</Grid.Column>
 
-					<Grid.Column width = { 7 }>
+					<Grid.Column width = { 8 }>
 						<Header as = "h4" inverted>
-							Next Door-knocking Sessions:
+							Upcoming events:
 						</Header>
 
-						<p>29th February, Stroud Green</p>
+						{
+							props.events.edges
+							.sort(function(a, b) {
+								return (
+									new Date(b.node.publishingDate) -
+									new Date(a.node.publishingDate)
+								);
+							})
+							.slice(1,3)
+							.map( event => (
+								<p>{ moment(event.node.date).format('MMMM Do YYYY') } - { event.node.title }</p>
+							))
+						}
 					</Grid.Column>
 				</Grid.Row>
 			</Grid>

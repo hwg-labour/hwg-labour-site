@@ -9,14 +9,11 @@ import Banner from "../Banner";
 
 const ResponsiveContainer = props => (
 	<div>
-		<Header
-			{ ...props }
-		/>
+		<Header { ...props } />
 
-		{
-			props.homepage 
-			&& <Banner />
-		}
+		{props.homepage && <Banner />}
+
+		{props.children}
 	</div>
 );
 
