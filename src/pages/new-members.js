@@ -1,12 +1,6 @@
 import React from "react";
 
-import {
-	Button,
-	Container,
-	Divider,
-	Header,
-	Segment,
-} from "semantic-ui-react";
+import { Button, Container, Divider, Header, Segment, } from "semantic-ui-react";
 
 // ----------------------------------------------------
 
@@ -15,41 +9,20 @@ import {
 const IndexPage = props => (
 	<Segment style = { { padding: "8em 0em", } } vertical>
 		<Container text>
-			<Header as = "h1">Contact Us</Header>
+			<Header as = "h1" style = { { fontSize: "2em", } }>
+				New Members
+			</Header>
 
-			<p>
-				Morbi leo risus, porta ac consectetur ac, vestibulum at eros.
-				Vivamus sagittis lacus vel augue laoreet rutrum faucibus dolor
-				auctor. Vivamus sagittis lacus vel augue laoreet rutrum faucibus
-				dolor auctor. Nullam quis risus eget urna mollis ornare vel eu
-				leo.
+			<p style = { { fontSize: "1.33em", } }>
+				We want to build a Britain that works for the many, not the
+				few. That means building the homes we need to rent and buy,
+				keeping our communities safe, giving our schools the funding
+				they need, and restoring the NHS to its place as the envy of
+				the world.
 			</p>
 
-			<Button as = "a" size = "large">
-				Read More
-			</Button>
-
-			<Divider
-				as = "h4"
-				className = "header"
-				horizontal
-				style = { { margin: "3em 0em", textTransform: "uppercase", } }
-			>
-				<a href = "#">Case Studies</a>
-			</Divider>
-
-			<Header as = "h3">Did We Tell You About Our Bananas?</Header>
-
-			<p>
-				Yes I know you probably disregarded the earlier boasts as
-				non-sequitur filler content, but it's really true. It took years
-				of gene splicing and combinatory DNA research, but our bananas
-				can really dance.
-			</p>
-
-			<Button as = "a" size = "large">
-				I'm Still Quite Interested
-			</Button>
+			<p>Get involved</p>
+			{/*<Button size = "huge">Check Them Out</Button>*/}
 		</Container>
 	</Segment>
 );

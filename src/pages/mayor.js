@@ -9,9 +9,9 @@ import { Button, Container, Header, Segment, } from "semantic-ui-react";
 const IndexPage = () => (
 	<Segment style = { { padding: "8em 0em", } } vertical>
 		<Container text>
-			<Header as = "h1">Your MP</Header>
+			<Header as = "h1">Your Mayor</Header>
 
-			<Header as = "h2">Catcherine West</Header>
+			<Header as = "h2">Sadiq Khan</Header>
 
 			<p>
 				Catherine holds a degree in Social Science and Languages and a
@@ -43,8 +43,8 @@ const IndexPage = () => (
 				Kong Watch and the Vice-Chair of the APPG on American Football.
 			</p>
 
-			<Button as = "a" size = "large" href = "http://www.catherinewest.org.uk/">
-				Read more on her website
+			<Button as = "a" size = "large" href = "https://www.london.gov.uk/">
+				Visit the London Mayor's website
 			</Button>
 		</Container>
 	</Segment>

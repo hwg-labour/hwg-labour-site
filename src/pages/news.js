@@ -43,6 +43,7 @@ export const NewsQuery = graphql`
 					description {
 						description
 					}
+					publishingDate
 					image {
 						file {
 							url
@@ -65,13 +66,7 @@ const IndexPage = props => (
 				<Header as = "h1">News</Header>
 
 				<p style = { { fontSize: "1.33em", } }>
-					Integer posuere erat a ante venenatis dapibus posuere velit
-					aliquet. Aenean lacinia bibendum nulla sed consectetur.
-					Donec id elit non mi porta gravida at eget metus. Cras justo
-					odio, dapibus ac facilisis in, egestas eget quam. Integer
-					posuere erat a ante venenatis dapibus posuere velit aliquet.
-					Vivamus sagittis lacus vel augue laoreet rutrum faucibus
-					dolor auctor.
+					Stay up to date with the latest local Labour news.
 				</p>
 
 				<Divider
@@ -84,31 +79,45 @@ const IndexPage = props => (
 				</Divider>
 
 				<Grid columns = { 2 }>
-					{props.data.contentfulNews.edges.map(newsItem => (
-						<Grid.Row key = { newsItem.node.id + "-newsitem" }>
-							<Grid.Column>
-								<NewsThumbnail
-									src = { newsItem.node.image.file.url }
-									as = { Link }
-									size = "medium"
-									to = { slugify(newsItem.node.title) }
-								/>
-							</Grid.Column>
+					{props.data.contentfulNews.edges
+						.sort(function(a, b) {
+							return (
+								new Date(b.node.publishingDate) -
+								new Date(a.node.publishingDate)
+							);
+						})
+						.map(newsItem => (
+							<Grid.Row key = { newsItem.node.id + "-newsitem" }>
+								<Grid.Column>
+									<NewsThumbnail
+										src = { "https://res.cloudinary.com/codogo/image/fetch/w_800,c_fill,g_face,f_auto/https:" + newsItem.node.image.file.url }
+										as = { Link }
+										size = "medium"
+										to = { "/news/" + slugify(newsItem.node.title) }
+									/>
+								</Grid.Column>
 
-							<Grid.Column>
-								<Header as = "h4">{newsItem.node.title}</Header>
+								<Grid.Column>
+									<Header as = "h4">
+										{newsItem.node.title}
+									</Header>
 
-								<p>{newsItem.node.description.description}</p>
+									<p>
+										{newsItem.node.description.description}
+									</p>
 
-								<Button as = "a" size = "small">
-									Read more
-									<Icon name = "right arrow" />
-								</Button>
-							</Grid.Column>
+									<Button
+										as = { Link }
+										size = "small"
+										to = { "/whats-on" }
+									>
+										Read more <Icon name = "right arrow" />
+									</Button>
+								</Grid.Column>
 
-							<NewsDivider section />
-						</Grid.Row>
-					))}
+								<NewsDivider section />
+							</Grid.Row>
+						))}
 				</Grid>
 			</Container>
 		</Segment>

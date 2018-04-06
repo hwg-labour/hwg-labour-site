@@ -16,6 +16,7 @@ const LogoWrapper = styled(Link)`
 	align-items: center;
 	width: 100%;
 	height: 75%;
+	padding: 0.75em 0;
 `;
 
 const LogoImage = styled.img`
