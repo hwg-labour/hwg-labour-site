@@ -63,7 +63,7 @@ const IndexPage = props => (
 			<Container text>
 				<Header as = "h1">Campaigning</Header>
 
-				<p style = { { fontSize: "1.33em", } }>Get involved with Labour</p>
+				<p style = { { fontSize: "1.33em", } }>Get involved with Labour on the doorstep and share our message. Donec id elit non mi porta gravida at eget metus. Cras mattis consectetur purus sit amet fermentum. Morbi leo risus, porta ac consectetur ac, vestibulum at eros. Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
 
 				<Divider
 					as = "h4"
