@@ -4,10 +4,7 @@ import Link from "gatsby-link";
 import {
 	Button,
 	Container,
-	Divider,
-	Grid,
 	Header,
-	Image,
 	Segment,
 } from "semantic-ui-react";
 
@@ -65,7 +62,7 @@ const IndexPage = props => (
 					elections at an upcoming campaign event.
 				</p>
 
-				<Button size = "huge" as = { Link } to = "/councillors">
+				<Button size = "huge" as = { Link } to = "/campaigning">
 					Campaigning
 				</Button>
 			</Container>
