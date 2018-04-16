@@ -28,11 +28,22 @@ const GetInvolvedDropdown = () => (
 			Volunteering
 		</Link>
 
+		<Link to = "/contact-us/" className = "ui">
+			Contact Us
+		</Link>
+
 		<a
 			href = "https://donation.labour.org.uk/page/contribute/donate-fa/"
 			className = "ui"
 		>
 			Donate
+		</a>
+
+		<a
+			href = "https://join.labour.org.uk/"
+			className = "ui"
+		>
+			Join
 		</a>
 	</div>
 );
@@ -79,7 +90,11 @@ const GroupsDropdown = props => (
 					</Link>
 				)))
 		}
+	</div>
+);
 
+const WardsDropdown = props => (
+	<div>
 		{props.wards.edges
 			.sort((x, y) => {
 				return x.node.name.toUpperCase() < y.node.name.toUpperCase()
@@ -129,9 +144,17 @@ const Header = props => (
 		<Link
 			to = "/new-members/"
 			className = "ui"
+			dropdown = { <WardsDropdown { ...props } /> }
+		>
+			Wards
+		</Link>
+
+		<Link
+			to = "/new-members/"
+			className = "ui"
 			dropdown = { <GroupsDropdown { ...props } /> }
 		>
-			Wards, Forums & Groups
+			Forums & Groups
 		</Link>
 
 		<Link to = "/councillors/" className = "ui" dropdown = { <PeopleDropdown /> }>
@@ -144,8 +167,6 @@ const Header = props => (
 			href = "https://medium.com/hornsey-and-wood-green-labour"
 			children = "Thoughts"
 		/>
-
-		<Link to = "/contact-us/" children = "Contact Us" />
 
 		<Button
 			as = "a"

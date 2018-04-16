@@ -49,7 +49,7 @@ const TemplateWrapper = props => (
 		candidates = { props.data.contentfulCandidates }
 	>
 		<Helmet
-			title = "H&WG Labour"
+			title = "Hornsey & Wood Green Labour"
 			meta = { [
 				{
 					name: "description",
@@ -63,7 +63,7 @@ const TemplateWrapper = props => (
 			] }
 		/>
 
-		{props.children(...props)}
+		{ props.children(...props) }
 
 		<Footer
 			events = { props.data.contentfulEvents }

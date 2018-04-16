@@ -4,10 +4,28 @@ import styled from "styled-components";
 import PropTypes from "prop-types";
 
 import banner from "../../images/banner-1.jpg";
+import banner2 from "../../images/banner-2.jpg";
+import banner3 from "../../images/banner-3.jpg";
+import banner4 from "../../images/banner-4.jpg";
+import banner5 from "../../images/banner-5.jpg";
+import banner6 from "../../images/banner-1.jpg"; // To increase the chance of the best looking banner
+import banner7 from "../../images/banner-1.jpg";
+import banner8 from "../../images/banner-1.jpg"; 
 
-import { Button, Container, Header, Image, Link, } from "semantic-ui-react";
+import { Button, Header, Image, Link, } from "semantic-ui-react";
 
 // ----------------------------------------------------
+
+const BannerArray = [
+	banner,
+	banner2,
+	banner3,
+	banner4,
+	banner5,
+	banner6,
+	banner7,
+	banner8,
+];
 
 const BannerImage = styled(Image)`
 	position: absolute !important;
@@ -29,11 +47,17 @@ const BannerContent = styled.div`
 	width: 100% !important;
 `;
 
+const BannerRandomiser = () => { 
+	var i = Math.floor((Math.random() * BannerArray.length));
+	console.log(i);
+	return BannerArray[i] 
+} 
+
 // ----------------------------------------------------
 
 const Banner = props => (
 	<BannerWrapper>
-		{!props.mobile && <BannerImage src = { banner } />}
+		{!props.mobile && <BannerImage src = { BannerRandomiser() } />}
 
 		<BannerContent text>
 			<Header

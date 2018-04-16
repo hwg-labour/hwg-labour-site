@@ -42,6 +42,7 @@ export const WhatsOnQuery = graphql`
 					title
 					description
 					socialEvent
+					membersOnly
 					image {
 						file {
 							url
@@ -101,6 +102,8 @@ const IndexPage = props => (
 									<Header as = "h4">
 										{event.node.title}
 									</Header>
+
+									{ event.node.membersOnly && <p style = { { color: "#cccccc", }}>Members only</p> }
 
 									<p>{event.node.description}</p>
 

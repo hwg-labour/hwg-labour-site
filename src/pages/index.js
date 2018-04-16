@@ -28,8 +28,9 @@ const IndexPage = props => (
 					the world.
 				</p>
 
-				<p>Our 2018 manifesto well be released shortly.</p>
-				{/*<Button size = "huge">Check Them Out</Button>*/}
+				<Button size = "huge" as = { Link } to = "/councillors">
+					Read the manifesto
+				</Button>
 			</Container>
 		</Segment>
 
