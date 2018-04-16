@@ -21,8 +21,7 @@ const IndexPage = props => (
 				the world.
 			</p>
 
-			<p>Get involved</p>
-			{/*<Button size = "huge">Check Them Out</Button>*/}
+			<p><b>Email</b>: <a href="mailto:hornseydana@gmail.com">hornseydana@gmail.com</a></p>
 		</Container>
 	</Segment>
 );

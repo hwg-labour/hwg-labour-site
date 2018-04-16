@@ -9,39 +9,27 @@ import { Button, Container, Header, Segment, } from "semantic-ui-react";
 const IndexPage = () => (
 	<Segment style = { { padding: "8em 0em", } } vertical>
 		<Container text>
-			<Header as = "h1">Your Mayor</Header>
+			<Header as = "h3">Your Mayor</Header>
 
-			<Header as = "h2">Sadiq Khan</Header>
+			<Header as = "h1">Sadiq Khan</Header>
 
-			<p>
-				Catherine holds a degree in Social Science and Languages and a
-				Masters Degree in Chinese Studies from the School of Oriental
-				and African Studies, and speak five languages including
-				Mandarin. She developed her Mandarin whilst teaching English as
-				a second language in Nanjing, China.
-			</p>
+			<p>My vision for London is simple - I want all Londoners to have the same opportunities that our city gave me: a home they can afford, a highly-skilled job with decent pay, an affordable and modern transport system and a safe, clean and healthy environment.</p>
 
-			<p>
-				Before being elected am an MP Catherine was leader of Islington
-				Council, and in February 2013, she was awarded the ‘Local
-				Authority Leader of the Year’ award by the Local Government
-				Information Unit, for her work leading the Islington Fairness
-				Commission.
-			</p>
+			<p>London is the greatest city in the world. But I want to make it even better.</p>
 
-			<p>
-				Following her election to parliament in 2015, Catherine was
-				appointed to the front bench of the Official Opposition as
-				Shadow Foreign Minister, with responsibility for the Americas,
-				Asia-Pacific, Oceania and the Overseas Territories. She held
-				this position until June 2017, when she returned to the
-				backbenches. In September 2017, Catherine was elected onto the
-				Parliamentary Select Committee on International Trade, and the
-				joint Committee on Arms Export Controls. Catherine is also
-				Deputy-Chair of the All-Party Parliamentary Group (APPG) on
-				China, Vice-Chair of the APPG on North Korea, the patron of Hong
-				Kong Watch and the Vice-Chair of the APPG on American Football.
-			</p>
+			<p>Too many people in our city don’t have a job, or get paid less than they need to survive. With my programme for business and the economy I will change that.</p>
+
+			<p>Too many Londoners can’t afford to buy their own home or are trapped paying extortionate rents to sub-standard landlords. My plan for housing will change that.</p>
+
+			<p>Too many people are the victims of crime and don’t feel safe in their communities. My policies for crime and policing, and my six point plan to tackle knife crime will change that.</p>
+
+			<p>Too many workers in London have to go to work on overcrowded, delayed, dirty transport. My plans for transport will change that.</p>
+
+			<p>For too long Londoners have had a Tory Mayor who has been little more than a figurehead, or chief ribbon-cutter. Some of it has been fun – but it is not good enough for our city.</p>
+
+			<p>There is so much more to do.</p>
+
+			<p>The Mayor should be fighting at every turn for better homes, better policing, better transport and an economy that works for business and for workers. The Mayor should strain every sinew so that every Londoner can have the opportunities that so many of us take for granted but so many still do not receive. Please give me the chance to be that Mayor.</p>
 
 			<Button as = "a" size = "large" href = "https://www.london.gov.uk/">
 				Visit the London Mayor's website

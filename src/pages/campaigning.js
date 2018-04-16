@@ -42,6 +42,7 @@ export const CampaigningQuery = graphql`
 					title
 					description
 					socialEvent
+					membersOnly
 					image {
 						file {
 							url
@@ -83,31 +84,33 @@ const IndexPage = props => (
 								new Date(a.node.publishingDate)
 							);
 						})
-						.map(newsItem => (
-							<Grid.Row key = { newsItem.node.id + "-newsitem" }>
+						.map(event => (
+							<Grid.Row key = { event.node.id + "-newsitem" }>
 								<Grid.Column>
 									<NewsThumbnail
 										src = {
 											"https://res.cloudinary.com/codogo/image/fetch/w_800,c_fill,g_face,f_auto/https:" +
-											newsItem.node.image.file.url
+											event.node.image.file.url
 										}
 										as = { Link }
 										size = "medium"
-										to = { "/events/" + slugify(newsItem.node.title) }
+										to = { "/events/" + slugify(event.node.title) }
 									/>
 								</Grid.Column>
 
 								<Grid.Column>
 									<Header as = "h4">
-										{newsItem.node.title}
+										{event.node.title}
 									</Header>
 
-									<p>{newsItem.node.description}</p>
+									{ event.node.membersOnly && <p style = { { color: "#cccccc", }}>Members only</p> }
+
+									<p>{event.node.description}</p>
 
 									<Button
 										as = { Link }
 										size = "small"
-										to = { "/events/" + slugify(newsItem.node.title) }
+										to = { "/events/" + slugify(event.node.title) }
 									>
 										Read more <Icon name = "right arrow" />
 									</Button>

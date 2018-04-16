@@ -109,7 +109,7 @@ const IndexPage = props => (
 									<Button
 										as = { Link }
 										size = "small"
-										to = { "/whats-on" }
+										to = { "/news/" + slugify(newsItem.node.title) }
 									>
 										Read more <Icon name = "right arrow" />
 									</Button>

@@ -40,7 +40,7 @@
   "scripts": {
     "build": "gatsby build",
     "develop": "gatsby develop",
-    "format": "prettier --use-tabs --tab-width 4 --trailing-comma all --write \"src/**/*.js\" && eslint --fix src",
+    "format": "codogo-scripts format",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "devDependencies": {
