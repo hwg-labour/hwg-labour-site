@@ -28,7 +28,7 @@ const IndexPage = props => (
 					the world.
 				</p>
 
-				<Button size = "huge" as = { Link } to = "/councillors">
+				<Button size = "huge" as = { Link } to = "/news/Haringey-Labour-2018-Manifesto-Launched">
 					Read the manifesto
 				</Button>
 			</Container>

@@ -15,19 +15,15 @@ const IndexPage = props => (
 				</Header>
 
 				<p style = { { fontSize: "1.33em", } }>
-					Integer posuere erat a ante venenatis dapibus posuere velit aliquet. Aenean eu leo quam. Pellentesque ornare sem lacinia quam venenatis vestibulum. Nullam quis risus eget urna mollis ornare vel eu leo. Curabitur blandit tempus porttitor.
+					We welcome all volunteers, whatever your skill-set or interests!
 				</p>
 
-				<p>
-					Maecenas sed diam eget risus varius blandit sit amet non magna. Nulla vitae elit libero, a pharetra augue. Vestibulum id ligula porta felis euismod semper. Maecenas faucibus mollis interdum. Fusce dapibus, tellus ac cursus commodo, tortor mauris condimentum nibh, ut fermentum massa justo sit amet risus.
-				</p>
+				<p>We need people for leaflet delivery, doorstep campaigning, street stalls, phoning potential voters, envelope stuffing and many other tasks.</p>
 
-				<p>
-					Donec id elit non mi porta gravida at eget metus. Cras mattis consectetur purus sit amet fermentum. Morbi leo risus, porta ac consectetur ac, vestibulum at eros. Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Duis mollis, est non commodo luctus, nisi erat porttitor ligula, eget lacinia odio sem nec elit. Sed posuere consectetur est at lobortis.
-				</p>
+				<p>If you have specialist skills, such as in IT, marketing or design, we would like to hear from you.</p>
 
-				<Button size = "huge" as = { Link } to = "/campaigning">
-					Get involved
+				<Button size = "huge" as = { Link } to = "/contact-us">
+					Get in touch
 				</Button>
 			</Container>
 		</Segment>

@@ -2,6 +2,7 @@ import React from "react";
 import styled from "styled-components";
 import Link from "gatsby-link";
 import slugify from "slugify";
+import Moment from "moment";
 
 import {
 	Button,
@@ -43,6 +44,7 @@ export const CampaigningQuery = graphql`
 					description
 					socialEvent
 					membersOnly
+					date
 					image {
 						file {
 							url
@@ -58,13 +60,17 @@ export const CampaigningQuery = graphql`
 
 const IndexPage = props => (
 	<div>
-		{console.log(props)}
-
 		<Segment vertical style = { { padding: "8em 0em", } }>
 			<Container text>
 				<Header as = "h1">Campaigning</Header>
 
-				<p style = { { fontSize: "1.33em", } }>Get involved with Labour on the doorstep and share our message. Donec id elit non mi porta gravida at eget metus. Cras mattis consectetur purus sit amet fermentum. Morbi leo risus, porta ac consectetur ac, vestibulum at eros. Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
+				<p style = { { fontSize: "1.33em", } }>
+					Get involved with Labour on the doorstep and share our message. You will find campaigning activities, like street stalls and door knocking sessions, here. Let us know if you'd like to get involved!
+				</p>
+
+				<Button size = "huge" as = { Link } to = "/contact-us">
+					Get in touch
+				</Button>
 
 				<Divider
 					as = "h4"
@@ -77,11 +83,12 @@ const IndexPage = props => (
 
 				<Grid columns = { 2 }>
 					{props.data.contentfulEvents.edges
-						.filter(event => event.node.socialEvent === true )
+						.filter(event => event.node.socialEvent === false )
+						.filter(event => new Date(event.node.date) >= new Date() )
 						.sort(function(a, b) {
 							return (
-								new Date(b.node.publishingDate) -
-								new Date(a.node.publishingDate)
+								new Date(b.node.date) -
+								new Date(a.node.date)
 							);
 						})
 						.map(event => (
@@ -99,9 +106,11 @@ const IndexPage = props => (
 								</Grid.Column>
 
 								<Grid.Column>
-									<Header as = "h4">
+									<Header as = "h3">
 										{event.node.title}
 									</Header>
+
+									<p style = { { color: "#cccccc", }}>{ Moment(event.node.date).format('MMMM Do YYYY') }</p>
 
 									{ event.node.membersOnly && <p style = { { color: "#cccccc", }}>Members only</p> }
 

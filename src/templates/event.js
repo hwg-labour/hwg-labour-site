@@ -2,6 +2,8 @@ import React from "react";
 import marked from "marked";
 import styled from "styled-components";
 
+import { TopImage, } from "../components/TopImage";
+
 import { Container, Header, Segment, Image, } from "semantic-ui-react";
 
 // ----------------------------------------------------
@@ -25,18 +27,11 @@ export const EventItemQuery = graphql`
 	}
 `;
 
-const BannerImage = styled(Image)`
-	width: 100%;
-	max-height: 400px
-	object-fit: cover;
-	z-index: -1;
-`;
-
 // ----------------------------------------------------
 
 const EventTemplate = props => (
 	<div>
-		{ props.data.contentfulEvent.image && <BannerImage src = { "https://res.cloudinary.com/codogo/image/fetch/w_1500,c_fill,g_face,f_auto/https:" + props.data.contentfulEvent.image.file.url }/> }
+		{ props.data.contentfulEvent.image && <TopImage src = { "https://res.cloudinary.com/codogo/image/fetch/w_1500,c_fill,g_face,f_auto/https:" + props.data.contentfulEvent.image.file.url }/> }
 
 		<Segment style = { { padding: "8em 0em", } } vertical>
 			<Container text>
