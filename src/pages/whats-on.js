@@ -2,6 +2,7 @@ import React from "react";
 import styled from "styled-components";
 import Link from "gatsby-link";
 import slugify from "slugify";
+import Moment from "moment";
 
 import {
 	Button,
@@ -43,6 +44,7 @@ export const WhatsOnQuery = graphql`
 					description
 					socialEvent
 					membersOnly
+					date
 					image {
 						file {
 							url
@@ -64,7 +66,11 @@ const IndexPage = props => (
 			<Container text>
 				<Header as = "h1">What's On</Header>
 
-				<p style = { { fontSize: "1.33em", } }>Get involved with Labour</p>
+				<p style = { { fontSize: "1.33em", } }>
+					Social events are advertised here - get involved with labour in your area!
+				</p>
+
+				<p>We are now in full campaign mode for the May 3rd local elections, so we have fewer social events than normal. After May 3rd we'll be back to normal.</p>
 
 				<Divider
 					as = "h4"
@@ -77,7 +83,8 @@ const IndexPage = props => (
 
 				<Grid columns = { 2 }>
 					{props.data.contentfulEvents.edges
-						.filter(event => event.node.socialEvent === false )
+						.filter(event => event.node.socialEvent === true )
+						.filter(event => new Date(event.node.date) >= new Date() )
 						.sort(function(a, b) {
 							return (
 								new Date(b.node.publishingDate) -
@@ -99,9 +106,11 @@ const IndexPage = props => (
 								</Grid.Column>
 
 								<Grid.Column>
-									<Header as = "h4">
+									<Header as = "h3">
 										{event.node.title}
 									</Header>
+
+									<p style = { { color: "#cccccc", }}>{ Moment(event.node.date).format('MMMM Do YYYY') }</p>
 
 									{ event.node.membersOnly && <p style = { { color: "#cccccc", }}>Members only</p> }
 

@@ -2,6 +2,7 @@ import React from "react";
 import styled from "styled-components";
 import Link from "gatsby-link";
 import slugify from "slugify";
+import Moment from "moment";
 
 import {
 	Button,
@@ -59,8 +60,6 @@ export const NewsQuery = graphql`
 
 const IndexPage = props => (
 	<div>
-		{console.log(props)}
-
 		<Segment vertical style = { { padding: "8em 0em", } }>
 			<Container text>
 				<Header as = "h1">News</Header>
@@ -98,9 +97,11 @@ const IndexPage = props => (
 								</Grid.Column>
 
 								<Grid.Column>
-									<Header as = "h4">
+									<Header as = "h3">
 										{newsItem.node.title}
 									</Header>
+
+									<p style = { { color: "#cccccc", }}>{ Moment(newsItem.node.publishingDate).format('MMMM Do YYYY') }</p>
 
 									<p>
 										{newsItem.node.description.description}

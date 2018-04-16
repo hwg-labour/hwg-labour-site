@@ -27,6 +27,8 @@ const IndexPage = props => (
 
 				<p><b>Email</b>: <a href="mailto:labourinharingey@gmail.com">labourinharingey@gmail.com</a></p>
 
+				<p><b>Phone</b>: <a href="tel:+442083407362">0208 340 7362</a> </p>
+
 				<p><b>Post</b>: 28 Middle Lane, London, N8 8PL</p>
 
 				<p><b>Twitter</b>: <a href="https://twitter.com/LabourHWG">@LabourHWG</a></p>

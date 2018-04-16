@@ -13,6 +13,8 @@ import {
 	Segment,
 } from "semantic-ui-react";
 
+import { TopImage, } from "../components/TopImage";
+
 import profileImage from "../images/profile-pic.png";
 
 // ----------------------------------------------------
@@ -53,36 +55,21 @@ export const WardItemQuery = graphql`
 
 // ----------------------------------------------------
 
-const CouncillorImage = styled(Image)`
-	.ui.label {
-		background-color: rgba(255, 255, 255, 0.7);
-		width: 100%;
-		position: absolute;
-		bottom: 0;
-		border-radius: 0;
-		font-size: 1.33em;
-	}
-`;
 
-const BannerImage = styled(Image)`
-	width: 100%;
-	max-height: 400px
-	object-fit: cover;
-	z-index: -1;
-`;
 
 // ----------------------------------------------------
 
 const NewsTemplate = props => (
 	<div>
-		{ props.data.contentfulWard.image && <BannerImage src = { "https://res.cloudinary.com/codogo/image/fetch/w_1500,c_fill,g_face,f_auto/https:" + props.data.contentfulWard.image.file.url }/> }
+		{ console.log(props) }
+		{ props.data && props.data.contentfulWard.image && <TopImage src = { "https://res.cloudinary.com/codogo/image/fetch/w_1500,c_fill,g_face,f_auto/https:" + props.data.contentfulWard.image.file.url }/> }
 		
 		<Segment style = { { padding: "8em 0em", } } vertical>
 			<Container text>
-				<Header as = "h1">{props.data.contentfulWard.name}</Header>
+				<Header as = "h1">{props.data && props.data.contentfulWard.name}</Header>
 
 				<div
-					dangerouslySetInnerHTML = { {
+					dangerouslySetInnerHTML = { props.data && {
 						__html: marked(
 							props.data.contentfulWard.description.description,
 						),
@@ -100,7 +87,7 @@ const NewsTemplate = props => (
 
 				<Grid columns = { 3 }>
 					<Grid.Row>
-						{props.data.contentfulCandidates.edges
+						{props.data && props.data.contentfulCandidates.edges
 							.sort((x, y) => {
 								return x.node.name.toUpperCase() <
 									y.node.name.toUpperCase()

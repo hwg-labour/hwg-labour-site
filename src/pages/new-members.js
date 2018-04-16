@@ -1,29 +1,100 @@
 import React from "react";
+import Link from "gatsby-link";
 
-import { Button, Container, Divider, Header, Segment, } from "semantic-ui-react";
+import { TopImage, } from "../components/TopImage";
+
+import banner from "../images/banner-1.jpg";
+
+import { Button, Container, Header, Segment, } from "semantic-ui-react";
 
 // ----------------------------------------------------
 
 // ----------------------------------------------------
 
 const IndexPage = props => (
-	<Segment style = { { padding: "8em 0em", } } vertical>
-		<Container text>
-			<Header as = "h1" style = { { fontSize: "2em", } }>
-				New Members
-			</Header>
+	<div>
+		{ <TopImage src = { "https://res.cloudinary.com/codogo/image/fetch/w_1500,c_fill,g_face,f_auto/https:" + banner }/> }
 
-			<p style = { { fontSize: "1.33em", } }>
-				We want to build a Britain that works for the many, not the
-				few. That means building the homes we need to rent and buy,
-				keeping our communities safe, giving our schools the funding
-				they need, and restoring the NHS to its place as the envy of
-				the world.
-			</p>
+		<Segment style = { { padding: "8em 0em", } } vertical>
+			<Container text>
+				<Header as = "h1" style = { { fontSize: "2em", } }>
+					New Members
+				</Header>
 
-			<p><b>Email</b>: <a href="mailto:hornseydana@gmail.com">hornseydana@gmail.com</a></p>
-		</Container>
-	</Segment>
+				<p style = { { fontSize: "1.33em", } }>
+					We want to build a Britain that works for the many, not the
+					few. That means building the homes we need to rent and buy,
+					keeping our communities safe, giving our schools the funding
+					they need, and restoring the NHS to its place as the envy of
+					the world.
+				</p>
+			</Container>
+		</Segment>
+
+		<Segment style = { { padding: "8em 0em", } } vertical>
+			<Container text>
+				<Header as = "h2" style = { { fontSize: "2em", } }>
+					Join the Labour Party
+				</Header>
+
+				<p style = { { fontSize: "1.33em", } }>
+					If you're not yet a Labour member, you can join <a href="https://join.labour.org.uk/">here</a>, to help us campaign for a fairer Britain.
+				</p>
+
+				<Button size = "huge" as = { 'a' } to = "https://join.labour.org.uk/">
+					Join now
+				</Button>
+			</Container>
+		</Segment>
+
+		<Segment style = { { padding: "8em 0em", } } vertical>
+			<Container text>
+				<Header as = "h2" style = { { fontSize: "2em", } }>
+					Find your ward
+				</Header>
+
+				<p style = { { fontSize: "1.33em", } }>
+					Hornsey and Wood Green is divided into 10 wards. If you don't know which is your local ward, you can use the ward-finder tool below.
+				</p>
+
+				<Button size = "huge" as = { 'a' } to = "http://www.haringey.gov.uk/local-democracy/councillors-and-mps/find-my-ward">
+					Find your ward
+				</Button>
+			</Container>
+		</Segment>
+
+		<Segment style = { { padding: "8em 0em", } } vertical>
+			<Container text>
+				<Header as = "h2" style = { { fontSize: "2em", } }>
+					Campaign with us
+				</Header>
+
+				<p style = { { fontSize: "1.33em", } }>
+					As we're getting ready for a local election on May 3rd, the best way to get involved is by coming along to one of our campaign events!
+				</p>
+
+				<Button size = "huge" as = { Link } to = "/campaigning">
+					Campaign with us
+				</Button>
+			</Container>
+		</Segment>
+
+		<Segment style = { { padding: "8em 0em", } } vertical>
+			<Container text>
+				<Header as = "h2" style = { { fontSize: "2em", } }>
+					Social events
+				</Header>
+
+				<p style = { { fontSize: "1.33em", } }>
+					Getting involved with the Labour party is a great way of meeting like-minded, active local residents.
+				</p>
+
+				<Button size = "huge" as = { Link } to = "/whats-on">
+					What's on
+				</Button>
+			</Container>
+		</Segment>
+	</div>
 );
 
 export default IndexPage;

@@ -83,7 +83,7 @@ const Footer = props => (
 							})
 							.slice(1,3)
 							.map( event => (
-								<p>{ moment(event.node.date).format('MMMM Do YYYY') } - { event.node.title }</p>
+								<p key = { event.node.date } >{ moment(event.node.date).format('MMMM Do YYYY') } - { event.node.title }</p>
 							))
 						}
 					</Grid.Column>

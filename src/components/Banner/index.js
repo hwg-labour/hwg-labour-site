@@ -49,8 +49,7 @@ const BannerContent = styled.div`
 
 const BannerRandomiser = () => { 
 	var i = Math.floor((Math.random() * BannerArray.length));
-	console.log(i);
-	return BannerArray[i] 
+	return  BannerArray[i];
 } 
 
 // ----------------------------------------------------
