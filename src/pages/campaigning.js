@@ -87,7 +87,7 @@ const IndexPage = props => (
 					Upcoming events
 				</Divider>
 
-				<Grid columns = { 2 }>
+				<Grid columns = { 2 } stackable>
 					{props.data.contentfulEvents.edges
 						.filter(event => event.node.socialEvent === false )
 						//.filter(event => new Date(event.node.date) >= new Date() )

@@ -77,7 +77,7 @@ const IndexPage = props => (
 					Recent News
 				</Divider>
 
-				<Grid columns = { 2 }>
+				<Grid columns = { 2 } stackable>
 					{props.data.contentfulNews.edges
 						.sort(function(a, b) {
 							return (
