@@ -101,7 +101,7 @@ const IndexPage = props => (
 										src = { "https://res.cloudinary.com/codogo/image/fetch/w_800,c_fill,g_face,f_auto/https:" + ward.node.image.file.url }
 										as = { Link }
 										size = "medium"
-										to = { "/news/" + slugify(ward.node.name) }
+										to = { "/wards/" + slugify(ward.node.name) }
 									/>
 								</Grid.Column>
 
@@ -113,7 +113,7 @@ const IndexPage = props => (
 									<Button
 										as = { Link }
 										size = "small"
-										to = { "/news/" + slugify(ward.node.name) }
+										to = { "/wards/" + slugify(ward.node.name) }
 									>
 										See more <Icon name = "right arrow" />
 									</Button>
