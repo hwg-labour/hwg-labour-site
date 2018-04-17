@@ -128,7 +128,7 @@ const Header = props => (
 		</Link>
 
 		<Link
-			to = "/new-members/"
+			to = "/wards/"
 			dropdown = { [
 				...WardsDropdown(props.wards),
 				{ 
@@ -142,7 +142,7 @@ const Header = props => (
 		</Link>
 
 		<Link
-			to = "/new-members/"
+			to = "/groups/"
 			dropdown = { GroupsDropdown(props.groups) }
 		>
 			Forums & Groups
