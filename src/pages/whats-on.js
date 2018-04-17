@@ -4,6 +4,10 @@ import Link from "gatsby-link";
 import slugify from "slugify";
 import Moment from "moment";
 
+import { TopImage, } from "../components/TopImage";
+
+import banner from "../images/banner-3.jpg";
+
 import {
 	Button,
 	Container,
@@ -60,7 +64,7 @@ export const WhatsOnQuery = graphql`
 
 const IndexPage = props => (
 	<div>
-		{console.log(props)}
+		<TopImage src = { banner }/>
 
 		<Segment vertical style = { { padding: "8em 0em", } }>
 			<Container text>
@@ -70,7 +74,14 @@ const IndexPage = props => (
 					Social events are advertised here - get involved with labour in your area!
 				</p>
 
-				<p>We are now in full campaign mode for the May 3rd local elections, so we have fewer social events than normal. After May 3rd we'll be back to normal.</p>
+				<p>We are now in full campaign mode for the May 3rd local elections, so we have 
+				fewer social events than normal. After May 3rd we'll be back to normal.</p>
+
+				<p>If you're interested in campaigning with us, you can see our campaigns calendar <Link to = "/campaigning">here</Link>.</p>
+
+				<Button size = "huge" as = { Link } to = "/campaigning">
+					Campaigning
+				</Button>
 
 				<Divider
 					as = "h4"
@@ -84,7 +95,7 @@ const IndexPage = props => (
 				<Grid columns = { 2 }>
 					{props.data.contentfulEvents.edges
 						.filter(event => event.node.socialEvent === true )
-						.filter(event => new Date(event.node.date) >= new Date() )
+						//.filter(event => new Date(event.node.date) >= new Date() )
 						.sort(function(a, b) {
 							return (
 								new Date(b.node.publishingDate) -

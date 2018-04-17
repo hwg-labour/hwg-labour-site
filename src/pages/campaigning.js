@@ -4,6 +4,10 @@ import Link from "gatsby-link";
 import slugify from "slugify";
 import Moment from "moment";
 
+import { TopImage, } from "../components/TopImage";
+
+import banner from "../images/banner-2.jpg";
+
 import {
 	Button,
 	Container,
@@ -60,6 +64,8 @@ export const CampaigningQuery = graphql`
 
 const IndexPage = props => (
 	<div>
+		<TopImage src = { banner }/>
+
 		<Segment vertical style = { { padding: "8em 0em", } }>
 			<Container text>
 				<Header as = "h1">Campaigning</Header>
@@ -84,7 +90,7 @@ const IndexPage = props => (
 				<Grid columns = { 2 }>
 					{props.data.contentfulEvents.edges
 						.filter(event => event.node.socialEvent === false )
-						.filter(event => new Date(event.node.date) >= new Date() )
+						//.filter(event => new Date(event.node.date) >= new Date() )
 						.sort(function(a, b) {
 							return (
 								new Date(b.node.date) -
