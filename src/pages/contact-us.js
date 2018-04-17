@@ -1,6 +1,10 @@
 import React from "react";
 import Link from "gatsby-link";
 
+import { TopImage, } from "../components/TopImage";
+
+import banner from "../images/banner-5.jpg";
+
 import { Button, Container, Divider, Header, Segment, } from "semantic-ui-react";
 
 // ----------------------------------------------------
@@ -9,6 +13,8 @@ import { Button, Container, Divider, Header, Segment, } from "semantic-ui-react"
 
 const IndexPage = props => (
 	<div>
+		<TopImage src = { banner }/>
+		
 		<Segment style = { { padding: "8em 0em", } } vertical>
 			<Container text>
 				<Header as = "h1">Contact Us</Header>

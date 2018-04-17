@@ -13,7 +13,7 @@ import { Button, Container, Header, Segment, } from "semantic-ui-react";
 
 const IndexPage = props => (
 	<div>
-		{ <TopImage src = { "https://res.cloudinary.com/codogo/image/fetch/w_1500,c_fill,g_face,f_auto/https:" + banner }/> }
+		<TopImage src = { banner }/>
 
 		<Segment style = { { padding: "8em 0em", } } vertical>
 			<Container text>
@@ -22,11 +22,13 @@ const IndexPage = props => (
 				</Header>
 
 				<p style = { { fontSize: "1.33em", } }>
-					We want to build a Britain that works for the many, not the
-					few. That means building the homes we need to rent and buy,
-					keeping our communities safe, giving our schools the funding
-					they need, and restoring the NHS to its place as the envy of
-					the world.
+					Welcome to the Hornsey and Wood Green Constituency Labour Party (HWGCLP).
+				</p>
+
+				<p>We are a friendly enthusiastic group of campaigners who form the largest CLP in the country. 
+				We will support you every step of the way if you are new to campaigning, make sure you are 
+				involved in the many social events that take place during the year and look forward to 
+				seeing you at our ward and general meetings.
 				</p>
 			</Container>
 		</Segment>

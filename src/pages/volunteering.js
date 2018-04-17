@@ -2,12 +2,18 @@ import React from "react";
 
 import { Button, Container, Link, Header, Segment, } from "semantic-ui-react";
 
+import { TopImage, } from "../components/TopImage";
+
+import banner from "../images/banner-4.jpg";
+
 // ----------------------------------------------------
 
 // ----------------------------------------------------
 
 const IndexPage = props => (
 	<div>
+		<TopImage src = { banner }/>
+
 		<Segment style = { { padding: "8em 0em", } } vertical>
 			<Container text>
 				<Header as = "h1" style = { { fontSize: "2em", } }>
