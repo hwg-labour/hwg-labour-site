@@ -87,7 +87,7 @@ const IndexPage = props => (
 
 		<Segment style = { { padding: "3em 0em", } } vertical>
 			<Container text>
-				<Grid columns = { 2 }>
+				<Grid columns = { 2 } stackable>
 					{props.data.contentfulWards.edges
 						.sort((x, y) => {
 							return x.node.name.toUpperCase() < y.node.name.toUpperCase()

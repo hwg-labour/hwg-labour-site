@@ -41,7 +41,7 @@ export const CandidateItemQuery = graphql`
 const NewsTemplate = props => (
 	<Segment style = { { padding: "8em 0em", } } vertical>
 		<Container text>
-			<Grid columns = { 3 }>
+			<Grid columns = { 3 } stackable>
 				<Grid.Row>
 					<Grid.Column width = { 6 }>
 						<Image
