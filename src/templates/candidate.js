@@ -53,7 +53,6 @@ const NewsTemplate = props => (
 										  	.file.url
 		: profileImage
 	}` }
-							size = "medium"
 						/>
 					</Grid.Column>
 

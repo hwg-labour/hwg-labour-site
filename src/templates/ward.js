@@ -112,7 +112,6 @@ const NewsTemplate = props => (
 											: profileImage
 										}` }
 												as = { Link }
-												size = "medium"
 												to = { `/councillors/${ slugify(
 													councillor.node.name,
 													{ lower: true, },

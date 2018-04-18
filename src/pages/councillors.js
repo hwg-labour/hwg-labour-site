@@ -121,7 +121,6 @@ const IndexPage = props => (
 													: profileImage
 												}` }
 														as = { Link }
-														size = "medium"
 														to = { `/councillors/${ slugify(
 															councillor.node
 																.name,
