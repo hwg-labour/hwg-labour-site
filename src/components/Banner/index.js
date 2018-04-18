@@ -85,7 +85,7 @@ const Banner = props => (
 			<Button
 				as = { Link }
 				size = "huge"
-				href = "/whats-on/"
+				to = "/whats-on/"
 				style = { {
 					marginTop: props.mobile ? "0.5em" : "1em",
 				} }
@@ -96,7 +96,7 @@ const Banner = props => (
 			<Button
 				as = { Link }
 				size = "huge"
-				href = "/new-members/"
+				to = "/new-members/"
 				inverted
 				style = { {
 					marginTop: props.mobile ? "0.5em" : "1em",

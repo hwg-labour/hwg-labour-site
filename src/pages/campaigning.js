@@ -106,7 +106,6 @@ const IndexPage = props => (
 											event.node.image.file.url
 										}
 										as = { Link }
-										size = "medium"
 										to = { "/events/" + slugify(event.node.title) }
 									/>
 								</Grid.Column>

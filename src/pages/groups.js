@@ -88,7 +88,6 @@ const IndexPage = props => (
 									<GroupThumbnail
 										src = { "https://res.cloudinary.com/codogo/image/fetch/w_800,c_fill,g_face,f_auto/https:" + group.node.image.file.url }
 										as = { Link }
-										size = "medium"
 										to = { "/groups/" + slugify(group.node.name) }
 									/>
 								</Grid.Column>

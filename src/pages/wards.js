@@ -100,7 +100,6 @@ const IndexPage = props => (
 									<WardThumbnail
 										src = { "https://res.cloudinary.com/codogo/image/fetch/w_800,c_fill,g_face,f_auto/https:" + ward.node.image.file.url }
 										as = { Link }
-										size = "medium"
 										to = { "/wards/" + slugify(ward.node.name) }
 									/>
 								</Grid.Column>

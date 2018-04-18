@@ -91,7 +91,6 @@ const IndexPage = props => (
 									<NewsThumbnail
 										src = { "https://res.cloudinary.com/codogo/image/fetch/w_800,c_fill,g_face,f_auto/https:" + newsItem.node.image.file.url }
 										as = { Link }
-										size = "medium"
 										to = { "/news/" + slugify(newsItem.node.title) }
 									/>
 								</Grid.Column>
