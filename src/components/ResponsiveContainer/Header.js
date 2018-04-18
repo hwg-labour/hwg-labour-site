@@ -119,64 +119,64 @@ const Header = props => (
 		highlightColor = { { xs: "#fff", other: "#ddd", } }
 		clear = { props.homepage ? true : false }
 		fixed = { props.homepage ? false : true }
-	>
-		<Link
-			to = "/new-members/"
-			dropdown = { GetInvolvedDropdown  }
-		>
-			Get Involved
-		</Link>
-
-		<Link
-			to = "/wards/"
-			dropdown = { [
-				...WardsDropdown(props.wards),
+		links = {
+			[
 				{ 
-					to: "http://www.haringey.gov.uk/local-democracy/councillors-and-mps/find-my-ward",
-					content: "Find your ward",
-					as: "a",
+					as: Link,
+					to: "/new-members/",
+					content: "Get Involved",
+					dropdown: GetInvolvedDropdown,
 				},
-			] }
-		>
-			Wards
-		</Link>
-
-		<Link
-			to = "/groups/"
-			dropdown = { GroupsDropdown(props.groups) }
-		>
-			Forums & Groups
-		</Link>
-
-		<Link to = "/councillors/" className = "ui" dropdown = { PeopleDropdown }>
-			People
-		</Link>
-
-		<Link to = "/news/" children = "News" />
-
-		<a
-			href = "https://medium.com/hornsey-and-wood-green-labour"
-			children = "Thoughts"
-		/>
-
-		<Button
-			as = "a"
-			inverted = { true }
-			style = { { marginLeft: "0.5em", textDecoration: "none", } }
-			href = "https://donate.labour.org.uk/hornsey_wood_green/1"
-		>
-			Donate
-		</Button>
-
-		<Button
-			as = "a"
-			inverted = { true }
-			style = { { marginLeft: "0.5em", textDecoration: "none", } }
-			href = "https://join.labour.org.uk/"
-		>
-			Join
-		</Button>
-	</Nav>
+				{ 
+					as: Link,
+					to: "/wards/",
+					content: "Wards",
+					dropdown: [
+						...WardsDropdown(props.wards),
+						{ 
+							to: "http://www.haringey.gov.uk/local-democracy/councillors-and-mps/find-my-ward",
+							content: "Find your ward",
+							as: "a",
+						},
+					],
+				},
+				{ 
+					as: Link,
+					to: "/groups/",
+					content: "Forums & Groups",
+					dropdown: GroupsDropdown(props.groups),
+				},
+				{ 
+					as: Link,
+					to: "/councillors/",
+					content: "People",
+					dropdown: PeopleDropdown,
+				},
+				{ 
+					as: Link,
+					to: "/news/",
+					content: "News",
+				},
+				{ 
+					as: "a",
+					to: "https://medium.com/hornsey-and-wood-green-labour",
+					content: "Thoughts",
+				},
+				{ 
+					as: "a",
+					to: "https://donate.labour.org.uk/hornsey_wood_green/1",
+					content: "Donate",
+					border: true,
+				},
+				{ 
+					as: "a",
+					to: "https://join.labour.org.uk/",
+					content: "Join",
+					border: true,
+				},
+			]
+		}
+	/>
 );
 
 export default Header;

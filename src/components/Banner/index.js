@@ -1,5 +1,6 @@
 import React from "react";
 import styled from "styled-components";
+import Link from "gatsby-link";
 
 import PropTypes from "prop-types";
 
@@ -12,7 +13,7 @@ import banner6 from "../../images/banner-1.jpg"; // To increase the chance of th
 import banner7 from "../../images/banner-1.jpg";
 import banner8 from "../../images/banner-1.jpg"; 
 
-import { Button, Header, Image, Link, } from "semantic-ui-react";
+import { Button, Header, Image, } from "semantic-ui-react";
 
 // ----------------------------------------------------
 
