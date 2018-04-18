@@ -502,7 +502,7 @@ axios@^0.16.1:
     follow-redirects "^1.2.3"
     is-buffer "^1.1.5"
 
-"axios@github:contentful/axios#fix/https-via-http-proxy":
+axios@contentful/axios#fix/https-via-http-proxy:
   version "0.17.1"
   resolved "https://codeload.github.com/contentful/axios/tar.gz/4b06f4a63db3ac16c99f7c61b584ef0e6d11f1af"
   dependencies:
@@ -2095,9 +2095,9 @@ code-point-at@^1.0.0:
   version "1.1.0"
   resolved "https://registry.yarnpkg.com/code-point-at/-/code-point-at-1.1.0.tgz#0d070b4d043a5bea33a2f1a40e2edb3d9a4ccf77"
 
-codogo-nav@^1.0.7:
-  version "1.2.1"
-  resolved "https://registry.yarnpkg.com/codogo-nav/-/codogo-nav-1.2.1.tgz#836d795cd14aedd21cb7450866979983bb798c3c"
+codogo-nav@^2.1.0:
+  version "2.1.0"
+  resolved "https://registry.yarnpkg.com/codogo-nav/-/codogo-nav-2.1.0.tgz#fe1150830f2b238205ecee7685a5567c7365418b"
   dependencies:
     codogo-utility-functions "^1.0.4"
     react "16.2.0"
