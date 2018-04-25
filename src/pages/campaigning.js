@@ -88,13 +88,15 @@ const IndexPage = props => (
 				</Divider>
 
 				<Grid columns = { 2 } stackable>
-					{props.data.contentfulEvents.edges
+					{
+						props.data.contentfulEvents &&
+						props.data.contentfulEvents.edges
 						.filter(event => event.node.socialEvent === false )
-						//.filter(event => new Date(event.node.date) >= new Date() )
+						.filter(event => new Date(event.node.date) >= new Date() )
 						.sort(function(a, b) {
 							return (
-								new Date(b.node.date) -
-								new Date(a.node.date)
+								new Date(a.node.date) -
+								new Date(b.node.date)
 							);
 						})
 						.map(event => (
@@ -115,9 +117,9 @@ const IndexPage = props => (
 										{event.node.title}
 									</Header>
 
-									<p style = { { color: "#cccccc", }}>{ Moment(event.node.date).format('MMMM Do YYYY') }</p>
+									<p style = { { color: "#aaaaaa", }}>{ Moment(event.node.date).format('MMMM Do YYYY') }</p>
 
-									{ event.node.membersOnly && <p style = { { color: "#cccccc", }}>Members only</p> }
+									{ event.node.membersOnly && <p style = { { color: "#aaaaaa", }}>Members only</p> }
 
 									<p>{event.node.description}</p>
 
