@@ -97,11 +97,20 @@ const IndexPage = props => (
 						props.data.contentfulEvents && 
 						props.data.contentfulEvents.edges
 						.filter(event => event.node.socialEvent === true )
-						.filter(event => new Date(event.node.date) >= new Date() )
+						.filter( (event) => { 
+							return (
+								new Date(event.node.date).getTime() >= new Date().getTime() || 
+								( 
+									new Date(event.node.date).getFullYear() === new Date().getFullYear() && 
+									new Date(event.node.date).getMonth() === new Date().getMonth() && 
+									new Date(event.node.date).getDate() === new Date().getDate() 
+								)
+							)
+						} )
 						.sort(function(a, b) {
 							return (
-								new Date(a.node.publishingDate) -
-								new Date(b.node.publishingDate)
+								new Date(a.node.date).getTime() -
+								new Date(b.node.date).getTime()
 							);
 						})
 						.map(event => (
