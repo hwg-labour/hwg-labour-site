@@ -35,7 +35,7 @@ const EventTemplate = props => (
 
 		<Segment style = { { padding: "8em 0em", } } vertical>
 			<Container text>
-				{ props.data.contentfulEvent.membersOnly && <p style = { { color: "#cccccc", }}>Members only</p> }
+				{ props.data.contentfulEvent.membersOnly && <p style = { { color: "#aaaaaa", }}>Members only</p> }
 
 				<Header as = "h1">{props.data.contentfulEvent.title}</Header>
 

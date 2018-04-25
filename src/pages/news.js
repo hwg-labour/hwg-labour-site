@@ -100,7 +100,7 @@ const IndexPage = props => (
 										{newsItem.node.title}
 									</Header>
 
-									<p style = { { color: "#cccccc", }}>{ Moment(newsItem.node.publishingDate).format('MMMM Do YYYY') }</p>
+									<p style = { { color: "#aaaaaa", }}>{ Moment(newsItem.node.publishingDate).format('MMMM Do YYYY') }</p>
 
 									<p>
 										{newsItem.node.description.description}
