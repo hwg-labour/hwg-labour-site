@@ -1,6 +1,6 @@
 module.exports = {
 	siteMetadata: {
-		title: 'Gatsby Default Starter',
+		title: 'Hornsey and Wood Green Labour Party',
 	},
 	plugins: [
 		'gatsby-plugin-react-helmet',
