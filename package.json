@@ -27,6 +27,7 @@
   },
   "devDependencies": {
     "babel-loader": "7.1.1",
+    "codogo-scripts": "^3.2.14",
     "prettier": "^1.10.2"
   },
   "eslintConfig": {
