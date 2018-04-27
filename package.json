@@ -1,8 +1,8 @@
 {
-  "name": "hwg-labour-site",
+  "name": "gatsby-starter-default",
   "description": "Gatsby default starter",
-  "version": "2.1.0",
-  "author": "Max Clayton Clowes <maxcc@me.com>",
+  "version": "1.0.0",
+  "author": "Kyle Mathews <mathews.kyle@gmail.com>",
   "dependencies": {
     "codogo-nav": "^2.1.2",
     "codogo-utility-functions": "^1.0.5",
@@ -23,8 +23,7 @@
     "semantic-ui-css": "^2.3.0",
     "semantic-ui-react": "^0.78.2",
     "slugify": "^1.2.9",
-    "styled-components": "^3.1.6",
-    "codogo-scripts": "^3.2.10"
+    "styled-components": "^3.1.6"
   },
   "devDependencies": {
     "prettier": "^1.10.2"
