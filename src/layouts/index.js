@@ -1,11 +1,11 @@
 import React from "react";
 import PropTypes from "prop-types";
-import Helmet from "react-helmet";
 
 import "semantic-ui-css/semantic.min.css";
 
 import Footer from "../components/Footer";
-import ResponsiveContainer from "../components/ResponsiveContainer";
+import Head from "../components/Head";
+import Header from "../components/Header";
 
 // ----------------------------------------------------
 
@@ -42,33 +42,20 @@ export const MenuGroupsAndWards = graphql`
 // ----------------------------------------------------
 
 const TemplateWrapper = props => (
-	<ResponsiveContainer
+	<Header
 		homepage = { props.location.pathname === "/" }
 		wards = { props.data.contentfulWards }
 		groups = { props.data.contentfulGroups }
 		candidates = { props.data.contentfulCandidates }
 	>
-		<Helmet
-			title = "Hornsey & Wood Green Labour"
-			meta = { [
-				{
-					name: "description",
-					content: "Hornsey and Wood Green Labour Party Website",
-				},
-				{
-					name: "keywords",
-					content:
-						"Hornsey, Wood green, Labour, Party, Crouch End, Highgate, Alexandra, Stroud Green",
-				},
-			] }
-		/>
+		<Head />
 
 		{ props.children(...props) }
 
 		<Footer
 			events = { props.data.contentfulEvents }
 		/>
-	</ResponsiveContainer>
+	</Header>
 );
 
 TemplateWrapper.propTypes = {

@@ -7,7 +7,7 @@ import Banner from "../Banner";
 
 // ----------------------------------------------------
 
-const ResponsiveContainer = props => (
+const Header = props => (
 	<div>
 		<Header { ...props } />
 
@@ -17,10 +17,10 @@ const ResponsiveContainer = props => (
 	</div>
 );
 
-ResponsiveContainer.propTypes = {
+Header.propTypes = {
 	children: PropTypes.node,
 };
 
 // ----------------------------------------------------
 
-export default ResponsiveContainer;
+export default Header;
