@@ -6,8 +6,6 @@ import { Nav, } from "codogo-nav";
 
 import Logo from "./Logo";
 
-import { Button, } from "semantic-ui-react";
-
 // ----------------------------------------------------
 
 const GetInvolvedDropdown = [
@@ -109,7 +107,7 @@ const WardsDropdown = ({ edges, }) => edges.sort((x, y) => {
 
 // ----------------------------------------------------
 
-const Header = props => (
+const Navigation = props => (
 	<Nav
 		logo = { <Logo /> }
 		fontSize = { { xs: "1.1em", other: "0.9em", } }
@@ -179,4 +177,4 @@ const Header = props => (
 	/>
 );
 
-export default Header;
+export default Navigation;
