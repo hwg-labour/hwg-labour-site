@@ -1,7 +1,7 @@
 import React from "react";
 import PropTypes from "prop-types";
 
-import Header from "./Header";
+import Navigation from "./Navigation";
 
 import Banner from "../Banner";
 
@@ -9,7 +9,7 @@ import Banner from "../Banner";
 
 const Header = props => (
 	<div>
-		<Header { ...props } />
+		<Navigation { ...props } />
 
 		{props.homepage && <Banner />}
 
