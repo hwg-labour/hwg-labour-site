@@ -1,5 +1,4 @@
 import React from "react";
-import Link from "gatsby-link";
 import slugify from "slugify";
 
 import { Nav, } from "codogo-nav";
@@ -12,27 +11,27 @@ const GetInvolvedDropdown = [
 	{ 
 		to: "/new-members/",
 		content: "New Members",
-		as: Link, 
+		as: "gatsby-link", 
 	},
 	{ 
 		to: "/whats-on/",
 		content: "What's On",
-		as: Link, 
+		as: "gatsby-link", 
 	},
 	{ 
 		to: "/campaigning/",
 		content: "Campaigning",
-		as: Link, 
+		as: "gatsby-link", 
 	},
 	{ 
 		to: "/volunteering/",
 		content: "Volunteering",
-		as: Link, 
+		as: "gatsby-link", 
 	},
 	{ 
 		to: "/contact-us/",
 		content: "Contact Us",
-		as: Link, 
+		as: "gatsby-link", 
 	},
 	{ 
 		to: "https://donation.labour.org.uk/page/contribute/donate-fa/",
@@ -50,22 +49,22 @@ const PeopleDropdown = [
 	{
 		to: "/mp/",
 		content: "Catherine West MP",
-		as: Link,
+		as: "gatsby-link",
 	},
 	{
 		to: "/am/",
 		content: "Joanne McCartney AM",
-		as: Link,
+		as: "gatsby-link",
 	},
 	{
 		to: "/mayor/",
 		content: "Your Mayor",
-		as: Link,
+		as: "gatsby-link",
 	},
 	{
 		to: "/councillors/",
 		content: "Councillor Candidates",
-		as: Link,
+		as: "gatsby-link",
 	},
 ];
 
@@ -81,7 +80,7 @@ const GroupsDropdown = ({ edges, }) => edges.sort((x, y) => {
 					lower: true,
 				}) }`,
 				content: group.node.name,
-				as: Link,
+				as: "gatsby-link",
 			}
 		} 
 	) 
@@ -99,7 +98,7 @@ const WardsDropdown = ({ edges, }) => edges.sort((x, y) => {
 					lower: true,
 				}) }`,
 				content: ward.node.name,
-				as: Link,
+				as: "gatsby-link",
 			}
 		} 
 	)
@@ -120,13 +119,13 @@ const Navigation = props => (
 		links = {
 			[
 				{ 
-					as: Link,
+					as: "gatsby-link",
 					to: "/new-members/",
 					content: "Get Involved",
 					dropdown: GetInvolvedDropdown,
 				},
 				{ 
-					as: Link,
+					as: "gatsby-link",
 					to: "/wards/",
 					content: "Wards",
 					dropdown: [
@@ -139,19 +138,19 @@ const Navigation = props => (
 					],
 				},
 				{ 
-					as: Link,
+					as: "gatsby-link",
 					to: "/groups/",
 					content: "Forums & Groups",
 					dropdown: GroupsDropdown(props.groups),
 				},
 				{ 
-					as: Link,
+					as: "gatsby-link",
 					to: "/councillors/",
 					content: "People",
 					dropdown: PeopleDropdown,
 				},
 				{ 
-					as: Link,
+					as: "gatsby-link",
 					to: "/news/",
 					content: "News",
 				},
