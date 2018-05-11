@@ -57,61 +57,63 @@ export const WardItemQuery = graphql`
 
 // ----------------------------------------------------
 
-const NewsTemplate = props => (
-	<div>
-		{console.log(props)}
-		{props.data &&
-			props.data.contentfulWard.image && (
-			<TopImage
-				src = {
-					"https://res.cloudinary.com/codogo/image/fetch/w_1500,c_fill,g_face,f_auto/https:" +
-						props.data.contentfulWard.image.file.url
-				}
-			/>
-		)}
+const NewsTemplate = props => {
+	const ward = props.data.contentfulWard;
+	const candidates = props.data.contentfulCandidates.edges
+		.filter( candidate => candidate.node.ward.id === ward.id);
 
-		<Segment style = { { padding: "8em 0em", } } vertical>
-			<Container text>
-				<Header as = "h1">
-					{props.data && props.data.contentfulWard.name}
-				</Header>
-
-				<div
-					dangerouslySetInnerHTML = {
-						props.data && {
-							__html: marked(
-								props.data.contentfulWard.description
-									.description,
-							),
-						}
+	return (
+		<div>
+			{console.log(props)}
+			{ward &&
+				ward.image && (
+				<TopImage
+					src = {
+						"https://res.cloudinary.com/codogo/image/fetch/w_1500,c_fill,g_face,f_auto/https:" +
+							ward.image.file.url
 					}
 				/>
+			)}
 
-				<Divider
-					as = "h4"
-					className = "header"
-					horizontal
-					style = { { margin: "3em 0em", textTransform: "uppercase", } }
-				>
-					Your Councillors
-				</Divider>
+			<Segment style = { { padding: "8em 0em", } } vertical>
+				<Container text>
+					<Header as = "h1">
+						{ward && ward.name}
+					</Header>
 
-				{props.data && props.data.contentfulCandidates ? (
-					<Grid columns = { 3 }>
-						<Grid.Row>
-							{props.data &&
-								props.data.contentfulCandidates.edges
-									.sort((x, y) => {
-										return x.node.name.toUpperCase() <
-											y.node.name.toUpperCase()
-											? -1
-											: 1;
-									})
-									.map(councillor => {
-										return (
-											councillor.node.ward.id ===
-												props.data.contentfulWard
-													.id && (
+					<div
+						dangerouslySetInnerHTML = {
+							ward && {
+								__html: marked(
+									ward.description
+										.description,
+								),
+							}
+						}
+					/>
+
+					<Divider
+						as = "h4"
+						className = "header"
+						horizontal
+						style = { { margin: "3em 0em", textTransform: "uppercase", } }
+					>
+						Your Councillors
+					</Divider>
+
+					{ candidates && candidates.length >= 1 ? (
+						<Grid columns = { 3 }>
+							<Grid.Row>
+								{candidates &&
+									candidates
+										.sort((x, y) => {
+											return x.node.name.toUpperCase() <
+												y.node.name.toUpperCase()
+												? -1
+												: 1;
+										})
+										.map(councillor => {
+											return (
 												<Grid.Column
 														key = {
 														councillor.node.id +
@@ -146,20 +148,20 @@ const NewsTemplate = props => (
 													>
 														{councillor.node.name}
 													</Header>
-													</Grid.Column>
-											)
-										);
-									})}
-						</Grid.Row>
-					</Grid>
-				) : (
-					<div>
-						There are currently no Labour Councillors in this ward.
-					</div>
-				)}
-			</Container>
-		</Segment>
-	</div>
-);
+												</Grid.Column>
+											);
+										})}
+							</Grid.Row>
+						</Grid>
+					) : (
+						<div>
+							There are currently no Labour Councillors in this ward.
+						</div>
+					)}
+				</Container>
+			</Segment>
+		</div>
+	)
+};
 
 export default NewsTemplate;
