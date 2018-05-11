@@ -63,7 +63,7 @@ const GroupDivider = styled(Divider)`
 
 const IndexPage = props => (
 	<div>
-		<TopImage src = { banner }/>
+		<TopImage src = { banner } />
 
 		<Segment style = { { padding: "8em 0em", } } vertical>
 			<Container text>
@@ -78,7 +78,8 @@ const IndexPage = props => (
 				<Grid columns = { 2 } stackable>
 					{props.data.contentfulGroups.edges
 						.sort((x, y) => {
-							return x.node.name.toUpperCase() < y.node.name.toUpperCase()
+							return x.node.name.toUpperCase() <
+								y.node.name.toUpperCase()
 								? -1
 								: 1;
 						})
@@ -86,21 +87,28 @@ const IndexPage = props => (
 							<Grid.Row key = { group.node.id + "-newsitem" }>
 								<Grid.Column>
 									<GroupThumbnail
-										src = { "https://res.cloudinary.com/codogo/image/fetch/w_800,c_fill,g_face,f_auto/https:" + group.node.image.file.url }
+										src = {
+											"https://res.cloudinary.com/codogo/image/fetch/w_800,c_fill,g_face,f_auto/https:" +
+											group.node.image.file.url
+										}
 										as = { Link }
-										to = { "/groups/" + slugify(group.node.name) }
+										to = {
+											"/groups/" +
+											slugify(group.node.name)
+										}
 									/>
 								</Grid.Column>
 
 								<Grid.Column>
-									<Header as = "h3">
-										{group.node.name}
-									</Header>
+									<Header as = "h3">{group.node.name}</Header>
 
 									<Button
 										as = { Link }
 										size = "small"
-										to = { "/groups/" + slugify(group.node.name) }
+										to = {
+											"/groups/" +
+											slugify(group.node.name)
+										}
 									>
 										See more <Icon name = "right arrow" />
 									</Button>
@@ -108,8 +116,7 @@ const IndexPage = props => (
 
 								<GroupDivider section />
 							</Grid.Row>
-						))
-					}
+						))}
 				</Grid>
 			</Container>
 		</Segment>

@@ -64,20 +64,27 @@ export const WhatsOnQuery = graphql`
 
 const IndexPage = props => (
 	<div>
-		<TopImage src = { banner }/>
+		<TopImage src = { banner } />
 
 		<Segment vertical style = { { padding: "8em 0em", } }>
 			<Container text>
 				<Header as = "h1">What's On</Header>
 
 				<p style = { { fontSize: "1.33em", } }>
-					Social events are advertised here - get involved with labour in your area!
+					Social events are advertised here - get involved with labour
+					in your area!
 				</p>
 
-				<p>We are now in full campaign mode for the May 3rd local elections, so we have 
-				fewer social events than normal. After May 3rd we'll be back to normal.</p>
+				<p>
+					We are now in full campaign mode for the May 3rd local
+					elections, so we have fewer social events than normal. After
+					May 3rd we'll be back to normal.
+				</p>
 
-				<p>If you're interested in campaigning with us, you can see our campaigns calendar <Link to = "/campaigning">here</Link>.</p>
+				<p>
+					If you're interested in campaigning with us, you can see our
+					campaigns calendar <Link to = "/campaigning">here</Link>.
+				</p>
 
 				<Button size = "huge" as = { Link } to = "/campaigning">
 					Campaigning
@@ -93,62 +100,78 @@ const IndexPage = props => (
 				</Divider>
 
 				<Grid columns = { 2 } stackable>
-					{
-						props.data.contentfulEvents && 
+					{props.data.contentfulEvents &&
 						props.data.contentfulEvents.edges
-						.filter(event => event.node.socialEvent === true )
-						.filter( (event) => { 
-							return (
-								new Date(event.node.date).getTime() >= new Date().getTime() || 
-								( 
-									new Date(event.node.date).getFullYear() === new Date().getFullYear() && 
-									new Date(event.node.date).getMonth() === new Date().getMonth() && 
-									new Date(event.node.date).getDate() === new Date().getDate() 
-								)
-							)
-						} )
-						.sort(function(a, b) {
-							return (
-								new Date(a.node.date).getTime() -
-								new Date(b.node.date).getTime()
-							);
-						})
-						.map(event => (
-							<Grid.Row key = { event.node.id + "-event" }>
-								<Grid.Column>
-									<NewsThumbnail
-										src = {
-											"https://res.cloudinary.com/codogo/image/fetch/w_800,c_fill,g_face,f_auto/https:" +
-											event.node.image.file.url
-										}
-										as = { Link }
-										to = { "/events/" + slugify(event.node.title) }
-									/>
-								</Grid.Column>
+							.filter(event => event.node.socialEvent === true)
+							.filter(event => {
+								return (
+									new Date(event.node.date).getTime() >=
+										new Date().getTime() ||
+									(new Date(event.node.date).getFullYear() ===
+										new Date().getFullYear() &&
+										new Date(event.node.date).getMonth() ===
+											new Date().getMonth() &&
+										new Date(event.node.date).getDate() ===
+											new Date().getDate())
+								);
+							})
+							.sort(function(a, b) {
+								return (
+									new Date(a.node.date).getTime() -
+									new Date(b.node.date).getTime()
+								);
+							})
+							.map(event => (
+								<Grid.Row key = { event.node.id + "-event" }>
+									<Grid.Column>
+										<NewsThumbnail
+											src = {
+												"https://res.cloudinary.com/codogo/image/fetch/w_800,c_fill,g_face,f_auto/https:" +
+												event.node.image.file.url
+											}
+											as = { Link }
+											to = {
+												"/events/" +
+												slugify(event.node.title)
+											}
+										/>
+									</Grid.Column>
 
-								<Grid.Column>
-									<Header as = "h3">
-										{event.node.title}
-									</Header>
+									<Grid.Column>
+										<Header as = "h3">
+											{event.node.title}
+										</Header>
 
-									<p style = { { color: "#aaaaaa", }}>{ Moment(event.node.date).format('MMMM Do YYYY') }</p>
+										<p style = { { color: "#aaaaaa", } }>
+											{Moment(event.node.date).format(
+												"MMMM Do YYYY",
+											)}
+										</p>
 
-									{ event.node.membersOnly && <p style = { { color: "#aaaaaa", }}>Members only</p> }
+										{event.node.membersOnly && (
+											<p style = { { color: "#aaaaaa", } }>
+												Members only
+											</p>
+										)}
 
-									<p>{event.node.description}</p>
+										<p>{event.node.description}</p>
 
-									<Button
-										as = { Link }
-										size = "small"
-										to = { "/events/" + slugify(event.node.title) }
-									>
-										Read more <Icon name = "right arrow" />
-									</Button>
-								</Grid.Column>
+										<Button
+											as = { Link }
+											size = "small"
+											to = {
+												"/events/" +
+												slugify(event.node.title)
+											}
+										>
+											Read more{" "}
+											<Icon name = "right arrow" />
+										</Button>
+									</Grid.Column>
 
-								<NewsDivider section />
-							</Grid.Row>
-						))}
+									<NewsDivider section />
+								</Grid.Row>
+							))}
 				</Grid>
 			</Container>
 		</Segment>

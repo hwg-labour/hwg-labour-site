@@ -39,6 +39,10 @@ const Footer = props => (
 							<List.Item to = "/sitemap/" as = { Link }>
 								Sitemap
 							</List.Item>
+
+							<List.Item to = "https://twitter.com/mcclowes" as = "a">
+								Site by @mcclowes
+							</List.Item>
 						</List>
 					</Grid.Column>
 
@@ -62,7 +66,10 @@ const Footer = props => (
 								Donate
 							</List.Item>
 
-							<List.Item to = "https://labourinlondon.org.uk/" as = "a">
+							<List.Item
+								to = "https://labourinlondon.org.uk/"
+								as = "a"
+							>
 								https://labourinlondon.org.uk/
 							</List.Item>
 						</List>
@@ -73,19 +80,22 @@ const Footer = props => (
 							Upcoming events:
 						</Header>
 
-						{
-							props.events.edges
+						{props.events.edges
 							.sort(function(a, b) {
 								return (
 									new Date(b.node.publishingDate) -
 									new Date(a.node.publishingDate)
 								);
 							})
-							.slice(1,3)
-							.map( event => (
-								<p key = { event.node.date } >{ moment(event.node.date).format('MMMM Do YYYY') } - { event.node.title }</p>
-							))
-						}
+							.slice(1, 3)
+							.map(event => (
+								<p key = { event.node.date }>
+									{moment(event.node.date).format(
+										"MMMM Do YYYY",
+									)}{" "}
+									- {event.node.title}
+								</p>
+							))}
 					</Grid.Column>
 				</Grid.Row>
 			</Grid>

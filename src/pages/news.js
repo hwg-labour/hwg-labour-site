@@ -36,20 +36,16 @@ const NewsDivider = styled(Divider)`
 
 export const NewsQuery = graphql`
 	query NewsQuery {
-		contentfulNews: allContentfulNews {
-			edges {
-				node {
-					id
-					title
-					description {
-						description
-					}
-					publishingDate
-					image {
-						file {
-							url
-						}
-					}
+		contentfulNews(newsSection: { eq: true }) {
+			id
+			title
+			description {
+				description
+			}
+			publishingDate
+			image {
+				file {
+					url
 				}
 			}
 		}
@@ -58,70 +54,91 @@ export const NewsQuery = graphql`
 
 // ----------------------------------------------------
 
-const IndexPage = props => (
-	<div>
-		<Segment vertical style = { { padding: "8em 0em", } }>
-			<Container text>
-				<Header as = "h1">News</Header>
+const IndexPage = props => {
+	const news = props.data.contentfulNews;
 
-				<p style = { { fontSize: "1.33em", } }>
-					Stay up to date with the latest local Labour news.
-				</p>
+	return (
+		<div>
+			<Segment vertical style = { { padding: "8em 0em", } }>
+				<Container text>
+					<Header as = "h1">News</Header>
 
-				<Divider
-					as = "h4"
-					className = "header"
-					horizontal
-					style = { { margin: "3em 0em", textTransform: "uppercase", } }
-				>
-					Recent News
-				</Divider>
+					<p style = { { fontSize: "1.33em", } }>
+						Stay up to date with the latest local Labour news.
+					</p>
 
-				<Grid columns = { 2 } stackable>
-					{props.data.contentfulNews.edges
-						.sort(function(a, b) {
-							return (
-								new Date(b.node.publishingDate) -
-								new Date(a.node.publishingDate)
-							);
-						})
-						.map(newsItem => (
-							<Grid.Row key = { newsItem.node.id + "-newsitem" }>
-								<Grid.Column>
-									<NewsThumbnail
-										src = { "https://res.cloudinary.com/codogo/image/fetch/w_800,c_fill,g_face,f_auto/https:" + newsItem.node.image.file.url }
-										as = { Link }
-										to = { "/news/" + slugify(newsItem.node.title) }
-									/>
-								</Grid.Column>
+					<Divider
+						as = "h4"
+						className = "header"
+						horizontal
+						style = { { margin: "3em 0em", textTransform: "uppercase", } }
+					>
+						Recent News
+					</Divider>
 
-								<Grid.Column>
-									<Header as = "h3">
-										{newsItem.node.title}
-									</Header>
+					{
+						news.length && (
+							<Grid columns = { 2 } stackable>
+								{news.edges
+									.sort(function(a, b) {
+										return (
+											new Date(b.node.publishingDate) -
+											new Date(a.node.publishingDate)
+										);
+									})
+									.map(newsItem => (
+										<Grid.Row key = { newsItem.node.id + "-newsitem" }>
+											<Grid.Column>
+												<NewsThumbnail
+													src = {
+														"https://res.cloudinary.com/codogo/image/fetch/w_800,c_fill,g_face,f_auto/https:" +
+														newsItem.node.image.file.url
+													}
+													as = { Link }
+													to = {
+														"/news/" +
+														slugify(newsItem.node.title)
+													}
+												/>
+											</Grid.Column>
 
-									<p style = { { color: "#aaaaaa", }}>{ Moment(newsItem.node.publishingDate).format('MMMM Do YYYY') }</p>
+											<Grid.Column>
+												<Header as = "h3">
+													{newsItem.node.title}
+												</Header>
 
-									<p>
-										{newsItem.node.description.description}
-									</p>
+												<p style = { { color: "#aaaaaa", } }>
+													{Moment(
+														newsItem.node.publishingDate,
+													).format("MMMM Do YYYY")}
+												</p>
 
-									<Button
-										as = { Link }
-										size = "small"
-										to = { "/news/" + slugify(newsItem.node.title) }
-									>
-										Read more <Icon name = "right arrow" />
-									</Button>
-								</Grid.Column>
+												<p>
+													{newsItem.node.description.description}
+												</p>
 
-								<NewsDivider section />
-							</Grid.Row>
-						))}
-				</Grid>
-			</Container>
-		</Segment>
-	</div>
-);
+												<Button
+													as = { Link }
+													size = "small"
+													to = {
+														"/news/" +
+														slugify(newsItem.node.title)
+													}
+												>
+													Read more <Icon name = "right arrow" />
+												</Button>
+											</Grid.Column>
+
+											<NewsDivider section />
+										</Grid.Row>
+									))}
+							</Grid>
+						)
+					}
+				</Container>
+			</Segment>
+		</div>
+	)
+};
 
 export default IndexPage;

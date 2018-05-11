@@ -11,7 +11,7 @@ import banner4 from "../../images/banner-4.jpg";
 import banner5 from "../../images/banner-5.jpg";
 import banner6 from "../../images/banner-1.jpg"; // To increase the chance of the best looking banner
 import banner7 from "../../images/banner-1.jpg";
-import banner8 from "../../images/banner-1.jpg"; 
+import banner8 from "../../images/banner-1.jpg";
 
 import { Button, Header, Image, } from "semantic-ui-react";
 
@@ -48,10 +48,10 @@ const BannerContent = styled.div`
 	width: 100% !important;
 `;
 
-const BannerRandomiser = () => { 
-	var i = Math.floor((Math.random() * BannerArray.length));
-	return  BannerArray[i];
-} 
+const BannerRandomiser = () => {
+	var i = Math.floor(Math.random() * BannerArray.length);
+	return BannerArray[i];
+};
 
 // ----------------------------------------------------
 

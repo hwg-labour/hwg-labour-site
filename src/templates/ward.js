@@ -55,25 +55,36 @@ export const WardItemQuery = graphql`
 
 // ----------------------------------------------------
 
-
-
 // ----------------------------------------------------
 
 const NewsTemplate = props => (
 	<div>
-		{ console.log(props) }
-		{ props.data && props.data.contentfulWard.image && <TopImage src = { "https://res.cloudinary.com/codogo/image/fetch/w_1500,c_fill,g_face,f_auto/https:" + props.data.contentfulWard.image.file.url }/> }
-		
+		{console.log(props)}
+		{props.data &&
+			props.data.contentfulWard.image && (
+			<TopImage
+				src = {
+					"https://res.cloudinary.com/codogo/image/fetch/w_1500,c_fill,g_face,f_auto/https:" +
+						props.data.contentfulWard.image.file.url
+				}
+			/>
+		)}
+
 		<Segment style = { { padding: "8em 0em", } } vertical>
 			<Container text>
-				<Header as = "h1">{props.data && props.data.contentfulWard.name}</Header>
+				<Header as = "h1">
+					{props.data && props.data.contentfulWard.name}
+				</Header>
 
 				<div
-					dangerouslySetInnerHTML = { props.data && {
-						__html: marked(
-							props.data.contentfulWard.description.description,
-						),
-					} }
+					dangerouslySetInnerHTML = {
+						props.data && {
+							__html: marked(
+								props.data.contentfulWard.description
+									.description,
+							),
+						}
+					}
 				/>
 
 				<Divider
@@ -82,51 +93,70 @@ const NewsTemplate = props => (
 					horizontal
 					style = { { margin: "3em 0em", textTransform: "uppercase", } }
 				>
-					Councillor Candidates
+					Your Councillors
 				</Divider>
 
-				<Grid columns = { 3 }>
-					<Grid.Row>
-						{props.data && props.data.contentfulCandidates.edges
-							.sort((x, y) => {
-								return x.node.name.toUpperCase() <
-									y.node.name.toUpperCase()
-									? -1
-									: 1;
-							})
-							.map(councillor => {
-								return (
-									councillor.node.ward.id ===
-										props.data.contentfulWard.id && (
-										<Grid.Column
-											key = { councillor.node.id + "-councillor" }
-											verticalAlign = "middle"
-										>
-											<Image
-												src = { `
-												${
-										councillor.node.image
-											? "https://res.cloudinary.com/codogo/image/fetch/h_530,w_430,c_fill,g_face,f_auto/https:" +
-														  councillor.node.image.file
-														  	.url
-											: profileImage
-										}` }
-												as = { Link }
-												to = { `/councillors/${ slugify(
-													councillor.node.name,
-													{ lower: true, },
-												) }` }
-											/>
+				{props.data && props.data.contentfulCandidates ? (
+					<Grid columns = { 3 }>
+						<Grid.Row>
+							{props.data &&
+								props.data.contentfulCandidates.edges
+									.sort((x, y) => {
+										return x.node.name.toUpperCase() <
+											y.node.name.toUpperCase()
+											? -1
+											: 1;
+									})
+									.map(councillor => {
+										return (
+											councillor.node.ward.id ===
+												props.data.contentfulWard
+													.id && (
+												<Grid.Column
+														key = {
+														councillor.node.id +
+														"-councillor"
+													}
+														verticalAlign = "middle"
+												>
+														<Image
+														src = { `
+														${
+												councillor.node
+													.image
+													? "https://res.cloudinary.com/codogo/image/fetch/h_530,w_430,c_fill,g_face,f_auto/https:" +
+																	councillor
+																		.node
+																		.image
+																		.file
+																		.url
+													: profileImage
+												}` }
+														as = { Link }
+														to = { `/councillors/${ slugify(
+															councillor.node
+																.name,
+															{ lower: true, },
+														) }` }
+													/>
 
-											<Header as = "h4" textAlign = "center">
-												{councillor.node.name}
-											</Header>
-										</Grid.Column>
-									)
-								);
-							})}
-					</Grid.Row>
-				</Grid>
+														<Header
+														as = "h4"
+														textAlign = "center"
+													>
+														{councillor.node.name}
+													</Header>
+													</Grid.Column>
+											)
+										);
+									})}
+						</Grid.Row>
+					</Grid>
+				) : (
+					<div>
+						There are currently no Labour Councillors in this ward.
+					</div>
+				)}
 			</Container>
 		</Segment>
 	</div>

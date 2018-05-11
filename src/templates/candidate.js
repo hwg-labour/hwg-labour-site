@@ -49,8 +49,8 @@ const NewsTemplate = props => (
 								${
 	props.data.contentfulCandidate.image
 		? "https://res.cloudinary.com/codogo/image/fetch/h_530,w_430,c_fill,g_face,f_auto/https:" +
-										  props.data.contentfulCandidate.image
-										  	.file.url
+											props.data.contentfulCandidate.image
+												.file.url
 		: profileImage
 	}` }
 						/>
