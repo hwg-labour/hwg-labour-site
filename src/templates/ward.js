@@ -17,6 +17,8 @@ import { TopImage, } from "../components/TopImage";
 
 import profileImage from "../images/profile-pic.png";
 
+import { NewsItem, } from "../components/News";
+
 // ----------------------------------------------------
 
 export const WardItemQuery = graphql`
