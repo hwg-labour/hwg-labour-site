@@ -50,11 +50,9 @@ const TemplateWrapper = props => (
 	>
 		<Head />
 
-		{ props.children(...props) }
+		{props.children(...props)}
 
-		<Footer
-			events = { props.data.contentfulEvents }
-		/>
+		<Footer events = { props.data.contentfulEvents } />
 	</Header>
 );
 

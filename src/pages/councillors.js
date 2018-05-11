@@ -57,93 +57,113 @@ const WardDivider = styled(Divider)`
 const IndexPage = props => (
 	<Segment style = { { padding: "8em 0em", } } vertical>
 		<Container text>
-			<Header as = "h1">Your Councillor Candidates</Header>
+			<Header as = "h1">Your Councillors</Header>
 
 			<p>
-				There are 30 councillor candidates representing Labour across
-				Hornsey & Wood Green in the upcoming May local elections. Find
-				out who is representing your local area.
+				There are 18 Labour councillors representing you across Hornsey
+				& Wood Green. Find out who is representing your local area.
 			</p>
 
 			<br />
 
-			{props.data.contentfulWards.edges
-				.sort((x, y) => {
-					return x.node.name.toUpperCase() < y.node.name.toUpperCase()
-						? -1
-						: 1;
-				})
-				.map(ward => (
-					<Container key = { ward.node.id + "-ward" }>
-						<Divider as = "h4" className = "header" horizontal>
-							<Link
-								to = { `/wards/${ slugify(ward.node.name, {
-									lower: true,
-								}) }` }
-							>
-								{ward.node.name}
-							</Link>
-						</Divider>
+			{props.data &&
+				props.data.contentfulWards.edges
+					.sort((x, y) => {
+						return x.node.name.toUpperCase() <
+							y.node.name.toUpperCase()
+							? -1
+							: 1;
+					})
+					.map(ward => (
+						<Container key = { ward.node.id + "-ward" }>
+							<Divider as = "h4" className = "header" horizontal>
+								<Link
+									to = { `/wards/${ slugify(ward.node.name, {
+										lower: true,
+									}) }` }
+								>
+									{ward.node.name}
+								</Link>
+							</Divider>
 
-						<br />
+							<br />
 
-						<Grid columns = { 3 }>
-							<Grid.Row>
-								{props.data.contentfulCandidates.edges
-									.sort((x, y) => {
-										return x.node.name.toUpperCase() <
-											y.node.name.toUpperCase()
-											? -1
-											: 1;
-									})
-									.map(councillor => {
-										return (
-											councillor.node.ward.id ===
-												ward.node.id && (
-												<Grid.Column
-													key = {
-														councillor.node.id +
+							{props.data.contentfulCandidates.edges
+								.sort((x, y) => {
+									return x.node.name.toUpperCase() <
+										y.node.name.toUpperCase()
+										? -1
+										: 1;
+								})
+								.filter(councillor => {
+									return (
+										councillor.node.ward.id === ward.node.id
+									);
+								}) ? (
+									<Grid columns = { 3 }>
+										<Grid.Row>
+											{props.data.contentfulCandidates.edges
+												.sort((x, y) => {
+													return x.node.name.toUpperCase() <
+													y.node.name.toUpperCase()
+														? -1
+														: 1;
+												})
+												.filter(councillor => {
+													return (
+														councillor.node.ward.id ===
+													ward.node.id
+													);
+												})
+												.map(councillor => (
+													<Grid.Column
+														key = {
+															councillor.node.id +
 														"-councillor"
-													}
-													verticalAlign = "middle"
-												>
-													<Image
-														src = { `
-														${
-												councillor.node
-													.image
-													? "https://res.cloudinary.com/codogo/image/fetch/h_530,w_430,c_fill,g_face,f_auto/https:" +
-																  councillor
-																  	.node
-																  	.image
-																  	.file
-																  	.url
-													: profileImage
-												}` }
-														as = { Link }
-														to = { `/councillors/${ slugify(
-															councillor.node
-																.name,
-															{ lower: true, },
-														) }` }
-													/>
-
-													<Header
-														as = "h4"
-														textAlign = "center"
+														}
+														verticalAlign = "middle"
 													>
-														{councillor.node.name}
-													</Header>
-												</Grid.Column>
-											)
-										);
-									})}
-							</Grid.Row>
-						</Grid>
-						<br />
-						<br />
-					</Container>
-				))}
+														<Image
+															src = { `
+															${
+													councillor.node
+														.image
+														? "https://res.cloudinary.com/codogo/image/fetch/h_530,w_430,c_fill,g_face,f_auto/https:" +
+																		councillor
+																			.node
+																			.image
+																			.file
+																			.url
+														: profileImage
+													}` }
+															as = { Link }
+															to = { `/councillors/${ slugify(
+																councillor.node
+																	.name,
+																{ lower: true, },
+															) }` }
+														/>
+
+														<Header
+															as = "h4"
+															textAlign = "center"
+														>
+															{councillor.node.name}
+														</Header>
+													</Grid.Column>
+												))}
+										</Grid.Row>
+									</Grid>
+								) : (
+									<div>
+									There are currently no Labour councillors in
+									this ward.
+									</div>
+								)}
+							<br />
+							<br />
+						</Container>
+					))}
 		</Container>
 	</Segment>
 );

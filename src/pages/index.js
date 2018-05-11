@@ -1,12 +1,7 @@
 import React from "react";
 import Link from "gatsby-link";
 
-import {
-	Button,
-	Container,
-	Header,
-	Segment,
-} from "semantic-ui-react";
+import { Button, Container, Header, Segment, } from "semantic-ui-react";
 
 // ----------------------------------------------------
 
@@ -28,8 +23,12 @@ const IndexPage = props => (
 					the world.
 				</p>
 
-				<Button size = "huge" as = { Link } to = "/news/Haringey-Labour-2018-Manifesto-Launched">
-					Read the manifesto
+				<Button
+					size = "huge"
+					as = { Link }
+					to = "/news/Haringey-Labour-2018-Manifesto-Launched"
+				>
+					Read our manifesto
 				</Button>
 			</Container>
 		</Segment>
@@ -37,34 +36,17 @@ const IndexPage = props => (
 		<Segment style = { { padding: "8em 0em", } } vertical>
 			<Container text>
 				<Header as = "h1" style = { { fontSize: "2em", } }>
-					Meet your councillor candidates
+					Meet your councillors
 				</Header>
 
 				<p style = { { fontSize: "1.33em", } }>
-					There are 30 councillor candidates representing Labour
-					across Hornsey & Wood Green in the upcoming May local
-					elections. Find out who is representing your local area.
+					There are 18 Labour councillors representing you across
+					Hornsey & Wood Green. Find out who is representing your
+					local area.
 				</p>
 
 				<Button size = "huge" as = { Link } to = "/councillors">
-					See the candidates
-				</Button>
-			</Container>
-		</Segment>
-
-		<Segment style = { { padding: "8em 0em", } } vertical>
-			<Container text>
-				<Header as = "h1" style = { { fontSize: "2em", } }>
-					Campaign with us
-				</Header>
-
-				<p style = { { fontSize: "1.33em", } }>
-					Help us share Labour's manifesto for the upcoming May local
-					elections at an upcoming campaign event.
-				</p>
-
-				<Button size = "huge" as = { Link } to = "/campaigning">
-					Campaigning
+					Meet your councillors
 				</Button>
 			</Container>
 		</Segment>

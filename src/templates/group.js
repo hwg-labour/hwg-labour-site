@@ -1,11 +1,7 @@
 import React from "react";
 import marked from "marked";
 
-import {
-	Container,
-	Header,
-	Segment,
-} from "semantic-ui-react";
+import { Container, Header, Segment, } from "semantic-ui-react";
 
 import { TopImage, } from "../components/TopImage";
 
@@ -31,8 +27,15 @@ export const GroupItemQuery = graphql`
 
 const NewsTemplate = props => (
 	<div>
-		{ props.data.contentfulGroup.image && <TopImage src = { "https://res.cloudinary.com/codogo/image/fetch/w_1500,c_fill,g_face,f_auto/https:" + props.data.contentfulGroup.image.file.url }/> }
-		
+		{props.data.contentfulGroup.image && (
+			<TopImage
+				src = {
+					"https://res.cloudinary.com/codogo/image/fetch/w_1500,c_fill,g_face,f_auto/https:" +
+					props.data.contentfulGroup.image.file.url
+				}
+			/>
+		)}
+
 		<Segment style = { { padding: "8em 0em", } } vertical>
 			<Container text>
 				<Header as = "h1">{props.data.contentfulGroup.name}</Header>

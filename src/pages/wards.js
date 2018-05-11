@@ -63,7 +63,7 @@ const WardDivider = styled(Divider)`
 
 const IndexPage = props => (
 	<div>
-		<TopImage src = { banner }/>
+		<TopImage src = { banner } />
 
 		<Segment style = { { padding: "8em 0em", } } vertical>
 			<Container text>
@@ -71,15 +71,18 @@ const IndexPage = props => (
 					Your wards
 				</Header>
 
-				<Header as = "h3">
-					Find your ward
-				</Header>
+				<Header as = "h3">Find your ward</Header>
 
 				<p style = { { fontSize: "1.33em", } }>
-					If you don't know which is your local ward, you can use the ward-finder tool below.
+					If you don't know which is your local ward, you can use the
+					ward-finder tool below.
 				</p>
 
-				<Button size = "huge" as = { 'a' } to = "http://www.haringey.gov.uk/local-democracy/councillors-and-mps/find-my-ward">
+				<Button
+					size = "huge"
+					as = { "a" }
+					to = "http://www.haringey.gov.uk/local-democracy/councillors-and-mps/find-my-ward"
+				>
 					Find your ward
 				</Button>
 			</Container>
@@ -90,7 +93,8 @@ const IndexPage = props => (
 				<Grid columns = { 2 } stackable>
 					{props.data.contentfulWards.edges
 						.sort((x, y) => {
-							return x.node.name.toUpperCase() < y.node.name.toUpperCase()
+							return x.node.name.toUpperCase() <
+								y.node.name.toUpperCase()
 								? -1
 								: 1;
 						})
@@ -98,16 +102,17 @@ const IndexPage = props => (
 							<Grid.Row key = { ward.node.id + "-newsitem" }>
 								<Grid.Column>
 									<WardThumbnail
-										src = { "https://res.cloudinary.com/codogo/image/fetch/w_800,c_fill,g_face,f_auto/https:" + ward.node.image.file.url }
+										src = {
+											"https://res.cloudinary.com/codogo/image/fetch/w_800,c_fill,g_face,f_auto/https:" +
+											ward.node.image.file.url
+										}
 										as = { Link }
 										to = { "/wards/" + slugify(ward.node.name) }
 									/>
 								</Grid.Column>
 
 								<Grid.Column>
-									<Header as = "h3">
-										{ward.node.name}
-									</Header>
+									<Header as = "h3">{ward.node.name}</Header>
 
 									<Button
 										as = { Link }
@@ -120,8 +125,7 @@ const IndexPage = props => (
 
 								<WardDivider section />
 							</Grid.Row>
-						))
-					}
+						))}
 				</Grid>
 			</Container>
 		</Segment>

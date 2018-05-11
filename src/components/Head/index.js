@@ -13,7 +13,8 @@ const Head = () => (
 			},
 			{
 				name: "keywords",
-				content: "Hornsey, Wood green, Labour, Party, Crouch End, Highgate, Alexandra, Stroud Green",
+				content:
+					"Hornsey, Wood green, Labour, Party, Crouch End, Highgate, Alexandra, Stroud Green",
 			},
 			{
 				name: "google-site-verification",

@@ -12,7 +12,7 @@ import banner from "../images/banner-4.jpg";
 
 const IndexPage = props => (
 	<div>
-		<TopImage src = { banner }/>
+		<TopImage src = { banner } />
 
 		<Segment style = { { padding: "8em 0em", } } vertical>
 			<Container text>
@@ -21,12 +21,20 @@ const IndexPage = props => (
 				</Header>
 
 				<p style = { { fontSize: "1.33em", } }>
-					We welcome all volunteers, whatever your skill-set or interests!
+					We welcome all volunteers, whatever your skill-set or
+					interests!
 				</p>
 
-				<p>We need people for leaflet delivery, doorstep campaigning, street stalls, phoning potential voters, envelope stuffing and many other tasks.</p>
+				<p>
+					We need people for leaflet delivery, doorstep campaigning,
+					street stalls, phoning potential voters, envelope stuffing
+					and many other tasks.
+				</p>
 
-				<p>If you have specialist skills, such as in IT, marketing or design, we would like to hear from you.</p>
+				<p>
+					If you have specialist skills, such as in IT, marketing or
+					design, we would like to hear from you.
+				</p>
 
 				<Button size = "huge" as = { Link } to = "/contact-us">
 					Get in touch
