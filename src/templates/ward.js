@@ -50,6 +50,24 @@ export const WardItemQuery = graphql`
 				}
 			}
 		}
+		contentfulNews: allContentfulNews {
+			edges {
+				node {
+					title
+					description {
+						description
+					}
+					image {
+						file {
+							url
+						}
+					}
+					reference {
+						id
+					}
+				}
+			}
+		}
 	}
 `;
 
@@ -59,8 +77,12 @@ export const WardItemQuery = graphql`
 
 const NewsTemplate = props => {
 	const ward = props.data.contentfulWard;
-	const candidates = props.data.contentfulCandidates.edges
+
+	const candidates = props.data.contentfulCandidates && props.data.contentfulCandidates.edges
 		.filter( candidate => candidate.node.ward.id === ward.id);
+
+	const news = props.data.contentfulNews && props.data.contentfulNews.edges
+		.filter( newsItem => newsItem.node.reference ? newsItem.node.reference.id === ward.id : false );
 
 	return (
 		<div>
@@ -158,6 +180,31 @@ const NewsTemplate = props => {
 							There are currently no Labour Councillors in this ward.
 						</div>
 					)}
+
+					<Divider
+						as = "h4"
+						className = "header"
+						horizontal
+						style = { { margin: "3em 0em", textTransform: "uppercase", } }
+					>
+						Recent News
+					</Divider>
+
+					{
+						news && (
+							<Grid columns = { 2 } stackable>
+								{news.sort(function(a, b) {
+										return (
+											new Date(b.node.publishingDate) -
+											new Date(a.node.publishingDate)
+										);
+									})
+									.map(newsItem => (
+										<NewsItem newsItem = { newsItem } />
+									))}
+							</Grid>
+						)
+					}
 				</Container>
 			</Segment>
 		</div>

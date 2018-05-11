@@ -1,15 +1,24 @@
 import React from "react";
 import marked from "marked";
 
-import { Container, Header, Segment, } from "semantic-ui-react";
-
 import { TopImage, } from "../components/TopImage";
+
+import {
+	Container,
+	Divider,
+	Grid,
+	Header,
+	Segment,
+} from "semantic-ui-react";
+
+import { NewsItem, } from "../components/News";
 
 // ----------------------------------------------------
 
 export const GroupItemQuery = graphql`
 	query GroupItemQuery($id: String!) {
 		contentfulGroup(id: { eq: $id }) {
+			id
 			name
 			description {
 				description
@@ -20,36 +29,86 @@ export const GroupItemQuery = graphql`
 				}
 			}
 		}
+		contentfulNews: allContentfulNews {
+			edges {
+				node {
+					title
+					description {
+						description
+					}
+					image {
+						file {
+							url
+						}
+					}
+					reference {
+						id
+					}
+				}
+			}
+		}
 	}
 `;
 
 // ----------------------------------------------------
 
-const NewsTemplate = props => (
-	<div>
-		{props.data.contentfulGroup.image && (
-			<TopImage
-				src = {
-					"https://res.cloudinary.com/codogo/image/fetch/w_1500,c_fill,g_face,f_auto/https:" +
-					props.data.contentfulGroup.image.file.url
-				}
-			/>
-		)}
+const NewsTemplate = props => {
+	const group = props.data.contentfulGroup;
 
-		<Segment style = { { padding: "8em 0em", } } vertical>
-			<Container text>
-				<Header as = "h1">{props.data.contentfulGroup.name}</Header>
+	const news = props.data.contentfulNews && props.data.contentfulNews.edges
+		.filter( newsItem => newsItem.node.reference ? newsItem.node.reference.id === group.id : false );
 
-				<div
-					dangerouslySetInnerHTML = { {
-						__html: marked(
-							props.data.contentfulGroup.description.description,
-						),
-					} }
+	return (
+		<div>
+			{ group.image && (
+				<TopImage
+					src = {
+						"https://res.cloudinary.com/codogo/image/fetch/w_1500,c_fill,g_face,f_auto/https:" +
+						group.image.file.url
+					}
 				/>
-			</Container>
-		</Segment>
-	</div>
-);
+			)}
+
+			<Segment style = { { padding: "8em 0em", } } vertical>
+				<Container text>
+					<Header as = "h1">{group.name}</Header>
+
+					<div
+						dangerouslySetInnerHTML = { {
+							__html: marked(
+								group.description.description,
+							),
+						} }
+					/>
+
+					<Divider
+						as = "h4"
+						className = "header"
+						horizontal
+						style = { { margin: "3em 0em", textTransform: "uppercase", } }
+					>
+						Recent News
+					</Divider>
+
+					{
+						news && (
+							<Grid columns = { 2 } stackable>
+								{news.sort(function(a, b) {
+										return (
+											new Date(b.node.publishingDate) -
+											new Date(a.node.publishingDate)
+										);
+									})
+									.map(newsItem => (
+										<NewsItem newsItem = { newsItem } />
+									))}
+							</Grid>
+						)
+					}
+				</Container>
+			</Segment>
+		</div>
+	)
+};
 
 export default NewsTemplate;
