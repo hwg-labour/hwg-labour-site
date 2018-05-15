@@ -60,7 +60,7 @@ const IndexPage = props => (
 			<Header as = "h1">Your Councillors</Header>
 
 			<p>
-				There are 18 Labour councillors representing you across Hornsey
+				There are 15 Labour councillors representing you across Hornsey
 				& Wood Green. Find out who is representing your local area.
 			</p>
 

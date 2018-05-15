@@ -40,7 +40,7 @@ const IndexPage = props => (
 				</Header>
 
 				<p style = { { fontSize: "1.33em", } }>
-					There are 18 Labour councillors representing you across
+					There are 15 Labour councillors representing you across
 					Hornsey & Wood Green. Find out who is representing your
 					local area.
 				</p>
