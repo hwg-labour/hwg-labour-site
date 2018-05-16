@@ -76,12 +76,6 @@ const IndexPage = props => (
 				</p>
 
 				<p>
-					We are now in full campaign mode for the May 3rd local
-					elections, so we have fewer social events than normal. After
-					May 3rd we'll be back to normal.
-				</p>
-
-				<p>
 					If you're interested in campaigning with us, you can see our
 					campaigns calendar <Link to = "/campaigning">here</Link>.
 				</p>
