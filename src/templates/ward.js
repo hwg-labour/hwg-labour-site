@@ -80,11 +80,20 @@ export const WardItemQuery = graphql`
 const NewsTemplate = props => {
 	const ward = props.data.contentfulWard;
 
-	const candidates = props.data.contentfulCandidates && props.data.contentfulCandidates.edges
-		.filter( candidate => candidate.node.ward.id === ward.id);
+	const candidates =
+		props.data.contentfulCandidates &&
+		props.data.contentfulCandidates.edges.filter(
+			candidate => candidate.node.ward.id === ward.id,
+		);
 
-	const news = props.data.contentfulNews && props.data.contentfulNews.edges
-		.filter( newsItem => newsItem.node.reference ? newsItem.node.reference.id === ward.id : false );
+	const news =
+		props.data.contentfulNews &&
+		props.data.contentfulNews.edges.filter(
+			newsItem =>
+				newsItem.node.reference
+					? newsItem.node.reference.id === ward.id
+					: false,
+		);
 
 	return (
 		<div>
@@ -101,17 +110,12 @@ const NewsTemplate = props => {
 
 			<Segment style = { { padding: "8em 0em", } } vertical>
 				<Container text>
-					<Header as = "h1">
-						{ward && ward.name}
-					</Header>
+					<Header as = "h1">{ward && ward.name}</Header>
 
 					<div
 						dangerouslySetInnerHTML = {
 							ward && {
-								__html: marked(
-									ward.description
-										.description,
-								),
+								__html: marked(ward.description.description),
 							}
 						}
 					/>
@@ -120,12 +124,15 @@ const NewsTemplate = props => {
 						as = "h4"
 						className = "header"
 						horizontal
-						style = { { margin: "3em 0em", textTransform: "uppercase", } }
+						style = { {
+							margin: "3em 0em",
+							textTransform: "uppercase",
+						} }
 					>
 						Your Councillors
 					</Divider>
 
-					{ candidates && candidates.length >= 1 ? (
+					{candidates && candidates.length >= 1 ? (
 						<Grid columns = { 3 }>
 							<Grid.Row>
 								{candidates &&
@@ -139,13 +146,13 @@ const NewsTemplate = props => {
 										.map(councillor => {
 											return (
 												<Grid.Column
-														key = {
+													key = {
 														councillor.node.id +
 														"-councillor"
 													}
-														verticalAlign = "middle"
+													verticalAlign = "middle"
 												>
-														<Image
+													<Image
 														src = { `
 														${
 												councillor.node
@@ -166,7 +173,7 @@ const NewsTemplate = props => {
 														) }` }
 													/>
 
-														<Header
+													<Header
 														as = "h4"
 														textAlign = "center"
 													>
@@ -179,7 +186,8 @@ const NewsTemplate = props => {
 						</Grid>
 					) : (
 						<div>
-							There are currently no Labour Councillors in this ward.
+							There are currently no Labour Councillors in this
+							ward.
 						</div>
 					)}
 
@@ -187,30 +195,32 @@ const NewsTemplate = props => {
 						as = "h4"
 						className = "header"
 						horizontal
-						style = { { margin: "3em 0em", textTransform: "uppercase", } }
+						style = { {
+							margin: "3em 0em",
+							textTransform: "uppercase",
+						} }
 					>
 						Recent News
 					</Divider>
 
-					{
-						news && (
-							<Grid columns = { 2 } stackable>
-								{news.sort(function(a, b) {
-										return (
-											new Date(b.node.publishingDate) -
-											new Date(a.node.publishingDate)
-										);
-									})
-									.map(newsItem => (
-										<NewsItem newsItem = { newsItem } />
-									))}
-							</Grid>
-						)
-					}
+					{news && (
+						<Grid columns = { 2 } stackable>
+							{news
+								.sort(function(a, b) {
+									return (
+										new Date(b.node.publishingDate) -
+										new Date(a.node.publishingDate)
+									);
+								})
+								.map(newsItem => (
+									<NewsItem newsItem = { newsItem } />
+								))}
+						</Grid>
+					)}
 				</Container>
 			</Segment>
 		</div>
-	)
+	);
 };
 
 export default NewsTemplate;

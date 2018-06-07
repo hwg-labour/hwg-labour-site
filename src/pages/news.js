@@ -1,12 +1,6 @@
 import React from "react";
 
-import {
-	Container,
-	Divider,
-	Grid,
-	Header,
-	Segment,
-} from "semantic-ui-react";
+import { Container, Divider, Grid, Header, Segment, } from "semantic-ui-react";
 
 import { NewsItem, } from "../components/News";
 
@@ -16,16 +10,21 @@ import { NewsItem, } from "../components/News";
 
 export const NewsQuery = graphql`
 	query NewsQuery {
-		contentfulNews(newsSection: { eq: true }) {
-			id
-			title
-			description {
-				description
-			}
-			publishingDate
-			image {
-				file {
-					url
+		contentfulNews: allContentfulNews {
+			edges {
+				node {
+					id
+					title
+					description {
+						description
+					}
+					publishingDate
+					newsSection
+					image {
+						file {
+							url
+						}
+					}
 				}
 			}
 		}
@@ -35,7 +34,14 @@ export const NewsQuery = graphql`
 // ----------------------------------------------------
 
 const IndexPage = props => {
-	const news = props.data.contentfulNews;
+	const news = props.data.contentfulNews.edges
+		.filter(news => news.node.newsSection === true)
+		.sort(function(a, b) {
+			return (
+				new Date(b.node.publishingDate) -
+				new Date(a.node.publishingDate)
+			);
+		});
 
 	return (
 		<div>
@@ -51,31 +57,25 @@ const IndexPage = props => {
 						as = "h4"
 						className = "header"
 						horizontal
-						style = { { margin: "3em 0em", textTransform: "uppercase", } }
+						style = { {
+							margin: "3em 0em",
+							textTransform: "uppercase",
+						} }
 					>
 						Recent News
 					</Divider>
 
-					{
-						news.length && (
-							<Grid columns = { 2 } stackable>
-								{news.edges
-									.sort(function(a, b) {
-										return (
-											new Date(b.node.publishingDate) -
-											new Date(a.node.publishingDate)
-										);
-									})
-									.map(newsItem => (
-										<NewsItem newsItem = { newsItem } />
-									))}
-							</Grid>
-						)
-					}
+					{news.length && (
+						<Grid columns = { 2 } stackable>
+							{news.map(newsItem => {
+								return <NewsItem newsItem = { newsItem.node } />;
+							})}
+						</Grid>
+					)}
 				</Container>
 			</Segment>
 		</div>
-	)
+	);
 };
 
 export default IndexPage;
