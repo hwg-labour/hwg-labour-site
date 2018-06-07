@@ -3,13 +3,7 @@ import marked from "marked";
 
 import { TopImage, } from "../components/TopImage";
 
-import {
-	Container,
-	Divider,
-	Grid,
-	Header,
-	Segment,
-} from "semantic-ui-react";
+import { Container, Divider, Grid, Header, Segment, } from "semantic-ui-react";
 
 import { NewsItem, } from "../components/News";
 
@@ -55,12 +49,18 @@ export const GroupItemQuery = graphql`
 const NewsTemplate = props => {
 	const group = props.data.contentfulGroup;
 
-	const news = props.data.contentfulNews && props.data.contentfulNews.edges
-		.filter( newsItem => newsItem.node.reference ? newsItem.node.reference.id === group.id : false );
+	const news =
+		props.data.contentfulNews &&
+		props.data.contentfulNews.edges.filter(
+			newsItem =>
+				newsItem.node.reference
+					? newsItem.node.reference.id === group.id
+					: false,
+		);
 
 	return (
 		<div>
-			{ group.image && (
+			{group.image && (
 				<TopImage
 					src = {
 						"https://res.cloudinary.com/codogo/image/fetch/w_1500,c_fill,g_face,f_auto/https:" +
@@ -75,9 +75,7 @@ const NewsTemplate = props => {
 
 					<div
 						dangerouslySetInnerHTML = { {
-							__html: marked(
-								group.description.description,
-							),
+							__html: marked(group.description.description),
 						} }
 					/>
 
@@ -85,30 +83,32 @@ const NewsTemplate = props => {
 						as = "h4"
 						className = "header"
 						horizontal
-						style = { { margin: "3em 0em", textTransform: "uppercase", } }
+						style = { {
+							margin: "3em 0em",
+							textTransform: "uppercase",
+						} }
 					>
 						Recent News
 					</Divider>
 
-					{
-						news && (
-							<Grid columns = { 2 } stackable>
-								{news.sort(function(a, b) {
-										return (
-											new Date(b.node.publishingDate) -
-											new Date(a.node.publishingDate)
-										);
-									})
-									.map(newsItem => (
-										<NewsItem newsItem = { newsItem } />
-									))}
-							</Grid>
-						)
-					}
+					{news && (
+						<Grid columns = { 2 } stackable>
+							{news
+								.sort(function(a, b) {
+									return (
+										new Date(b.node.publishingDate) -
+										new Date(a.node.publishingDate)
+									);
+								})
+								.map(newsItem => (
+									<NewsItem newsItem = { newsItem } />
+								))}
+						</Grid>
+					)}
 				</Container>
 			</Segment>
 		</div>
-	)
+	);
 };
 
 export default NewsTemplate;
