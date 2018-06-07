@@ -213,7 +213,7 @@ const NewsTemplate = props => {
 									);
 								})
 								.map(newsItem => (
-									<NewsItem newsItem = { newsItem } />
+									<NewsItem newsItem = { newsItem.node } />
 								))}
 						</Grid>
 					)}
