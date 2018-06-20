@@ -28,7 +28,7 @@
   },
   "devDependencies": {
     "babel-loader": "7.1.1",
-    "codogo-scripts": "^3.2.14",
+    "mcclowes-scripts": "^0.3.5",
     "prettier": "^1.10.2"
   },
   "eslintConfig": {
@@ -47,7 +47,7 @@
   "scripts": {
     "build": "gatsby build",
     "develop": "gatsby develop",
-    "format": "codogo-scripts format",
+    "format": "mcclowes-scripts format",
     "test": "echo \"Error: no test specified\" && exit 1"
   }
 }
