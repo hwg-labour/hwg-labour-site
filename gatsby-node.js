@@ -24,11 +24,11 @@ exports.createPages = ({ boundActionCreators, graphql }) => {
 	const { createPage } = boundActionCreators;
 
 	return new Promise((resolve, reject) => {
-		const GroupTemplate = path.resolve(`src/templates/group.js`);
-		const WardTemplate = path.resolve(`src/templates/ward.js`);
-		const CandidateTemplate = path.resolve(`src/templates/candidate.js`);
-		const NewsTemplate = path.resolve(`src/templates/news.js`);
-		const EventTemplate = path.resolve(`src/templates/event.js`);
+		const GroupTemplate = path.resolve( "src/templates/group.js" );
+		const WardTemplate = path.resolve( "src/templates/ward.js" );
+		const CandidateTemplate = path.resolve( "src/templates/candidate.js" );
+		const NewsTemplate = path.resolve( "src/templates/news.js" );
+		const EventTemplate = path.resolve( "src/templates/event.js" );
 		
 		resolve( // Query for markdown nodes to use in creating pages.
 			graphql(
