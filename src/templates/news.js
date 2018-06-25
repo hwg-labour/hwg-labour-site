@@ -1,10 +1,9 @@
-import React from "react";
-import marked from "marked";
-import styled from "styled-components";
-
 import { TopImage, } from "../components/TopImage";
+import { Container, Header, Segment, } from "semantic-ui-react";
 
-import { Container, Header, Segment, Image, } from "semantic-ui-react";
+import marked from "marked";
+import PropTypes from "prop-types";
+import React from "react";
 
 // ----------------------------------------------------
 
@@ -22,13 +21,6 @@ export const NewsItemQuery = graphql`
 			}
 		}
 	}
-`;
-
-const BannerImage = styled(Image)`
-	width: 100%;
-	max-height: 400px
-	object-fit: cover;
-	z-index: -1;
 `;
 
 // ----------------------------------------------------
@@ -59,5 +51,9 @@ const NewsTemplate = props => (
 		</Segment>
 	</div>
 );
+
+NewsTemplate.propTypes = {
+	data: PropTypes.object,
+};
 
 export default NewsTemplate;

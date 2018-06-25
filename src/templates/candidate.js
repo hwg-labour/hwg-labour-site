@@ -1,11 +1,12 @@
-import React from "react";
-import marked from "marked";
-import slugify from "slugify";
-import Link from "gatsby-link";
-
 import { Container, Header, Segment, Grid, Image, } from "semantic-ui-react";
 
+import Link from "gatsby-link";
+import marked from "marked";
 import profileImage from "../images/profile-pic.png";
+import PropTypes from "prop-types";
+import React from "react";
+import slugify from "slugify";
+
 
 // ----------------------------------------------------
 
@@ -38,7 +39,7 @@ export const CandidateItemQuery = graphql`
 
 // ----------------------------------------------------
 
-const NewsTemplate = props => (
+const CandidateTemplate = props => (
 	<Segment style = { { padding: "8em 0em", } } vertical>
 		<Container text>
 			<Grid columns = { 3 } stackable>
@@ -148,4 +149,8 @@ const NewsTemplate = props => (
 	</Segment>
 );
 
-export default NewsTemplate;
+CandidateTemplate.propTypes = {
+	data: PropTypes.object,
+};
+
+export default CandidateTemplate;

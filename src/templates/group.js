@@ -1,11 +1,10 @@
-import React from "react";
-import marked from "marked";
-
+import { Container, Divider, Grid, Header, Segment, } from "semantic-ui-react";
+import { NewsItem, } from "../components/ListItems";
 import { TopImage, } from "../components/TopImage";
 
-import { Container, Divider, Grid, Header, Segment, } from "semantic-ui-react";
-
-import { NewsItem, } from "../components/News";
+import marked from "marked";
+import PropTypes from "prop-types";
+import React from "react";
 
 // ----------------------------------------------------
 
@@ -46,7 +45,7 @@ export const GroupItemQuery = graphql`
 
 // ----------------------------------------------------
 
-const NewsTemplate = props => {
+const GroupTemplate = props => {
 	const group = props.data.contentfulGroup;
 
 	const news =
@@ -57,6 +56,8 @@ const NewsTemplate = props => {
 					? newsItem.node.groupRef.id === group.id
 					: false,
 		);
+
+	console.log(group.id, props.data.contentfulNews);
 
 	return (
 		<div>
@@ -91,7 +92,7 @@ const NewsTemplate = props => {
 						Recent News
 					</Divider>
 
-					{news && (
+					{news.length >= 1 ? (
 						<Grid columns = { 2 } stackable>
 							{news
 								.sort(function(a, b) {
@@ -100,15 +101,21 @@ const NewsTemplate = props => {
 										new Date(a.node.publishingDate)
 									);
 								})
-								.map(newsItem => (
-									<NewsItem newsItem = { newsItem.node } />
+								.map( newsItem => (
+									<NewsItem news = { newsItem.node } />
 								))}
 						</Grid>
-					)}
+					)
+						: <div>No recent news</div>
+					}
 				</Container>
 			</Segment>
 		</div>
 	);
 };
 
-export default NewsTemplate;
+GroupTemplate.propTypes = {
+	data: PropTypes.object,
+};
+
+export default GroupTemplate;
