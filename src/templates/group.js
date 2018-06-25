@@ -35,7 +35,7 @@ export const GroupItemQuery = graphql`
 							url
 						}
 					}
-					reference {
+					groupRef {
 						id
 					}
 				}
@@ -53,8 +53,8 @@ const NewsTemplate = props => {
 		props.data.contentfulNews &&
 		props.data.contentfulNews.edges.filter(
 			newsItem =>
-				newsItem.node.reference
-					? newsItem.node.reference.id === group.id
+				newsItem.node.groupRef
+					? newsItem.node.groupRef.id === group.id
 					: false,
 		);
 
