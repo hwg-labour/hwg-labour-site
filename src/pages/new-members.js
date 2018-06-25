@@ -11,7 +11,7 @@ import { Button, Container, Header, Segment, } from "semantic-ui-react";
 
 // ----------------------------------------------------
 
-const IndexPage = props => (
+const NewMembers = () => (
 	<div>
 		<TopImage src = { banner } />
 
@@ -22,8 +22,7 @@ const IndexPage = props => (
 				</Header>
 
 				<p style = { { fontSize: "1.33em", } }>
-					Welcome to the Hornsey and Wood Green Constituency Labour
-					Party (HWGCLP).
+					Welcome to the Hornsey and Wood Green Constituency Labour Party (HWGCLP).
 				</p>
 
 				<p>
@@ -45,8 +44,8 @@ const IndexPage = props => (
 
 				<p style = { { fontSize: "1.33em", } }>
 					If you're not yet a Labour member, you can join{" "}
-					<a href = "https://join.labour.org.uk/">here</a>, to help us
-					campaign for a fairer Britain.
+					
+					<a href = "https://join.labour.org.uk/">here</a>, to help us campaign for a fairer Britain.
 				</p>
 
 				<Button size = "huge" as = { "a" } to = "https://join.labour.org.uk/">
@@ -62,9 +61,7 @@ const IndexPage = props => (
 				</Header>
 
 				<p style = { { fontSize: "1.33em", } }>
-					Hornsey and Wood Green is divided into 10 wards. If you
-					don't know which is your local ward, you can use the
-					ward-finder tool below.
+					Hornsey and Wood Green is divided into 10 wards. If you don't know which is your local ward, you can use the ward-finder tool below.
 				</p>
 
 				<Button
@@ -84,8 +81,7 @@ const IndexPage = props => (
 				</Header>
 
 				<p style = { { fontSize: "1.33em", } }>
-					The best way to get involved is by coming along to one of
-					our campaign events!
+					The best way to get involved is by coming along to one of our campaign events!
 				</p>
 
 				<Button size = "huge" as = { Link } to = "/campaigning">
@@ -101,8 +97,7 @@ const IndexPage = props => (
 				</Header>
 
 				<p style = { { fontSize: "1.33em", } }>
-					Getting involved with the Labour party is a great way of
-					meeting like-minded, active local residents.
+					Getting involved with the Labour party is a great way of meeting like-minded, active local residents.
 				</p>
 
 				<Button size = "huge" as = { Link } to = "/whats-on">
@@ -113,4 +108,4 @@ const IndexPage = props => (
 	</div>
 );
 
-export default IndexPage;
+export default NewMembers;

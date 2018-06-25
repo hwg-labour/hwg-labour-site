@@ -45,19 +45,19 @@ export const GroupItemQuery = graphql`
 
 // ----------------------------------------------------
 
-const GroupTemplate = props => {
-	const group = props.data.contentfulGroup;
+const GroupTemplate = ( { data, }, ) => {
+	const group = data.contentfulGroup;
 
 	const news =
-		props.data.contentfulNews &&
-		props.data.contentfulNews.edges.filter(
+		data.contentfulNews &&
+		data.contentfulNews.edges.filter(
 			newsItem =>
 				newsItem.node.groupRef
 					? newsItem.node.groupRef.id === group.id
 					: false,
 		);
 
-	console.log(group.id, props.data.contentfulNews);
+	console.log(group.id, data.contentfulNews);
 
 	return (
 		<div>
@@ -115,7 +115,10 @@ const GroupTemplate = props => {
 };
 
 GroupTemplate.propTypes = {
-	data: PropTypes.object,
+	data: PropTypes.shape({
+		contentfulGroup: PropTypes.object,
+		contentfulNews: PropTypes.object,
+	}),
 };
 
 export default GroupTemplate;

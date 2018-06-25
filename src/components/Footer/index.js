@@ -9,8 +9,8 @@ import Link from "gatsby-link";
 
 // ----------------------------------------------------
 
-const Footer = props => {
-	const upcomingEvents = props.events.edges
+const Footer = ( { events, }, ) => {
+	const upcomingEvents = events.edges
 		.filter( event => {
 			const eventDate = event.node.date;
 
@@ -29,8 +29,6 @@ const Footer = props => {
 			);
 		})
 		.slice(1, 3);
-
-	console.log(upcomingEvents);
 
 	return (
 		<Segment color = "grey" style = { { padding: "5em 0em", } } inverted vertical>

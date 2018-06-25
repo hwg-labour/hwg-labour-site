@@ -1,5 +1,6 @@
 import banner from "../images/banner-3.jpg";
 import Link from "gatsby-link";
+import PropTypes from "prop-types";
 import React from "react";
 
 import { TopImage, } from "../components/TopImage";
@@ -41,8 +42,8 @@ export const WhatsOnQuery = graphql`
 
 // ----------------------------------------------------
 
-const WhatsOn = props => {
-	const upcomingEvents = props.data.contentfulEvents.edges
+const WhatsOn = ( { data, }, ) => {
+	const upcomingEvents = data.contentfulEvents.edges
 		.filter( event => event.node.socialEvent === true ) // Campaigning only shows non-social
 		.filter( event => {
 			return (
@@ -106,7 +107,13 @@ const WhatsOn = props => {
 				</Container>
 			</Segment>
 		</div>
-	)
+	);
+};
+
+WatsOn.propTypes = {
+	data: PropTypes.shape({
+		contentfulEvents: PropTypes.object,
+	}),
 };
 
 export default WhatsOn;

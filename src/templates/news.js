@@ -25,25 +25,25 @@ export const NewsItemQuery = graphql`
 
 // ----------------------------------------------------
 
-const NewsTemplate = props => (
+const NewsTemplate = ( { data, }, ) => (
 	<div>
-		{props.data.contentfulNews.image && (
+		{data.contentfulNews.image && (
 			<TopImage
 				src = {
 					"https://res.cloudinary.com/codogo/image/fetch/w_1500,c_fill,g_face,f_auto/https:" +
-					props.data.contentfulNews.image.file.url
+					data.contentfulNews.image.file.url
 				}
 			/>
 		)}
 
 		<Segment style = { { padding: "8em 0em", } } vertical>
 			<Container text>
-				<Header as = "h1">{props.data.contentfulNews.title}</Header>
+				<Header as = "h1">{data.contentfulNews.title}</Header>
 
 				<div
 					dangerouslySetInnerHTML = { {
 						__html: marked(
-							props.data.contentfulNews.content.content,
+							data.contentfulNews.content.content,
 						),
 					} }
 				/>
@@ -53,7 +53,9 @@ const NewsTemplate = props => (
 );
 
 NewsTemplate.propTypes = {
-	data: PropTypes.object,
+	data: PropTypes.shape({
+		contentfulNews: PropTypes.object,
+	}),
 };
 
 export default NewsTemplate;

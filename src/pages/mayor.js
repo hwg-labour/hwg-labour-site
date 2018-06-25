@@ -1,12 +1,12 @@
-import React from "react";
-
 import { Button, Container, Header, Segment, } from "semantic-ui-react";
 
-// ----------------------------------------------------
+import React from "react";
 
 // ----------------------------------------------------
 
-const IndexPage = () => (
+// ----------------------------------------------------
+
+const Mayor = () => (
 	<Segment style = { { padding: "8em 0em", } } vertical>
 		<Container text>
 			<Header as = "h3">Your Mayor</Header>
@@ -74,4 +74,4 @@ const IndexPage = () => (
 	</Segment>
 );
 
-export default IndexPage;
+export default Mayor;

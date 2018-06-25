@@ -6,7 +6,7 @@ import { Button, Container, Header, Segment, } from "semantic-ui-react";
 
 // ----------------------------------------------------
 
-const IndexPage = () => (
+const MP = () => (
 	<div>
 		<Segment style = { { padding: "8em 0em", } } vertical>
 			<Container text>
@@ -67,6 +67,7 @@ const IndexPage = () => (
 
 				<p>
 					<b>Email</b>:{" "}
+
 					<a href = "mailto:catherine.west.mp@parliament.uk">
 						catherine.west.mp@parliament.uk
 					</a>
@@ -82,11 +83,13 @@ const IndexPage = () => (
 
 				<p>
 					<b>Twitter</b>:{" "}
+
 					<a href = "www.twitter.com/CatherineWest1">@CatherineWest1</a>
 				</p>
 
 				<p>
 					<b>Facebook</b>:{" "}
+					
 					<a href = "www.facebook.com/CatherineWestMP">
 						CatherineWestMP
 					</a>
@@ -96,4 +99,4 @@ const IndexPage = () => (
 	</div>
 );
 
-export default IndexPage;
+export default MP;

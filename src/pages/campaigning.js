@@ -42,8 +42,8 @@ export const CampaigningQuery = graphql`
 
 // ----------------------------------------------------
 
-const Campaigning = props => {
-	const upcomingEvents = props.data.contentfulEvents.edges
+const Campaigning = ( { data, }, ) => {
+	const upcomingEvents = data.contentfulEvents.edges
 		.filter( event => event.node.socialEvent === false ) // Campaigning only shows non-social
 		.filter( event => {
 			return (

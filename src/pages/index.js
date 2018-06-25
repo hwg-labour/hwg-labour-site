@@ -1,13 +1,13 @@
-import React from "react";
-import Link from "gatsby-link";
-
 import { Button, Container, Header, Segment, } from "semantic-ui-react";
 
-// ----------------------------------------------------
+import Link from "gatsby-link";
+import React from "react";
 
 // ----------------------------------------------------
 
-const IndexPage = props => (
+// ----------------------------------------------------
+
+const Home = () => (
 	<div>
 		<Segment style = { { padding: "8em 0em", } } vertical>
 			<Container text>
@@ -53,4 +53,4 @@ const IndexPage = props => (
 	</div>
 );
 
-export default IndexPage;
+export default Home;
