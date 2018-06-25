@@ -1,7 +1,7 @@
+import PropTypes from "prop-types";
 import React from "react";
 
 import { Container, Divider, Grid, Header, Segment, } from "semantic-ui-react";
-
 import { NewsItem, } from "../components/ListItems";
 
 // ----------------------------------------------------
@@ -33,8 +33,8 @@ export const NewsQuery = graphql`
 
 // ----------------------------------------------------
 
-const IndexPage = props => {
-	const news = props.data.contentfulNews.edges
+const News = ( { data, }, ) => {
+	const news = data.contentfulNews.edges
 		.filter(news => news.node.newsSection === true)
 		.sort(function(a, b) {
 			return (
@@ -78,4 +78,10 @@ const IndexPage = props => {
 	);
 };
 
-export default IndexPage;
+News.propTypes = {
+	data: PropTypes.shape({
+		contentfulNews: PropTypes.object,
+	}),
+};
+
+export default News;

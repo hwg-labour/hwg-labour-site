@@ -1,12 +1,10 @@
-import React from "react";
+import banner from "../images/banner-1.jpg";
 import Link from "gatsby-link";
-import styled from "styled-components";
+import React from "react";
 import slugify from "slugify";
+import styled from "styled-components";
 
 import { TopImage, } from "../components/TopImage";
-
-import banner from "../images/banner-1.jpg";
-
 import {
 	Container,
 	Divider,
@@ -17,8 +15,6 @@ import {
 	Button,
 	Icon,
 } from "semantic-ui-react";
-
-import profileImage from "../images/profile-pic.png";
 
 // ----------------------------------------------------
 
@@ -61,7 +57,7 @@ const WardDivider = styled(Divider)`
 
 // ----------------------------------------------------
 
-const IndexPage = props => (
+const Wards = ( { data, }, ) => (
 	<div>
 		<TopImage src = { banner } />
 
@@ -91,7 +87,7 @@ const IndexPage = props => (
 		<Segment style = { { padding: "3em 0em", } } vertical>
 			<Container text>
 				<Grid columns = { 2 } stackable>
-					{props.data.contentfulWards.edges
+					{data.contentfulWards.edges
 						.sort((x, y) => {
 							return x.node.name.toUpperCase() <
 								y.node.name.toUpperCase()
@@ -132,4 +128,10 @@ const IndexPage = props => (
 	</div>
 );
 
-export default IndexPage;
+Wards.propTypes = {
+	data: PropTypes.shape({
+		contentfulWards: PropTypes.object,
+	}),
+};
+
+export default Wards;

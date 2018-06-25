@@ -74,18 +74,18 @@ export const WardItemQuery = graphql`
 
 // ----------------------------------------------------
 
-const WardTemplate = props => {
-	const ward = props.data.contentfulWard;
+const WardTemplate = ( { data, }, ) => {
+	const ward = data.contentfulWard;
 
 	const candidates =
-		props.data.contentfulCandidates &&
-		props.data.contentfulCandidates.edges.filter(
+		data.contentfulCandidates &&
+		data.contentfulCandidates.edges.filter(
 			candidate => candidate.node.ward.id === ward.id,
 		);
 
 	const news =
-		props.data.contentfulNews &&
-		props.data.contentfulNews.edges.filter(
+		data.contentfulNews &&
+		data.contentfulNews.edges.filter(
 			newsItem =>
 				newsItem.node.wardRef
 					? newsItem.node.wardRef.id === ward.id
@@ -94,7 +94,6 @@ const WardTemplate = props => {
 
 	return (
 		<div>
-			{console.log(props)}
 			{ward &&
 				ward.image && (
 				<TopImage
@@ -223,7 +222,11 @@ const WardTemplate = props => {
 };
 
 WardTemplate.propTypes = {
-	data: PropTypes.object,
+	data: PropTypes.shape({
+		contentfulCandidates: PropTypes.object,
+		contentfulGroup: PropTypes.object,
+		contentfulWard: PropTypes.object,
+	}),
 };
 
 export default WardTemplate;

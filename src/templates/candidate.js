@@ -39,7 +39,7 @@ export const CandidateItemQuery = graphql`
 
 // ----------------------------------------------------
 
-const CandidateTemplate = props => (
+const CandidateTemplate = ( { data, }, ) => (
 	<Segment style = { { padding: "8em 0em", } } vertical>
 		<Container text>
 			<Grid columns = { 3 } stackable>
@@ -48,9 +48,9 @@ const CandidateTemplate = props => (
 						<Image
 							src = { `
 								${
-	props.data.contentfulCandidate.image
+	data.contentfulCandidate.image
 		? "https://res.cloudinary.com/codogo/image/fetch/h_530,w_430,c_fill,g_face,f_auto/https:" +
-											props.data.contentfulCandidate.image
+											data.contentfulCandidate.image
 												.file.url
 		: profileImage
 	}` }
@@ -59,19 +59,19 @@ const CandidateTemplate = props => (
 
 					<Grid.Column width = { 10 }>
 						<Header as = "h1">
-							{props.data.contentfulCandidate.name}
+							{data.contentfulCandidate.name}
 						</Header>
 
 						<Link
 							to = {
 								"/wards/" +
 								slugify(
-									props.data.contentfulCandidate.ward.name,
+									data.contentfulCandidate.ward.name,
 								)
 							}
 							color = "#ababab"
 						>
-							{props.data.contentfulCandidate.ward.name}
+							{data.contentfulCandidate.ward.name}
 						</Link>
 
 						<br />
@@ -81,7 +81,7 @@ const CandidateTemplate = props => (
 							<div
 								dangerouslySetInnerHTML = { {
 									__html: marked(
-										props.data.contentfulCandidate
+										data.contentfulCandidate
 											.shortBiography,
 									),
 								} }
@@ -93,7 +93,7 @@ const CandidateTemplate = props => (
 						<div
 							dangerouslySetInnerHTML = { {
 								__html: marked(
-									props.data.contentfulCandidate.biography
+									data.contentfulCandidate.biography
 										.biography,
 								),
 							} }
@@ -101,44 +101,44 @@ const CandidateTemplate = props => (
 
 						<br />
 
-						{props.data.contentfulCandidate.email && (
+						{data.contentfulCandidate.email && (
 							<p>
 								Email:
 								<Link
 									to = {
 										"mailto:" +
-										props.data.contentfulCandidate.email
+										data.contentfulCandidate.email
 									}
 								>
-									{props.data.contentfulCandidate.email}
+									{data.contentfulCandidate.email}
 								</Link>
 							</p>
 						)}
 
-						{props.data.contentfulCandidate.twitter && (
+						{data.contentfulCandidate.twitter && (
 							<p>
 								Twitter:
 								<Link
 									to = {
 										"www.twitter.com/" +
-										props.data.contentfulCandidate.twitter
+										data.contentfulCandidate.twitter
 									}
 								>
-									{props.data.contentfulCandidate.twitter}
+									{data.contentfulCandidate.twitter}
 								</Link>
 							</p>
 						)}
 
-						{props.data.contentfulCandidate.telephone && (
+						{data.contentfulCandidate.telephone && (
 							<p>
 								Telephone:
 								<Link
 									to = {
 										"tel:" +
-										props.data.contentfulCandidate.telephone
+										data.contentfulCandidate.telephone
 									}
 								>
-									{props.data.contentfulCandidate.telephone}
+									{data.contentfulCandidate.telephone}
 								</Link>
 							</p>
 						)}
@@ -150,7 +150,9 @@ const CandidateTemplate = props => (
 );
 
 CandidateTemplate.propTypes = {
-	data: PropTypes.object,
+	data: PropTypes.shape({
+		contentfulCandidate: PropTypes.object,
+	}),
 };
 
 export default CandidateTemplate;

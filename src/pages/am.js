@@ -6,7 +6,7 @@ import { Container, Header, Segment, Button, } from "semantic-ui-react";
 
 // ----------------------------------------------------
 
-const IndexPage = () => (
+const AM = () => (
 	<div>
 		<Segment style = { { padding: "8em 0em", } } vertical>
 			<Container text>
@@ -93,4 +93,4 @@ const IndexPage = () => (
 	</div>
 );
 
-export default IndexPage;
+export default AM;
