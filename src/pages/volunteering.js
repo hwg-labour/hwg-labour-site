@@ -1,16 +1,14 @@
-import React from "react";
-
 import { Button, Container, Link, Header, Segment, } from "semantic-ui-react";
-
 import { TopImage, } from "../components/TopImage";
 
 import banner from "../images/banner-4.jpg";
+import React from "react";
 
 // ----------------------------------------------------
 
 // ----------------------------------------------------
 
-const IndexPage = props => (
+const Volunteering = () => (
 	<div>
 		<TopImage src = { banner } />
 
@@ -21,19 +19,15 @@ const IndexPage = props => (
 				</Header>
 
 				<p style = { { fontSize: "1.33em", } }>
-					We welcome all volunteers, whatever your skill-set or
-					interests!
+					We welcome all volunteers, whatever your skill-set or interests!
 				</p>
 
 				<p>
-					We need people for leaflet delivery, doorstep campaigning,
-					street stalls, phoning potential voters, envelope stuffing
-					and many other tasks.
+					We need people for leaflet delivery, doorstep campaigning, street stalls, phoning potential voters, envelope stuffing and many other tasks.
 				</p>
 
 				<p>
-					If you have specialist skills, such as in IT, marketing or
-					design, we would like to hear from you.
+					If you have specialist skills, such as in IT, marketing or design, we would like to hear from you.
 				</p>
 
 				<Button size = "huge" as = { Link } to = "/contact-us">
@@ -44,4 +38,4 @@ const IndexPage = props => (
 	</div>
 );
 
-export default IndexPage;
+export default Volunteering;

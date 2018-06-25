@@ -1,17 +1,14 @@
+import banner from "../images/banner-5.jpg";
 import React from "react";
-import Link from "gatsby-link";
 
 import { TopImage, } from "../components/TopImage";
-
-import banner from "../images/banner-5.jpg";
-
-import { Button, Container, Divider, Header, Segment, } from "semantic-ui-react";
+import { Container, Header, Segment, } from "semantic-ui-react";
 
 // ----------------------------------------------------
 
 // ----------------------------------------------------
 
-const IndexPage = props => (
+const ContactUs = () => (
 	<div>
 		<TopImage src = { banner } />
 
@@ -27,6 +24,7 @@ const IndexPage = props => (
 
 				<p>
 					<b>Email</b>:{" "}
+					
 					<a href = "mailto:labourinharingey@gmail.com">
 						labourinharingey@gmail.com
 					</a>
@@ -42,11 +40,13 @@ const IndexPage = props => (
 
 				<p>
 					<b>Twitter</b>:{" "}
+
 					<a href = "https://twitter.com/LabourHWG">@LabourHWG</a>
 				</p>
 
 				<p>
 					<b>Facebook</b>:{" "}
+
 					<a href = "https://www.facebook.com/HornseyWoodGreenLabour/">
 						HornseyWoodGreenLabour
 					</a>
@@ -56,4 +56,4 @@ const IndexPage = props => (
 	</div>
 );
 
-export default IndexPage;
+export default ContactUs;

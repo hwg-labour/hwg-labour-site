@@ -1,9 +1,9 @@
+import Logo from "./Logo";
+import PropTypes from "prop-types";
 import React from "react";
 import slugify from "slugify";
 
 import { Nav, } from "codogo-nav";
-
-import Logo from "./Logo";
 
 // ----------------------------------------------------
 
@@ -104,7 +104,7 @@ const WardsDropdown = ({ edges, }) =>
 
 // ----------------------------------------------------
 
-const Navigation = props => (
+const Navigation = ( { homepage, wards, groups, }, ) => (
 	<Nav
 		logo = { <Logo /> }
 		fontSize = { { xs: "1.1em", other: "0.9em", } }
@@ -112,8 +112,8 @@ const Navigation = props => (
 		color = { { xs: "white", other: "white", } }
 		backgroundColor = { { xs: "#D9292F", other: "#D9292F", } }
 		highlightColor = { { xs: "#fff", other: "#ddd", } }
-		clear = { props.homepage ? true : false }
-		fixed = { props.homepage ? false : true }
+		clear = { homepage ? true : false }
+		fixed = { homepage ? false : true }
 		links = { [
 			{
 				as: "gatsby-link",
@@ -126,7 +126,7 @@ const Navigation = props => (
 				to: "/wards/",
 				content: "Wards",
 				dropdown: [
-					...WardsDropdown(props.wards),
+					...WardsDropdown(wards),
 					{
 						to:
 							"http://www.haringey.gov.uk/local-democracy/councillors-and-mps/find-my-ward",
@@ -139,7 +139,7 @@ const Navigation = props => (
 				as: "gatsby-link",
 				to: "/groups/",
 				content: "Forums & Groups",
-				dropdown: GroupsDropdown(props.groups),
+				dropdown: GroupsDropdown(groups),
 			},
 			{
 				as: "gatsby-link",
@@ -172,5 +172,11 @@ const Navigation = props => (
 		] }
 	/>
 );
+
+Navigation.propTypes = {
+	homepage: PropTypes.bool,
+	wards: PropTypes.object,
+	groups: PropTypes.object,
+};
 
 export default Navigation;

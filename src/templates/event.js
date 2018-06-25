@@ -28,27 +28,27 @@ export const EventItemQuery = graphql`
 
 // ----------------------------------------------------
 
-const EventTemplate = props => (
+const EventTemplate = ( { data, }, ) => (
 	<div>
-		{props.data.contentfulEvent.image && (
+		{data.contentfulEvent.image && (
 			<TopImage
 				src = {
 					"https://res.cloudinary.com/codogo/image/fetch/w_1500,c_fill,g_face,f_auto/https:" +
-					props.data.contentfulEvent.image.file.url
+					data.contentfulEvent.image.file.url
 				}
 			/>
 		)}
 
 		<Segment style = { { padding: "8em 0em", } } vertical>
 			<Container text>
-				{props.data.contentfulEvent.membersOnly && (
+				{data.contentfulEvent.membersOnly && (
 					<p style = { { color: "#aaaaaa", } }>Members only</p>
 				)}
 
-				<Header as = "h1">{props.data.contentfulEvent.title}</Header>
+				<Header as = "h1">{data.contentfulEvent.title}</Header>
 
 				<div>
-					<b>{props.data.contentfulEvent.description}</b>
+					<b>{data.contentfulEvent.description}</b>
 				</div>
 
 				<br />
@@ -56,7 +56,7 @@ const EventTemplate = props => (
 				<div
 					dangerouslySetInnerHTML = { {
 						__html: marked(
-							props.data.contentfulEvent.content.content,
+							data.contentfulEvent.content.content,
 						),
 					} }
 				/>
@@ -66,7 +66,9 @@ const EventTemplate = props => (
 );
 
 EventTemplate.propTypes = {
-	data: PropTypes.object,
+	data: PropTypes.shape({
+		contentfulEvent: PropTypes.object,
+	}),
 };
 
 export default EventTemplate;

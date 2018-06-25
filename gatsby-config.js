@@ -1,19 +1,19 @@
 module.exports = {
 	siteMetadata: {
-		title: 'Hornsey and Wood Green Labour Party',
+		title: "Hornsey and Wood Green Labour Party",
 	},
 	plugins: [
-		'gatsby-plugin-react-helmet',
-		'gatsby-plugin-styled-components',
+		"gatsby-plugin-react-helmet",
+		"gatsby-plugin-styled-components",
 		{
-			resolve: `gatsby-source-contentful`,
+			resolve: "gatsby-source-contentful",
 			options: {
-				spaceId: `j8b2h64cwsnc`,
-				accessToken: `436c7978b66fd59e69bce0c8e9b14e106713d17939960d08e96ed4525a8ede09`,
+				spaceId: "j8b2h64cwsnc",
+				accessToken: "436c7978b66fd59e69bce0c8e9b14e106713d17939960d08e96ed4525a8ede09",
 			},
 		},
 		{
-			resolve: `gatsby-plugin-favicon`,
+			resolve: "gatsby-plugin-favicon",
 			options: {
 				logo: "./src/images/favicon.png",
 				injectHTML: true,
@@ -31,7 +31,7 @@ module.exports = {
 			},
 		},
 		{
-			resolve: `gatsby-plugin-google-analytics`,
+			resolve: "gatsby-plugin-google-analytics",
 			options: {
 				trackingId: "UA-118480978-1", // Puts tracking script in the head instead of the body
 				head: false, // Setting this parameter is optional
