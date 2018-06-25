@@ -1,10 +1,11 @@
-import React from "react";
-import styled from "styled-components";
-import Link from "gatsby-link";
-import slugify from "slugify";
-import Moment from "moment";
-
 import { Button, Divider, Grid, Header, Icon, Image, } from "semantic-ui-react";
+
+import Link from "gatsby-link";
+import Moment from "moment";
+import PropTypes from "prop-types";
+import React from "react";
+import slugify from "slugify";
+import styled from "styled-components";
 
 // ----------------------------------------------------
 
@@ -25,32 +26,32 @@ const NewsDivider = styled(Divider)`
 
 // ----------------------------------------------------
 
-export const NewsItem = ({ newsItem, }) => (
-	<Grid.Row key = { newsItem.id + "-newsitem" }>
+const NewsItem = ( { news, } ) => (
+	<Grid.Row key = { news.id + "-news" }>
 		<Grid.Column>
 			<NewsThumbnail
 				src = {
 					"https://res.cloudinary.com/codogo/image/fetch/w_800,c_fill,g_face,f_auto/https:" +
-					newsItem.image.file.url
+					news.image.file.url
 				}
 				as = { Link }
-				to = { "/news/" + slugify(newsItem.title) }
+				to = { "/news/" + slugify(news.title) }
 			/>
 		</Grid.Column>
 
 		<Grid.Column>
-			<Header as = "h3">{newsItem.title}</Header>
+			<Header as = "h3">{news.title}</Header>
 
 			<p style = { { color: "#aaaaaa", } }>
-				{Moment(newsItem.publishingDate).format("MMMM Do YYYY")}
+				{Moment(news.publishingDate).format("MMMM Do YYYY")}
 			</p>
 
-			<p>{newsItem.description.description}</p>
+			<p>{news.description.description}</p>
 
 			<Button
 				as = { Link }
 				size = "small"
-				to = { "/news/" + slugify(newsItem.title) }
+				to = { "/news/" + slugify(news.title) }
 			>
 				Read more <Icon name = "right arrow" />
 			</Button>
@@ -59,3 +60,9 @@ export const NewsItem = ({ newsItem, }) => (
 		<NewsDivider section />
 	</Grid.Row>
 );
+
+NewsItem.propTypes = {
+	news: PropTypes.object,
+};
+
+export { NewsItem, };

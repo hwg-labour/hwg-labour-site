@@ -1,40 +1,19 @@
-import React from "react";
-import styled from "styled-components";
+import banner from "../images/banner-3.jpg";
 import Link from "gatsby-link";
-import slugify from "slugify";
-import Moment from "moment";
+import React from "react";
 
 import { TopImage, } from "../components/TopImage";
-
-import banner from "../images/banner-3.jpg";
-
+import { EventItem, } from "../components/ListItems";
 import {
 	Button,
 	Container,
 	Divider,
 	Grid,
 	Header,
-	Icon,
-	Image,
 	Segment,
 } from "semantic-ui-react";
 
 // ----------------------------------------------------
-
-const NewsThumbnail = styled(Image)`
-	.ui.label {
-		background-color: rgba(255, 255, 255, 0.7);
-		width: 100%;
-		position: absolute;
-		bottom: 0;
-		border-radius: 0;
-		font-size: 1.33em;
-	}
-`;
-
-const NewsDivider = styled(Divider)`
-	width: 100%;
-`;
 
 // ----------------------------------------------------
 
@@ -62,114 +41,72 @@ export const WhatsOnQuery = graphql`
 
 // ----------------------------------------------------
 
-const IndexPage = props => (
-	<div>
-		<TopImage src = { banner } />
+const WhatsOn = props => {
+	const upcomingEvents = props.data.contentfulEvents.edges
+		.filter( event => event.node.socialEvent === true ) // Campaigning only shows non-social
+		.filter( event => {
+			return (
+				new Date(event.node.date).getTime() >=
+					new Date().getTime() ||
+				(new Date(event.node.date).getFullYear() ===
+					new Date().getFullYear() &&
+					new Date(event.node.date).getMonth() ===
+						new Date().getMonth() &&
+					new Date(event.node.date).getDate() ===
+						new Date().getDate())
+			);
+		})
+		.sort(function(a, b) {
+			return (
+				new Date(a.node.date).getTime() -
+				new Date(b.node.date).getTime()
+			);
+		});
 
-		<Segment vertical style = { { padding: "8em 0em", } }>
-			<Container text>
-				<Header as = "h1">What's On</Header>
+	return (
+		<div>
+			<TopImage src = { banner } />
 
-				<p style = { { fontSize: "1.33em", } }>
-					Social events are advertised here - get involved with labour
-					in your area!
-				</p>
+			<Segment vertical style = { { padding: "8em 0em", } }>
+				<Container text>
+					<Header as = "h1">What's On</Header>
 
-				<p>
-					If you're interested in campaigning with us, you can see our
-					campaigns calendar <Link to = "/campaigning">here</Link>.
-				</p>
+					<p style = { { fontSize: "1.33em", } }>
+						Social events are advertised here - get involved with labour
+						in your area!
+					</p>
 
-				<Button size = "huge" as = { Link } to = "/campaigning">
-					Campaigning
-				</Button>
+					<p>
+						If you're interested in campaigning with us, you can see our
+						campaigns calendar <Link to = "/campaigning">here</Link>.
+					</p>
 
-				<Divider
-					as = "h4"
-					className = "header"
-					horizontal
-					style = { { margin: "3em 0em", textTransform: "uppercase", } }
-				>
-					Upcoming events
-				</Divider>
+					<Button size = "huge" as = { Link } to = "/campaigning">
+						Campaigning
+					</Button>
 
-				<Grid columns = { 2 } stackable>
-					{props.data.contentfulEvents &&
-						props.data.contentfulEvents.edges
-							.filter(event => event.node.socialEvent === true)
-							.filter(event => {
-								return (
-									new Date(event.node.date).getTime() >=
-										new Date().getTime() ||
-									(new Date(event.node.date).getFullYear() ===
-										new Date().getFullYear() &&
-										new Date(event.node.date).getMonth() ===
-											new Date().getMonth() &&
-										new Date(event.node.date).getDate() ===
-											new Date().getDate())
-								);
-							})
-							.sort(function(a, b) {
-								return (
-									new Date(a.node.date).getTime() -
-									new Date(b.node.date).getTime()
-								);
-							})
-							.map(event => (
-								<Grid.Row key = { event.node.id + "-event" }>
-									<Grid.Column>
-										<NewsThumbnail
-											src = {
-												"https://res.cloudinary.com/codogo/image/fetch/w_800,c_fill,g_face,f_auto/https:" +
-												event.node.image.file.url
-											}
-											as = { Link }
-											to = {
-												"/events/" +
-												slugify(event.node.title)
-											}
-										/>
-									</Grid.Column>
+					<Divider
+						as = "h4"
+						className = "header"
+						horizontal
+						style = { { margin: "3em 0em", textTransform: "uppercase", } }
+					>
+						Upcoming events
+					</Divider>
 
-									<Grid.Column>
-										<Header as = "h3">
-											{event.node.title}
-										</Header>
+					<Grid columns = { 2 } stackable>
+						{ upcomingEvents ? 
+							upcomingEvents
+								.map(event => (
+									<EventItem event = { event }/>
+								))
+							: <div>No upcoming events</div>
+						}
+					</Grid>
+				</Container>
+			</Segment>
+		</div>
+	)
+};
 
-										<p style = { { color: "#aaaaaa", } }>
-											{Moment(event.node.date).format(
-												"MMMM Do YYYY",
-											)}
-										</p>
-
-										{event.node.membersOnly && (
-											<p style = { { color: "#aaaaaa", } }>
-												Members only
-											</p>
-										)}
-
-										<p>{event.node.description}</p>
-
-										<Button
-											as = { Link }
-											size = "small"
-											to = {
-												"/events/" +
-												slugify(event.node.title)
-											}
-										>
-											Read more{" "}
-											<Icon name = "right arrow" />
-										</Button>
-									</Grid.Column>
-
-									<NewsDivider section />
-								</Grid.Row>
-							))}
-				</Grid>
-			</Container>
-		</Segment>
-	</div>
-);
-
-export default IndexPage;
+export default WhatsOn;

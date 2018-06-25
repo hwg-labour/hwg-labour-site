@@ -89,8 +89,8 @@ exports.createPages = ({ boundActionCreators, graphql }) => {
 					createPage({
 						path,
 						component: GroupTemplate,
-						context: { // In your blog post template's graphql query, you can use path as a GraphQL variable to query for data from the markdown file.
-							path,
+						context: {
+							slug: path,
 							id,
 						},
 					});
@@ -105,8 +105,8 @@ exports.createPages = ({ boundActionCreators, graphql }) => {
 						path,
 						component: WardTemplate,
 						//layout: `ward-layout`, // If you have a layout component at src/layouts/blog-layout.js
-						context: { // In your blog post template's graphql query, you can use path as a GraphQL variable to query for data from the markdown file.
-							path,
+						context: {
+							slug: path,
 							id,
 						},
 					});
@@ -121,8 +121,8 @@ exports.createPages = ({ boundActionCreators, graphql }) => {
 						path,
 						component: CandidateTemplate,
 						//layout: `ward-layout`, // If you have a layout component at src/layouts/blog-layout.js
-						context: { // In your blog post template's graphql query, you can use path as a GraphQL variable to query for data from the markdown file.
-							path,
+						context: {
+							slug: path,
 							id,
 						},
 					});
@@ -137,8 +137,8 @@ exports.createPages = ({ boundActionCreators, graphql }) => {
 						path,
 						component: NewsTemplate,
 						//layout: `ward-layout`, // If you have a layout component at src/layouts/blog-layout.js
-						context: { // In your blog post template's graphql query, you can use path as a GraphQL variable to query for data from the markdown file.
-							path,
+						context: {
+							slug: path,
 							id,
 						},
 					});
@@ -152,8 +152,8 @@ exports.createPages = ({ boundActionCreators, graphql }) => {
 					createPage({
 						path,
 						component: EventTemplate,
-						context: { // In your blog post template's graphql query, you can use path as a GraphQL variable to query for data from the markdown file.
-							path,
+						context: {
+							slug: path,
 							id,
 						},
 					});

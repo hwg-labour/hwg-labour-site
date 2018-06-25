@@ -1,9 +1,3 @@
-import React from "react";
-import styled from "styled-components";
-import Link from "gatsby-link";
-import marked from "marked";
-import slugify from "slugify";
-
 import {
 	Container,
 	Divider,
@@ -12,12 +6,15 @@ import {
 	Image,
 	Segment,
 } from "semantic-ui-react";
-
+import profileImage from "../images/profile-pic.png";
+import { NewsItem, } from "../components/ListItems";
 import { TopImage, } from "../components/TopImage";
 
-import profileImage from "../images/profile-pic.png";
-
-import { NewsItem, } from "../components/News";
+import Link from "gatsby-link";
+import marked from "marked";
+import PropTypes from "prop-types";
+import React from "react";
+import slugify from "slugify";
 
 // ----------------------------------------------------
 
@@ -77,7 +74,7 @@ export const WardItemQuery = graphql`
 
 // ----------------------------------------------------
 
-const NewsTemplate = props => {
+const WardTemplate = props => {
 	const ward = props.data.contentfulWard;
 
 	const candidates =
@@ -203,7 +200,7 @@ const NewsTemplate = props => {
 						Recent News
 					</Divider>
 
-					{news && (
+					{news.length >= 1 ? (
 						<Grid columns = { 2 } stackable>
 							{news
 								.sort(function(a, b) {
@@ -213,14 +210,20 @@ const NewsTemplate = props => {
 									);
 								})
 								.map(newsItem => (
-									<NewsItem newsItem = { newsItem.node } />
+									<NewsItem news = { newsItem.node } />
 								))}
 						</Grid>
-					)}
+					)
+						: <div>No recent news</div>
+					}
 				</Container>
 			</Segment>
 		</div>
 	);
 };
 
-export default NewsTemplate;
+WardTemplate.propTypes = {
+	data: PropTypes.object,
+};
+
+export default WardTemplate;
