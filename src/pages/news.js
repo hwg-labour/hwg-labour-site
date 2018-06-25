@@ -2,7 +2,7 @@ import React from "react";
 
 import { Container, Divider, Grid, Header, Segment, } from "semantic-ui-react";
 
-import { NewsItem, } from "../components/News";
+import { NewsItem, } from "../components/ListItems";
 
 // ----------------------------------------------------
 
@@ -68,7 +68,7 @@ const IndexPage = props => {
 					{news.length && (
 						<Grid columns = { 2 } stackable>
 							{news.map(newsItem => {
-								return <NewsItem newsItem = { newsItem.node } />;
+								return <NewsItem news = { newsItem.node } />;
 							})}
 						</Grid>
 					)}
