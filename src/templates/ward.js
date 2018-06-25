@@ -64,7 +64,7 @@ export const WardItemQuery = graphql`
 							url
 						}
 					}
-					reference {
+					wardRef {
 						id
 					}
 				}
@@ -90,8 +90,8 @@ const NewsTemplate = props => {
 		props.data.contentfulNews &&
 		props.data.contentfulNews.edges.filter(
 			newsItem =>
-				newsItem.node.reference
-					? newsItem.node.reference.id === ward.id
+				newsItem.node.wardRef
+					? newsItem.node.wardRef.id === ward.id
 					: false,
 		);
 
