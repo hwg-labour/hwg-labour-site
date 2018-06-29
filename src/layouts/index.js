@@ -41,23 +41,25 @@ export const MenuGroupsAndWards = graphql`
 
 // ----------------------------------------------------
 
-const TemplateWrapper = props => (
+const TemplateWrapper = ( { location, data, children, ...props }, ) => (
 	<Header
-		homepage = { props.location.pathname === "/" }
-		wards = { props.data.contentfulWards }
-		groups = { props.data.contentfulGroups }
-		candidates = { props.data.contentfulCandidates }
+		candidates = { data.contentfulCandidates }
+		groups = { data.contentfulGroups }
+		homepage = { location.pathname === "/" }
+		wards = { data.contentfulWards }
 	>
 		<Head />
 
-		{props.children(...props)}
+		{ children(...props) }
 
-		<Footer events = { props.data.contentfulEvents } />
+		<Footer events = { data.contentfulEvents } />
 	</Header>
 );
 
 TemplateWrapper.propTypes = {
 	children: PropTypes.func,
+	data: PropTypes.any,
+	location: PropTypes.any,
 };
 
 export default TemplateWrapper;

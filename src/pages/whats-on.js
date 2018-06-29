@@ -110,7 +110,7 @@ const WhatsOn = ( { data, }, ) => {
 	);
 };
 
-WatsOn.propTypes = {
+WhatsOn.propTypes = {
 	data: PropTypes.shape({
 		contentfulEvents: PropTypes.object,
 	}),

@@ -1,5 +1,6 @@
 import banner from "../images/banner-1.jpg";
 import Link from "gatsby-link";
+import PropTypes from "prop-types";
 import React from "react";
 import slugify from "slugify";
 import styled from "styled-components";
