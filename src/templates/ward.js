@@ -56,6 +56,7 @@ export const WardItemQuery = graphql`
 					description {
 						description
 					}
+					publishingDate
 					image {
 						file {
 							url
