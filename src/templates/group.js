@@ -29,6 +29,7 @@ export const GroupItemQuery = graphql`
 					description {
 						description
 					}
+					publishingDate
 					image {
 						file {
 							url
