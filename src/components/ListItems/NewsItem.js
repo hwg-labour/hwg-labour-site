@@ -10,13 +10,18 @@ import styled from "styled-components";
 // ----------------------------------------------------
 
 const NewsThumbnail = styled(Image)`
-	.ui.label {
+	.ui.image {
+		display: flex;
+	}
+
+	img {
 		background-color: rgba(255, 255, 255, 0.7);
 		width: 100%;
-		position: absolute;
-		bottom: 0;
 		border-radius: 0;
 		font-size: 1.33em;
+		max-height: 250px;
+		height: 100%;
+		object-fit: contain;
 	}
 `;
 
@@ -31,8 +36,9 @@ const NewsItem = ( { news, } ) => (
 		<Grid.Column>
 			<NewsThumbnail
 				src = {
-					"https://res.cloudinary.com/codogo/image/fetch/w_800,c_fill,g_face,f_auto/https:" +
-					news.image.file.url
+					( news.image && news.image.file) ?
+					`https://res.cloudinary.com/codogo/image/fetch/w_800,c_fill,g_face,f_auto/https:
+					${ news.image.file.url }` : "https://labour.org.uk/wp-content/uploads/2016/06/Search-homepage.jpg"
 				}
 				as = { Link }
 				to = { "/news/" + slugify(news.title) }
@@ -43,7 +49,7 @@ const NewsItem = ( { news, } ) => (
 			<Header as = "h3">{news.title}</Header>
 
 			<p style = { { color: "#aaaaaa", } }>
-				{Moment(news.publishingDate).format("MMMM Do YYYY")}
+				{ Moment(news.publishingDate).format("MMMM Do YYYY") }
 			</p>
 
 			<p>{news.description.description}</p>
