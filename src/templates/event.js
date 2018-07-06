@@ -30,36 +30,47 @@ export const EventItemQuery = graphql`
 
 const EventTemplate = ( { data, }, ) => (
 	<div>
-		{data.contentfulEvent.image && (
+		{ ( data.contentfulEvent.image && data.contentfulEvent.image.file ) && (
 			<TopImage
 				src = {
-					"https://res.cloudinary.com/codogo/image/fetch/w_1500,c_fill,g_face,f_auto/https:" +
-					data.contentfulEvent.image.file.url
+					data.contentfulEvent.image.file ?
+					`https://res.cloudinary.com/codogo/image/fetch/w_1500,c_fill,g_face,f_auto/https:${ data.contentfulEvent.image.file.url }` : 
+					"https://labour.org.uk/wp-content/uploads/2016/06/Search-homepage.jpg"
 				}
 			/>
 		)}
 
 		<Segment style = { { padding: "8em 0em", } } vertical>
 			<Container text>
-				{data.contentfulEvent.membersOnly && (
+				{
+					data.contentfulEvent.membersOnly &&
 					<p style = { { color: "#aaaaaa", } }>Members only</p>
-				)}
+				}
 
-				<Header as = "h1">{data.contentfulEvent.title}</Header>
+				{
+					data.contentfulEvent.title &&
+					<Header as = "h1">{data.contentfulEvent.title}</Header>
+				}
 
-				<div>
-					<b>{data.contentfulEvent.description}</b>
-				</div>
+				{ 
+					data.contentfulEvent.description &&
+					<div>
+						<b>{data.contentfulEvent.description}</b>
+					</div>
+				}
 
 				<br />
 
-				<div
-					dangerouslySetInnerHTML = { {
-						__html: marked(
-							data.contentfulEvent.content.content,
-						),
-					} }
-				/>
+				{ 
+					data.contentfulEvent.content &&
+					<div
+						dangerouslySetInnerHTML = { {
+							__html: marked(
+								data.contentfulEvent.content.content,
+							),
+						} }
+					/>
+				}
 			</Container>
 		</Segment>
 	</div>

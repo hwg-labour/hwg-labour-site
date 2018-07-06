@@ -27,26 +27,30 @@ export const NewsItemQuery = graphql`
 
 const NewsTemplate = ( { data, }, ) => (
 	<div>
-		{data.contentfulNews.image && (
+		{ (data.contentfulNews.image && data.contentfulNews.image.file )  &&
 			<TopImage
 				src = {
-					"https://res.cloudinary.com/codogo/image/fetch/w_1500,c_fill,g_face,f_auto/https:" +
-					data.contentfulNews.image.file.url
+					data.contentfulNews.image.file ?
+					`https://res.cloudinary.com/codogo/image/fetch/w_1500,c_fill,g_face,f_auto/https:${ data.contentfulNews.image.file.url }` : 
+					"https://labour.org.uk/wp-content/uploads/2016/06/Search-homepage.jpg"
 				}
 			/>
-		)}
+		}
 
 		<Segment style = { { padding: "8em 0em", } } vertical>
 			<Container text>
-				<Header as = "h1">{data.contentfulNews.title}</Header>
+				{ data.contentfulNews.title && <Header as = "h1">{data.contentfulNews.title}</Header> }
 
-				<div
-					dangerouslySetInnerHTML = { {
-						__html: marked(
-							data.contentfulNews.content.content,
-						),
-					} }
-				/>
+				{ 
+					data.contentfulNews.content &&
+					<div
+						dangerouslySetInnerHTML = { {
+							__html: marked(
+								data.contentfulNews.content.content,
+							),
+						} }
+					/>
+				}
 			</Container>
 		</Segment>
 	</div>

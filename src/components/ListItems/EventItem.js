@@ -16,14 +16,19 @@ import {
 
 // ----------------------------------------------------
 
-const NewsThumbnail = styled(Image)`
-	.ui.label {
+const EventThumbnail = styled(Image)`
+	.ui.image {
+		display: flex;
+	}
+
+	img {
 		background-color: rgba(255, 255, 255, 0.7);
 		width: 100%;
-		position: absolute;
-		bottom: 0;
 		border-radius: 0;
 		font-size: 1.33em;
+		max-height: 250px;
+		height: 100%;
+		object-fit: contain;
 	}
 `;
 
@@ -36,10 +41,11 @@ const NewsDivider = styled(Divider)`
 const EventItem = ( { event, }, ) => (
 	<Grid.Row key = { event.node.id + "-newsitem" }>
 		<Grid.Column>
-			<NewsThumbnail
+			<EventThumbnail
 				src = {
-					"https://res.cloudinary.com/codogo/image/fetch/w_800,c_fill,g_face,f_auto/https:" +
-					event.node.image.file.url
+					( event.node.image && event.node.image.file) ?
+					`https://res.cloudinary.com/codogo/image/fetch/w_800,c_fill,g_face,f_auto/https:
+					${ event.node.image.file.url }` : "https://labour.org.uk/wp-content/uploads/2016/06/Search-homepage.jpg"
 				}
 				as = { Link }
 				to = {
