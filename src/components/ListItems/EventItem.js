@@ -45,7 +45,7 @@ const EventItem = ( { event, }, ) => (
 				src = {
 					( event.node.image && event.node.image.file) ?
 					`https://res.cloudinary.com/codogo/image/fetch/w_800,c_fill,g_face,f_auto/https:
-					${ event.node.image.file.url }` : "https://labour.org.uk/wp-content/uploads/2016/06/Search-homepage.jpg"
+					${ event.node.image.file.url }` : "https://images.ctfassets.net/j8b2h64cwsnc/1ZTuenkUXyQ2Ysg2yi2q2S/13fd01df20e971e456e7763413b01d0f/Artboard_1.png"
 				}
 				as = { Link }
 				to = {
