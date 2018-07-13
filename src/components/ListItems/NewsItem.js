@@ -36,9 +36,9 @@ const NewsItem = ( { news, } ) => (
 		<Grid.Column>
 			<NewsThumbnail
 				src = {
-					( news.image && news.image.file) ?
+					( news.image ) ?
 					`https://res.cloudinary.com/codogo/image/fetch/w_800,c_fill,g_face,f_auto/https:
-					${ news.image.file.url }` : "https://labour.org.uk/wp-content/uploads/2016/06/Search-homepage.jpg"
+					${ news.image.file.url }` : "https://images.ctfassets.net/j8b2h64cwsnc/jYzRGcSiDQksQC2SQQSoy/77f3eddbf1cece8f652c8f6cf0752a42/Artboard_1.png"
 				}
 				as = { Link }
 				to = { "/news/" + slugify(news.title) }
