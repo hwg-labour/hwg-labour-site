@@ -46,7 +46,9 @@ const NewsItem = ( { news, } ) => (
 		</Grid.Column>
 
 		<Grid.Column>
-			<Header as = "h3">{news.title}</Header>
+			<Link to = { "/news/" + slugify(news.title) }>
+				<Header as = "h3">{news.title}</Header>
+			</Link>
 
 			<p style = { { color: "#aaaaaa", } }>
 				{ Moment(news.publishingDate).format("MMMM Do YYYY") }
