@@ -11,6 +11,9 @@ export const NewsItemQuery = graphql`
 	query NewsItemQuery($id: String!) {
 		contentfulNews(id: { eq: $id }) {
 			title
+			description {
+				description
+			}
 			content {
 				content
 			}
@@ -40,6 +43,17 @@ const NewsTemplate = ( { data, }, ) => (
 		<Segment style = { { padding: "8em 0em", } } vertical>
 			<Container text>
 				{ data.contentfulNews.title && <Header as = "h1">{data.contentfulNews.title}</Header> }
+
+				{ 
+					data.contentfulNews.description &&
+					<div
+						dangerouslySetInnerHTML = { {
+							__html: marked(
+								data.contentfulNews.description.description,
+							),
+						} }
+					/>
+				}
 
 				{ 
 					data.contentfulNews.content &&
