@@ -56,9 +56,16 @@ const EventItem = ( { event, }, ) => (
 		</Grid.Column>
 
 		<Grid.Column>
-			<Header as = "h3">
-				{event.node.title}
-			</Header>
+			<Link
+				to = {
+					"/events/" +
+					slugify(event.node.title)
+				}
+			>
+				<Header as = "h3">
+					{event.node.title}
+				</Header>
+			</Link>
 
 			<p style = { { color: "#aaaaaa", } }>
 				{Moment(event.node.date).format(
