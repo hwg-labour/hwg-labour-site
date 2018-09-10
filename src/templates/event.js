@@ -34,8 +34,8 @@ const EventTemplate = ( { data, }, ) => (
 			<TopImage
 				src = {
 					data.contentfulEvent.image.file ?
-					`https://res.cloudinary.com/codogo/image/fetch/w_1500,c_fill,g_face,f_auto/https:${ data.contentfulEvent.image.file.url }` : 
-					"https://labour.org.uk/wp-content/uploads/2016/06/Search-homepage.jpg"
+						`https://res.cloudinary.com/codogo/image/fetch/w_1500,c_fill,g_face,f_auto/https:${ data.contentfulEvent.image.file.url }` : 
+						"https://labour.org.uk/wp-content/uploads/2016/06/Search-homepage.jpg"
 				}
 			/>
 		)}

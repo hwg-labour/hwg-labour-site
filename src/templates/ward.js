@@ -129,7 +129,7 @@ const WardTemplate = ( { data, }, ) => {
 						Your Councillors
 					</Divider>
 
-					{candidates && candidates.length >= 1 ? (
+					{ ( candidates && candidates.length ) >= 1 ? (
 						<Grid columns = { 3 }>
 							<Grid.Row>
 								{candidates &&

@@ -1,9 +1,9 @@
+import { Button, Header, Image, } from "../toolbox";
+
 import React from "react";
 import styled from "styled-components";
 import Link from "gatsby-link";
-
 import PropTypes from "prop-types";
-
 import banner from "../../images/banner-1.jpg";
 import banner2 from "../../images/banner-2.jpg";
 import banner3 from "../../images/banner-3.jpg";
@@ -12,8 +12,6 @@ import banner5 from "../../images/banner-5.jpg";
 import banner6 from "../../images/banner-1.jpg"; // To increase the chance of the best looking banner
 import banner7 from "../../images/banner-1.jpg";
 import banner8 from "../../images/banner-1.jpg";
-
-import { Button, Header, Image, } from "semantic-ui-react";
 
 // ----------------------------------------------------
 

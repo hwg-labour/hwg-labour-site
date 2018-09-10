@@ -1,4 +1,4 @@
-import { Button, Container, Link, Header, Segment, } from "semantic-ui-react";
+import { Button, Container, Link, Header, Segment, } from "../components/toolbox";
 import { TopImage, } from "../components/TopImage";
 
 import banner from "../images/banner-4.jpg";

@@ -8,7 +8,7 @@ import {
 	Segment,
 	Button,
 	Icon,
-} from "semantic-ui-react";
+} from "../components/toolbox";
 
 import banner from "../images/banner-4.jpg";
 import Link from "gatsby-link";
@@ -120,7 +120,7 @@ const Groups = ( { data, }, ) => {
 										<GroupDivider section />
 									</Grid.Row>
 								)
-							)
+								)
 						}
 					</Grid>
 				</Container>

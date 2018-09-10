@@ -5,7 +5,7 @@ import { TopImage, } from "../components/TopImage";
 
 import banner from "../images/banner-1.jpg";
 
-import { Button, Container, Header, Segment, } from "semantic-ui-react";
+import { Button, Container, Header, Segment, } from "../components/toolbox";
 
 // ----------------------------------------------------
 

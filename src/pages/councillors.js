@@ -5,7 +5,7 @@ import {
 	Header,
 	Image,
 	Segment,
-} from "semantic-ui-react";
+} from "../components/toolbox";
 
 import Link from "gatsby-link";
 import profileImage from "../images/profile-pic.png";

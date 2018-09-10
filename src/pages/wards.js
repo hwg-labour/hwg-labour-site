@@ -15,7 +15,7 @@ import {
 	Segment,
 	Button,
 	Icon,
-} from "semantic-ui-react";
+} from "../components/toolbox";
 
 // ----------------------------------------------------
 
