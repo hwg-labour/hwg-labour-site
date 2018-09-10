@@ -1,13 +1,34 @@
-import { Button, Container, Header, Segment, } from "semantic-ui-react";
+import { Button, Container, Header, Segment, Grid, } from "../components/toolbox";
+import { NewsItem, } from "../components/ListItems";
 
 import Link from "gatsby-link";
 import React from "react";
+import PropTypes from "prop-types";
 
 // ----------------------------------------------------
 
+export const HomeQuery = graphql`
+	query HomeQuery {
+		contentfulNews(limit: 2)  {
+			id
+			title
+			description {
+				description
+			}
+			publishingDate
+			newsSection
+			image {
+				file {
+					url
+				}
+			}
+		}
+	}
+`;
+
 // ----------------------------------------------------
 
-const Home = () => (
+const Home = ( { data, }, ) => (
 	<div>
 		<Segment style = { { padding: "8em 0em", } } vertical>
 			<Container text>
@@ -50,7 +71,32 @@ const Home = () => (
 				</Button>
 			</Container>
 		</Segment>
+
+		<Segment style = { { padding: "8em 0em", } } vertical>
+			<Container text>
+				<Header as = "h3" style = { { fontSize: "2em", } }>
+					Recent News
+				</Header>
+
+				<br/>
+				<br/>
+
+				{data.contentfulNews.length && (
+					<Grid columns = { 2 } stackable>
+						{data.contentfulNews.map(newsItem => {
+							return <NewsItem news = { newsItem.node } />;
+						})}
+					</Grid>
+				)}
+			</Container>
+		</Segment>
 	</div>
 );
+
+Home.propTypes = {
+	data: PropTypes.shape({
+		contentfulNews: PropTypes.object,
+	}),
+};
 
 export default Home;

@@ -1,7 +1,7 @@
 import PropTypes from "prop-types";
 import React from "react";
 
-import { Container, Divider, Grid, Header, Segment, } from "semantic-ui-react";
+import { Container, Divider, Grid, Header, Segment, } from "../components/toolbox";
 import { NewsItem, } from "../components/ListItems";
 
 // ----------------------------------------------------

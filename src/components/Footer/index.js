@@ -1,4 +1,4 @@
-import { Container, Grid, Header, List, Segment, } from "semantic-ui-react";
+import { Container, Grid, Header, List, Segment, } from "../toolbox";
 
 import React from "react";
 import PropTypes from "prop-types";

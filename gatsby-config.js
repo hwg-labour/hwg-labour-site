@@ -1,6 +1,7 @@
 module.exports = {
 	siteMetadata: {
 		title: "Hornsey and Wood Green Labour Party",
+		siteUrl: ""
 	},
 	plugins: [
 		"gatsby-plugin-react-helmet",
@@ -39,6 +40,9 @@ module.exports = {
 				respectDNT: true, // Avoids sending pageview hits from custom paths
 				exclude: [ "/preview/**", "/do-not-track/me/too/", ],
 			},
+		},
+		{
+			resolve: "gatsby-plugin-sitemap",
 		},
 	],
 };

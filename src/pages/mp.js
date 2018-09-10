@@ -1,6 +1,6 @@
 import React from "react";
 
-import { Button, Container, Header, Segment, } from "semantic-ui-react";
+import { Button, Container, Header, Segment, } from "../components/toolbox";
 
 // ----------------------------------------------------
 

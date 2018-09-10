@@ -103,43 +103,46 @@ const CandidateTemplate = ( { data, }, ) => (
 
 						{data.contentfulCandidate.email && (
 							<p>
-								Email:
-								<Link
-									to = {
+								<b>{ "Email: "}</b>
+								
+								<a
+									href = {
 										"mailto:" +
 										data.contentfulCandidate.email
 									}
 								>
-									{data.contentfulCandidate.email}
-								</Link>
+									{ data.contentfulCandidate.email }
+								</a>
 							</p>
 						)}
 
 						{data.contentfulCandidate.twitter && (
 							<p>
-								Twitter:
-								<Link
-									to = {
-										"www.twitter.com/" +
+								<b>{ "Twitter: " }</b>
+								
+								<a
+									href = {
+										"https://www.twitter.com/" +
 										data.contentfulCandidate.twitter
 									}
 								>
-									{data.contentfulCandidate.twitter}
-								</Link>
+									{ `@${ data.contentfulCandidate.twitter }` }
+								</a>
 							</p>
 						)}
 
 						{data.contentfulCandidate.telephone && (
 							<p>
-								Telephone:
-								<Link
-									to = {
+								<b>{ "Telephone: " }</b>
+								
+								<a
+									href = {
 										"tel:" +
 										data.contentfulCandidate.telephone
 									}
 								>
-									{data.contentfulCandidate.telephone}
-								</Link>
+									{ data.contentfulCandidate.telephone }
+								</a>
 							</p>
 						)}
 					</Grid.Column>
