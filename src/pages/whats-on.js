@@ -12,7 +12,7 @@ import {
 	Grid,
 	Header,
 	Segment,
-} from "semantic-ui-react";
+} from "../components/toolbox";
 
 // ----------------------------------------------------
 

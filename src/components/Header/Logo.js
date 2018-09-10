@@ -1,11 +1,9 @@
-import React from "react";
-import Link from "gatsby-link";
-import styled from "styled-components";
-
 import { bpEither, } from "codogo-utility-functions";
 
+import Link from "gatsby-link";
 import logo from "../../images/logo.png";
-//import logoAlt from "../../images/logo-alt.png";
+import React from "react";
+import styled from "styled-components";
 
 // ----------------------------------------------------
 

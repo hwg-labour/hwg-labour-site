@@ -34,8 +34,8 @@ const NewsTemplate = ( { data, }, ) => (
 			<TopImage
 				src = {
 					data.contentfulNews.image.file ?
-					`https://res.cloudinary.com/codogo/image/fetch/w_1500,c_fill,g_face,f_auto/https:${ data.contentfulNews.image.file.url }` : 
-					"https://labour.org.uk/wp-content/uploads/2016/06/Search-homepage.jpg"
+						`https://res.cloudinary.com/codogo/image/fetch/w_1500,c_fill,g_face,f_auto/https:${ data.contentfulNews.image.file.url }` : 
+						"https://labour.org.uk/wp-content/uploads/2016/06/Search-homepage.jpg"
 				}
 			/>
 		}

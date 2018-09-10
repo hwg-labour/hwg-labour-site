@@ -1,9 +1,9 @@
+import { Nav, } from "codogo-nav";
+
 import Logo from "./Logo";
 import PropTypes from "prop-types";
 import React from "react";
 import slugify from "slugify";
-
-import { Nav, } from "codogo-nav";
 
 // ----------------------------------------------------
 

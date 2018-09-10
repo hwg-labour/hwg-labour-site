@@ -1,4 +1,11 @@
-import { Button, Divider, Grid, Header, Icon, Image, } from "semantic-ui-react";
+import { 
+	Button,
+	Divider,
+	Grid,
+	Header,
+	Icon,
+	Image, 
+} from "../toolbox";
 
 import Link from "gatsby-link";
 import Moment from "moment";
@@ -37,7 +44,7 @@ const NewsItem = ( { news, } ) => (
 			<NewsThumbnail
 				src = {
 					( news.image ) ?
-					`https://res.cloudinary.com/codogo/image/fetch/w_800,c_fill,g_face,f_auto/https:
+						`https://res.cloudinary.com/codogo/image/fetch/w_800,c_fill,g_face,f_auto/https:
 					${ news.image.file.url }` : "https://images.ctfassets.net/j8b2h64cwsnc/jYzRGcSiDQksQC2SQQSoy/77f3eddbf1cece8f652c8f6cf0752a42/Artboard_1.png"
 				}
 				as = { Link }

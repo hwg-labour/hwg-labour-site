@@ -2,7 +2,7 @@ import banner from "../images/banner-5.jpg";
 import React from "react";
 
 import { TopImage, } from "../components/TopImage";
-import { Container, Header, Segment, } from "semantic-ui-react";
+import { Container, Header, Segment, } from "../components/toolbox";
 
 // ----------------------------------------------------
 
