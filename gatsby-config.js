@@ -1,7 +1,7 @@
 module.exports = {
 	siteMetadata: {
 		title: "Hornsey and Wood Green Labour Party",
-		siteUrl: ""
+		siteUrl: "http://www.hornseywoodgreenlabour.org.uk/",
 	},
 	plugins: [
 		"gatsby-plugin-react-helmet",
