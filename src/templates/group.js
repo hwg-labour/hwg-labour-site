@@ -1,4 +1,4 @@
-import { Container, Divider, Grid, Header, Segment, } from "semantic-ui-react";
+import { Container, Divider, H3, Header, Segment, } from "../components/toolbox";
 import { NewsItem, } from "../components/ListItems";
 import { TopImage, } from "../components/TopImage";
 
@@ -71,7 +71,7 @@ const GroupTemplate = ( { data, }, ) => {
 				/>
 			)}
 
-			<Segment style = { { padding: "8em 0em", } } vertical>
+			<Segment>
 				<Container text>
 					<Header as = "h1">{group.name}</Header>
 
@@ -81,20 +81,12 @@ const GroupTemplate = ( { data, }, ) => {
 						} }
 					/>
 
-					<Divider
-						as = "h4"
-						className = "header"
-						horizontal
-						style = { {
-							margin: "3em 0em",
-							textTransform: "uppercase",
-						} }
-					>
-						Recent News
-					</Divider>
+					<Divider/>
+					
+					<H3>Recent News</H3>
 
 					{news.length >= 1 ? (
-						<Grid columns = { 2 } stackable>
+						<div>
 							{news
 								.sort(function(a, b) {
 									return (
@@ -105,7 +97,7 @@ const GroupTemplate = ( { data, }, ) => {
 								.map( newsItem => (
 									<NewsItem news = { newsItem.node } />
 								))}
-						</Grid>
+						</div>
 					)
 						: <div>No recent news</div>
 					}

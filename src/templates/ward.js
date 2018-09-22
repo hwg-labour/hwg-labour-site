@@ -5,13 +5,13 @@ import {
 	Header,
 	Image,
 	Segment,
-} from "semantic-ui-react";
-import profileImage from "../images/profile-pic.png";
+} from "../components/toolbox";
 import { NewsItem, } from "../components/ListItems";
 import { TopImage, } from "../components/TopImage";
 
 import Link from "gatsby-link";
 import marked from "marked";
+import profileImage from "../images/profile-pic.png";
 import PropTypes from "prop-types";
 import React from "react";
 import slugify from "slugify";
@@ -105,7 +105,7 @@ const WardTemplate = ( { data, }, ) => {
 				/>
 			)}
 
-			<Segment style = { { padding: "8em 0em", } } vertical>
+			<Segment>
 				<Container text>
 					<Header as = "h1">{ward && ward.name}</Header>
 
@@ -131,7 +131,7 @@ const WardTemplate = ( { data, }, ) => {
 
 					{ ( candidates && candidates.length ) >= 1 ? (
 						<Grid columns = { 3 }>
-							<Grid.Row>
+							<Row>
 								{candidates &&
 									candidates
 										.sort((x, y) => {
@@ -142,7 +142,7 @@ const WardTemplate = ( { data, }, ) => {
 										})
 										.map(councillor => {
 											return (
-												<Grid.Column
+												<Column
 													key = {
 														councillor.node.id +
 														"-councillor"
@@ -176,10 +176,10 @@ const WardTemplate = ( { data, }, ) => {
 													>
 														{councillor.node.name}
 													</Header>
-												</Grid.Column>
+												</Column>
 											);
 										})}
-							</Grid.Row>
+							</Row>
 						</Grid>
 					) : (
 						<div>

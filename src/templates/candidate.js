@@ -1,4 +1,4 @@
-import { Container, Header, Segment, Grid, Image, } from "semantic-ui-react";
+import { Container, Header, Segment, Grid, Image, } from "../components/toolbox";
 
 import Link from "gatsby-link";
 import marked from "marked";
@@ -40,11 +40,11 @@ export const CandidateItemQuery = graphql`
 // ----------------------------------------------------
 
 const CandidateTemplate = ( { data, }, ) => (
-	<Segment style = { { padding: "8em 0em", } } vertical>
+	<Segment>
 		<Container text>
 			<Grid columns = { 3 } stackable>
-				<Grid.Row>
-					<Grid.Column width = { 6 }>
+				<Row>
+					<Column width = { 6 }>
 						<Image
 							src = { `
 								${
@@ -55,9 +55,9 @@ const CandidateTemplate = ( { data, }, ) => (
 		: profileImage
 	}` }
 						/>
-					</Grid.Column>
+					</Column>
 
-					<Grid.Column width = { 10 }>
+					<Column width = { 10 }>
 						<Header as = "h1">
 							{data.contentfulCandidate.name}
 						</Header>
@@ -145,8 +145,8 @@ const CandidateTemplate = ( { data, }, ) => (
 								</a>
 							</p>
 						)}
-					</Grid.Column>
-				</Grid.Row>
+					</Column>
+				</Row>
 			</Grid>
 		</Container>
 	</Segment>

@@ -1,11 +1,4 @@
-export { 
-	Button,
-	Container,
-	Divider,
-	Grid,
-	Header,
-	Icon,
-	Image,
-	List,
-	Segment, 
-} from "semantic-ui-react";
+export * from "./Buttons";
+export * from "./Containers";
+export * from "./Text";
+export * from "./Images";

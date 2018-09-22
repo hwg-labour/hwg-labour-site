@@ -1,5 +1,5 @@
 import { TopImage, } from "../components/TopImage";
-import { Container, Header, Segment, } from "../components/toolbox";
+import { Container, Header, Subheader, Segment, } from "../components/toolbox";
 
 import marked from "marked";
 import PropTypes from "prop-types";
@@ -7,20 +7,14 @@ import React from "react";
 
 // ----------------------------------------------------
 
-export const NewsItemQuery = graphql`
-	query NewsItemQuery($id: String!) {
-		contentfulNews(id: { eq: $id }) {
+export const TopicItemQuery = graphql`
+	query TopicItemQuery($id: String!) {
+		contentfulTopic(id: { eq: $id }) {
 			title
-			description {
-				description
-			}
+			type
+			description
 			content {
 				content
-			}
-			image {
-				file {
-					url
-				}
 			}
 		}
 	}
@@ -30,11 +24,11 @@ export const NewsItemQuery = graphql`
 
 const NewsTemplate = ( { data, }, ) => (
 	<div>
-		{ (data.contentfulNews.image && data.contentfulNews.image.file )  &&
+		{ (data.contentfulTopic.image && data.contentfulTopic.image.file )  &&
 			<TopImage
 				src = {
-					data.contentfulNews.image.file ?
-						`https://res.cloudinary.com/codogo/image/fetch/w_1500,c_fill,g_face,f_auto/https:${ data.contentfulNews.image.file.url }` : 
+					data.contentfulTopic.image.file ?
+						`https://res.cloudinary.com/codogo/image/fetch/w_1500,c_fill,g_face,f_auto/https:${ data.contentfulTopic.image.file.url }` : 
 						"https://labour.org.uk/wp-content/uploads/2016/06/Search-homepage.jpg"
 				}
 			/>
@@ -42,25 +36,27 @@ const NewsTemplate = ( { data, }, ) => (
 
 		<Segment>
 			<Container text>
-				{ data.contentfulNews.title && <Header as = "h1">{data.contentfulNews.title}</Header> }
+				{ data.contentfulTopic.title && <Header as = "h1">{data.contentfulTopic.title}</Header> }
+
+				{ data.contentfulTopic.type && <Subheader as = "h1">{data.contentfulTopic.type}</Subheader> }
 
 				{ 
-					data.contentfulNews.description &&
+					data.contentfulTopic.description &&
 					<div
 						dangerouslySetInnerHTML = { {
 							__html: marked(
-								data.contentfulNews.description.description,
+								data.contentfulTopic.description,
 							),
 						} }
 					/>
 				}
 
 				{ 
-					data.contentfulNews.content &&
+					data.contentfulTopic.content &&
 					<div
 						dangerouslySetInnerHTML = { {
 							__html: marked(
-								data.contentfulNews.content.content,
+								data.contentfulTopic.content.content,
 							),
 						} }
 					/>
@@ -72,7 +68,7 @@ const NewsTemplate = ( { data, }, ) => (
 
 NewsTemplate.propTypes = {
 	data: PropTypes.shape({
-		contentfulNews: PropTypes.object,
+		contentfulTopic: PropTypes.object,
 	}),
 };
 

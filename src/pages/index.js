@@ -50,7 +50,7 @@ const Home = ( { data, }, ) => {
 
 	return (
 		<div>
-			<Segment style = { { padding: "8em 0em", } } vertical>
+			<Segment>
 				<Container text>
 					<Header as = "h1" style = { { fontSize: "2em", } }>
 						For the many, not the few.
@@ -74,7 +74,7 @@ const Home = ( { data, }, ) => {
 				</Container>
 			</Segment>
 
-			<Segment style = { { padding: "8em 0em", } } vertical>
+			<Segment>
 				<Container text>
 					<Header as = "h1" style = { { fontSize: "2em", } }>
 						Meet your councillors
@@ -92,7 +92,7 @@ const Home = ( { data, }, ) => {
 				</Container>
 			</Segment>
 
-			<Segment style = { { padding: "8em 0em", } } vertical>
+			<Segment>
 				<Container text>
 					<Header as = "h3" style = { { fontSize: "2em", } }>
 						Recent News

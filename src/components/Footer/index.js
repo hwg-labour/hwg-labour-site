@@ -34,8 +34,8 @@ const Footer = ( { events, }, ) => {
 		<Segment color = "grey" style = { { padding: "5em 0em", } } inverted vertical>
 			<Container>
 				<Grid divided inverted stackable>
-					<Grid.Row>
-						<Grid.Column width = { 4 }>
+					<Row>
+						<Column width = { 4 }>
 							<Header inverted as = "h4" content = "About" />
 
 							<List link inverted>
@@ -63,9 +63,9 @@ const Footer = ( { events, }, ) => {
 									Site by @mcclowes
 								</List.Item>
 							</List>
-						</Grid.Column>
+						</Column>
 
-						<Grid.Column width = { 4 }>
+						<Column width = { 4 }>
 							<Header inverted as = "h4" content = "Getting Involved" />
 
 							<List link inverted>
@@ -92,9 +92,9 @@ const Footer = ( { events, }, ) => {
 									https://labourinlondon.org.uk/
 								</List.Item>
 							</List>
-						</Grid.Column>
+						</Column>
 
-						<Grid.Column width = { 8 }>
+						<Column width = { 8 }>
 							<Header as = "h4" inverted>
 								Upcoming events:
 							</Header>
@@ -108,8 +108,8 @@ const Footer = ( { events, }, ) => {
 										- {event.node.title}
 									</p>
 								))}
-						</Grid.Column>
-					</Grid.Row>
+						</Column>
+					</Row>
 				</Grid>
 			</Container>
 		</Segment>

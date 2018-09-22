@@ -1,8 +1,6 @@
 import React from "react";
 import PropTypes from "prop-types";
 
-import "semantic-ui-css/semantic.min.css";
-
 import Footer from "../components/Footer";
 import Head from "../components/Head";
 import Header from "../components/Header";

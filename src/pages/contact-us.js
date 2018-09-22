@@ -12,13 +12,13 @@ const ContactUs = () => (
 	<div>
 		<TopImage src = { banner } />
 
-		<Segment style = { { padding: "8em 0em", } } vertical>
+		<Segment>
 			<Container text>
 				<Header as = "h1">Contact Us</Header>
 			</Container>
 		</Segment>
 
-		<Segment style = { { padding: "8em 0em", } } vertical>
+		<Segment>
 			<Container text>
 				<Header as = "h3">Contact Details</Header>
 

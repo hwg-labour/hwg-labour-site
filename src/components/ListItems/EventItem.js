@@ -8,7 +8,10 @@ import styled from "styled-components";
 import {
 	Button,
 	Divider,
-	Grid,
+	Section,
+	Container,
+	Row,
+	Column,
 	Header,
 	Icon,
 	Image,
@@ -32,15 +35,11 @@ const EventThumbnail = styled(Image)`
 	}
 `;
 
-const NewsDivider = styled(Divider)`
-	width: 100%;
-`;
-
 // ----------------------------------------------------
 
 const EventItem = ( { event, }, ) => (
-	<Grid.Row key = { event.node.id + "-newsitem" }>
-		<Grid.Column>
+	<Row key = { event.node.id + "-newsitem" }>
+		<Column>
 			<EventThumbnail
 				src = {
 					( event.node.image ) ?
@@ -53,9 +52,9 @@ const EventItem = ( { event, }, ) => (
 					slugify(event.node.title)
 				}
 			/>
-		</Grid.Column>
+		</Column>
 
-		<Grid.Column>
+		<Column>
 			<Link
 				to = {
 					"/events/" +
@@ -92,10 +91,10 @@ const EventItem = ( { event, }, ) => (
 				Read more{" "}
 				<Icon name = "right arrow" />
 			</Button>
-		</Grid.Column>
+		</Column>
 
-		<NewsDivider section />
-	</Grid.Row>
+		<Divider section />
+	</Row>
 );
 
 EventItem.propTypes = {

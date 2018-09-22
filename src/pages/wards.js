@@ -15,6 +15,9 @@ import {
 	Segment,
 	Button,
 	Icon,
+	Row,
+	Column,
+	Section,
 } from "../components/toolbox";
 
 // ----------------------------------------------------
@@ -50,19 +53,13 @@ export const WardListQuery = graphql`
 	}
 `;
 
-const WardDivider = styled(Divider)`
-	width: 100%;
-	margin: 3em 0em;
-	text-transform: uppercase;
-`;
-
 // ----------------------------------------------------
 
 const Wards = ( { data, }, ) => (
 	<div>
 		<TopImage src = { banner } />
 
-		<Segment style = { { padding: "8em 0em", } } vertical>
+		<Segment>
 			<Container text>
 				<Header as = "h1" style = { { fontSize: "2em", } }>
 					Your wards
@@ -96,8 +93,8 @@ const Wards = ( { data, }, ) => (
 								: 1;
 						})
 						.map(ward => (
-							<Grid.Row key = { ward.node.id + "-newsitem" }>
-								<Grid.Column>
+							<Row key = { ward.node.id + "-newsitem" }>
+								<Column>
 									<WardThumbnail
 										src = {
 											"https://res.cloudinary.com/codogo/image/fetch/w_800,c_fill,g_face,f_auto/https:" +
@@ -106,9 +103,9 @@ const Wards = ( { data, }, ) => (
 										as = { Link }
 										to = { "/wards/" + slugify(ward.node.name) }
 									/>
-								</Grid.Column>
+								</Column>
 
-								<Grid.Column>
+								<Column>
 									<Header as = "h3">{ward.node.name}</Header>
 
 									<Button
@@ -118,10 +115,10 @@ const Wards = ( { data, }, ) => (
 									>
 										See more <Icon name = "right arrow" />
 									</Button>
-								</Grid.Column>
+								</Column>
 
-								<WardDivider section />
-							</Grid.Row>
+								<Divider section />
+							</Row>
 						))}
 				</Grid>
 			</Container>

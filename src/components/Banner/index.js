@@ -1,4 +1,4 @@
-import { Button, Header, Image, } from "../toolbox";
+import { Button, H1, H2, Image, } from "../toolbox";
 
 import React from "react";
 import styled from "styled-components";
@@ -58,35 +58,15 @@ const Banner = props => (
 		{!props.mobile && <BannerImage src = { BannerRandomiser() } />}
 
 		<BannerContent text>
-			<Header
-				as = "h1"
-				content = "Hornsey & Wood Green Labour"
-				inverted
-				style = { {
-					fontSize: props.mobile ? "1.5em" : "3em",
-					fontWeight: "normal",
-					marginBottom: 0,
-				} }
-			/>
+			<H1>Hornsey & Wood Green Labour</H1>
 
-			<Header
-				as = "h2"
-				content = "Offering a positive vision for Hornsey and Wood Green."
-				inverted
-				style = { {
-					fontSize: props.mobile ? "1.5em" : "1.7em",
-					fontWeight: "normal",
-					marginTop: props.mobile ? "0.5em" : "1.5em",
-				} }
-			/>
+			<H2>Offering a positive vision for Hornsey and Wood Green.</H2>
 
 			<Button
 				as = { Link }
 				size = "huge"
 				to = "/whats-on/"
-				style = { {
-					marginTop: props.mobile ? "0.5em" : "1em",
-				} }
+
 			>
 				What's On
 			</Button>
@@ -96,9 +76,6 @@ const Banner = props => (
 				size = "huge"
 				to = "/new-members/"
 				inverted
-				style = { {
-					marginTop: props.mobile ? "0.5em" : "1em",
-				} }
 			>
 				New Members
 			</Button>

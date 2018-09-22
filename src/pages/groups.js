@@ -30,13 +30,6 @@ const GroupThumbnail = styled(Image)`
 	}
 `;
 
-const GroupDivider = styled(Divider)`
-	width: 100%;
-	margin: 3em 0em;
-	text-transform: uppercase;
-`;
-
-
 // ----------------------------------------------------
 
 export const GroupListQuery = graphql`
@@ -72,7 +65,7 @@ const Groups = ( { data, }, ) => {
 		<div>
 			<TopImage src = { banner } />
 
-			<Segment style = { { padding: "8em 0em", } } vertical>
+			<Segment>
 				<Container text>
 					<Header as = "h1" style = { { fontSize: "2em", } }>
 						Forums and groups
@@ -87,8 +80,8 @@ const Groups = ( { data, }, ) => {
 							groups && 
 							groups
 								.map(group => (
-									<Grid.Row key = { group.node.id + "-newsitem" }>
-										<Grid.Column>
+									<Row key = { group.node.id + "-newsitem" }>
+										<Column>
 											<GroupThumbnail
 												src = {
 													"https://res.cloudinary.com/codogo/image/fetch/w_800,c_fill,g_face,f_auto/https:" +
@@ -100,9 +93,9 @@ const Groups = ( { data, }, ) => {
 													slugify(group.node.name)
 												}
 											/>
-										</Grid.Column>
+										</Column>
 
-										<Grid.Column>
+										<Column>
 											<Header as = "h3">{group.node.name}</Header>
 
 											<Button
@@ -115,10 +108,10 @@ const Groups = ( { data, }, ) => {
 											>
 												See more <Icon name = "right arrow" />
 											</Button>
-										</Grid.Column>
+										</Column>
 
-										<GroupDivider section />
-									</Grid.Row>
+										<Divider section />
+									</Row>
 								)
 								)
 						}

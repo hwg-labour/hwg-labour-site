@@ -8,7 +8,7 @@ import { Button, Container, Header, Segment, } from "../components/toolbox";
 
 const MP = () => (
 	<div>
-		<Segment style = { { padding: "8em 0em", } } vertical>
+		<Segment>
 			<Container text>
 				<Header as = "h3">Your MP</Header>
 
@@ -55,7 +55,7 @@ const MP = () => (
 			</Container>
 		</Segment>
 
-		<Segment style = { { padding: "8em 0em", } } vertical>
+		<Segment>
 			<Container text>
 				<Header as = "h3">Contact Catherine</Header>
 

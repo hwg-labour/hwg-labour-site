@@ -7,7 +7,7 @@ import React from "react";
 // ----------------------------------------------------
 
 const Mayor = () => (
-	<Segment style = { { padding: "8em 0em", } } vertical>
+	<Segment>
 		<Container text>
 			<Header as = "h3">Your Mayor</Header>
 

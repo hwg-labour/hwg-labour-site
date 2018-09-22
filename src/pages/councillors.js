@@ -65,7 +65,7 @@ const Councillors = ( { data, }, ) => {
 		});
 
 	return (
-		<Segment style = { { padding: "8em 0em", } } vertical>
+		<Segment>
 			<Container text>
 				<Header as = "h1">Your Councillors</Header>
 
@@ -99,7 +99,7 @@ const Councillors = ( { data, }, ) => {
 								}) 
 									? (
 										<Grid columns = { 3 }>
-											<Grid.Row>
+											<Row>
 												{councillors
 													.filter(councillor => {
 														return (
@@ -107,7 +107,7 @@ const Councillors = ( { data, }, ) => {
 														);
 													})
 													.map(councillor => (
-														<Grid.Column
+														<Column
 															key = {
 																councillor.node.id +
 														"-councillor"
@@ -141,9 +141,9 @@ const Councillors = ( { data, }, ) => {
 															>
 																{councillor.node.name}
 															</Header>
-														</Grid.Column>
+														</Column>
 													))}
-											</Grid.Row>
+											</Row>
 										</Grid>
 									) : (
 										<div>
