@@ -1,4 +1,4 @@
-import { Container, Divider, Grid, Header, Segment, } from "semantic-ui-react";
+import { Container, Divider, Grid, Header, Segment, } from "../components/toolbox";
 import { NewsItem, } from "../components/ListItems";
 import { TopImage, } from "../components/TopImage";
 
@@ -71,7 +71,7 @@ const GroupTemplate = ( { data, }, ) => {
 				/>
 			)}
 
-			<Segment style = { { padding: "8em 0em", } } vertical>
+			<Segment  vertical>
 				<Container text>
 					<Header as = "h1">{group.name}</Header>
 

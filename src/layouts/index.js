@@ -1,13 +1,19 @@
-import React from "react";
-import PropTypes from "prop-types";
-
-import "semantic-ui-css/semantic.min.css";
+import { injectGlobal, } from 'styled-components';
 
 import Footer from "../components/Footer";
 import Head from "../components/Head";
 import Header from "../components/Header";
+import PropTypes from "prop-types";
+import React from "react";
 
 // ----------------------------------------------------
+
+injectGlobal`
+  body {
+    margin: 0;
+    font-family: helvetica, sans-serif;
+  }
+`;
 
 export const MenuGroupsAndWards = graphql`
 	query MenuGroupsWardsEvents {

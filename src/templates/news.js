@@ -1,5 +1,5 @@
 import { TopImage, } from "../components/TopImage";
-import { Container, Header, Segment, } from "semantic-ui-react";
+import { Container, Header, Segment, } from "../components/toolbox";
 
 import marked from "marked";
 import PropTypes from "prop-types";
@@ -40,7 +40,7 @@ const NewsTemplate = ( { data, }, ) => (
 			/>
 		}
 
-		<Segment style = { { padding: "8em 0em", } } vertical>
+		<Segment  vertical>
 			<Container text>
 				{ data.contentfulNews.title && <Header as = "h1">{data.contentfulNews.title}</Header> }
 

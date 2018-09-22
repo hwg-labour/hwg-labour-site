@@ -5,7 +5,7 @@ import {
 	Header,
 	Image,
 	Segment,
-} from "semantic-ui-react";
+} from "../components/toolbox";
 import profileImage from "../images/profile-pic.png";
 import { NewsItem, } from "../components/ListItems";
 import { TopImage, } from "../components/TopImage";
@@ -105,7 +105,7 @@ const WardTemplate = ( { data, }, ) => {
 				/>
 			)}
 
-			<Segment style = { { padding: "8em 0em", } } vertical>
+			<Segment  vertical>
 				<Container text>
 					<Header as = "h1">{ward && ward.name}</Header>
 

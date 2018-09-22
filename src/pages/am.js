@@ -8,7 +8,7 @@ import { Container, Header, Segment, Button, } from "../components/toolbox";
 
 const AM = () => (
 	<div>
-		<Segment style = { { padding: "8em 0em", } } vertical>
+		<Segment  vertical>
 			<Container text>
 				<Header as = "h3">Your local Assembley Member</Header>
 
@@ -56,7 +56,7 @@ const AM = () => (
 			</Container>
 		</Segment>
 
-		<Segment style = { { padding: "8em 0em", } } vertical>
+		<Segment  vertical>
 			<Container text>
 				<Header as = "h3">Contact Joanne</Header>
 

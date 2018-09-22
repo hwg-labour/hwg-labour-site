@@ -68,7 +68,7 @@ const Campaigning = ( { data, }, ) => {
 		<div>
 			<TopImage src = { banner } />
 
-			<Segment vertical style = { { padding: "8em 0em", } }>
+			<Segment vertical >
 				<Container text>
 					<Header as = "h1">Campaigning</Header>
 

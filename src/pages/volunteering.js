@@ -12,7 +12,7 @@ const Volunteering = () => (
 	<div>
 		<TopImage src = { banner } />
 
-		<Segment style = { { padding: "8em 0em", } } vertical>
+		<Segment  vertical>
 			<Container text>
 				<Header as = "h1" style = { { fontSize: "2em", } }>
 					Volunteering

@@ -15,7 +15,7 @@ const NewMembers = () => (
 	<div>
 		<TopImage src = { banner } />
 
-		<Segment style = { { padding: "8em 0em", } } vertical>
+		<Segment  vertical>
 			<Container text>
 				<Header as = "h1" style = { { fontSize: "2em", } }>
 					New Members
@@ -36,7 +36,7 @@ const NewMembers = () => (
 			</Container>
 		</Segment>
 
-		<Segment style = { { padding: "8em 0em", } } vertical>
+		<Segment  vertical>
 			<Container text>
 				<Header as = "h2" style = { { fontSize: "2em", } }>
 					Join the Labour Party
@@ -54,7 +54,7 @@ const NewMembers = () => (
 			</Container>
 		</Segment>
 
-		<Segment style = { { padding: "8em 0em", } } vertical>
+		<Segment  vertical>
 			<Container text>
 				<Header as = "h2" style = { { fontSize: "2em", } }>
 					Find your ward
@@ -74,7 +74,7 @@ const NewMembers = () => (
 			</Container>
 		</Segment>
 
-		<Segment style = { { padding: "8em 0em", } } vertical>
+		<Segment  vertical>
 			<Container text>
 				<Header as = "h2" style = { { fontSize: "2em", } }>
 					Campaign with us
@@ -90,7 +90,7 @@ const NewMembers = () => (
 			</Container>
 		</Segment>
 
-		<Segment style = { { padding: "8em 0em", } } vertical>
+		<Segment  vertical>
 			<Container text>
 				<Header as = "h2" style = { { fontSize: "2em", } }>
 					Social events

@@ -45,7 +45,7 @@ const News = ( { data, }, ) => {
 
 	return (
 		<div>
-			<Segment vertical style = { { padding: "8em 0em", } }>
+			<Segment vertical >
 				<Container text>
 					<Header as = "h1">News</Header>
 

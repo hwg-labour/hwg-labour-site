@@ -65,7 +65,7 @@ const Councillors = ( { data, }, ) => {
 		});
 
 	return (
-		<Segment style = { { padding: "8em 0em", } } vertical>
+		<Segment  vertical>
 			<Container text>
 				<Header as = "h1">Your Councillors</Header>
 
