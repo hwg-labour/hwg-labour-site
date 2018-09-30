@@ -41,10 +41,9 @@ export const CandidateItemQuery = graphql`
 
 const CandidateTemplate = ( { data, }, ) => (
 	<Page>
-		<div>
-			<Grid columns = { 3 } stackable>
-				<Row>
-					<Column width = { 6 }>
+		<Block>
+			<Block.Content>
+				<Grid>
 						<Image
 							src = { `
 								${
@@ -60,7 +59,7 @@ const CandidateTemplate = ( { data, }, ) => (
 					<Column width = { 10 }>
 						<h1>
 							{data.contentfulCandidate.name}
-						</Header>
+						</h1>
 
 						<Link
 							to = {

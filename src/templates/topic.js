@@ -23,21 +23,18 @@ export const TopicItemQuery = graphql`
 // ----------------------------------------------------
 
 const NewsTemplate = ( { data, }, ) => (
-	<div>
-		{ (data.contentfulTopic.image && data.contentfulTopic.image.file )  &&
-			<TopImage
-				src = {
-					data.contentfulTopic.image.file ?
-						`https://res.cloudinary.com/codogo/image/fetch/w_1500,c_fill,g_face,f_auto/https:${ data.contentfulTopic.image.file.url }` : 
-						"https://labour.org.uk/wp-content/uploads/2016/06/Search-homepage.jpg"
-				}
-			/>
-		}
+	<Page banner = {
+		data.contentfulTopic.image.file ?
+			`https://res.cloudinary.com/codogo/image/fetch/w_1500,c_fill,g_face,f_auto/https:${ data.contentfulTopic.image.file.url }` : 
+			"https://labour.org.uk/wp-content/uploads/2016/06/Search-homepage.jpg"
+	}
+	>
+		<Block>
+			<Block.Header>
+				{data.contentfulTopic.title }
+			</Block.Header>
 
-		<div>
-			<div text>
-				{ data.contentfulTopic.title && <h1>{data.contentfulTopic.title}</Header> }
-
+			<Block.Content>
 				{ data.contentfulTopic.type && <Subheader as = "h1">{data.contentfulTopic.type}</Subheader> }
 
 				{ 
@@ -61,9 +58,9 @@ const NewsTemplate = ( { data, }, ) => (
 						} }
 					/>
 				}
-			</div>
-		</div>
-	</div>
+			</Block.Content>
+		</Block>
+	</Page>
 );
 
 NewsTemplate.propTypes = {

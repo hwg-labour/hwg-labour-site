@@ -94,21 +94,16 @@ const WardTemplate = ( { data, }, ) => {
 		);
 
 	return (
-		<div>
-			{ward &&
-				ward.image && (
-				<TopImage
-					src = {
-						"https://res.cloudinary.com/codogo/image/fetch/w_1500,c_fill,g_face,f_auto/https:" +
-							ward.image.file.url
-					}
-				/>
-			)}
+		<Page banner = {
+			"https://res.cloudinary.com/codogo/image/fetch/w_1500,c_fill,g_face,f_auto/https:" +
+				ward.image.file.url
+		}>
+			<Block>
+				<Block.Header>
+					{ward && ward.name}
+				</Block.Header>
 
-			<div>
-				<div text>
-					<h1>{ward && ward.name}</Header>
-
+				<Block.Content>
 					<div
 						dangerouslySetInnerHTML = {
 							ward && {
@@ -116,19 +111,15 @@ const WardTemplate = ( { data, }, ) => {
 							}
 						}
 					/>
+				</Block.Content>
+			</Block>
 
-					<Divider
-						as = "h4"
-						className = "header"
-						horizontal
-						style = { {
-							margin: "3em 0em",
-							textTransform: "uppercase",
-						} }
-					>
-						Your Councillors
-					</Divider>
+			<Block>
+				<Block.Header as = "h4">
+					Your Councillors
+				</Block.Header>
 
+				<Block.Content>
 					{ ( candidates && candidates.length ) >= 1 ? (
 						<Grid columns = { 3 }>
 							<Row>
@@ -187,19 +178,15 @@ const WardTemplate = ( { data, }, ) => {
 							ward.
 						</div>
 					)}
+				</Block.Content>
+			</Block>
 
-					<Divider
-						as = "h4"
-						className = "header"
-						horizontal
-						style = { {
-							margin: "3em 0em",
-							textTransform: "uppercase",
-						} }
-					>
-						Recent News
-					</Divider>
+			<Block>
+				<Block.Header as = "h4">
+					Recent News
+				</Block.Header>
 
+				<Block.Content>
 					{news.length >= 1 ? (
 						<Grid columns = { 2 } stackable>
 							{news
@@ -216,9 +203,9 @@ const WardTemplate = ( { data, }, ) => {
 					)
 						: <div>No recent news</div>
 					}
-				</div>
-			</div>
-		</div>
+				</Block.Content>
+			</Block>
+		</Page>
 	);
 };
 

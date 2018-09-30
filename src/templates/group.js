@@ -61,30 +61,30 @@ const GroupTemplate = ( { data, }, ) => {
 	console.log(group.id, data.contentfulNews);
 
 	return (
-		<div>
-			{group.image && (
-				<TopImage
-					src = {
-						"https://res.cloudinary.com/codogo/image/fetch/w_1500,c_fill,g_face,f_auto/https:" +
-						group.image.file.url
-					}
-				/>
-			)}
+		<Page banner = {
+			"https://res.cloudinary.com/codogo/image/fetch/w_1500,c_fill,g_face,f_auto/https:" +
+			group.image.file.url
+		}>
+			<Block>
+				<Block.Header>
+					{group.name}
+				</Block.Header>
 
-			<div>
-				<div text>
-					<h1>{group.name}</Header>
-
+				<Block.Content>
 					<div
 						dangerouslySetInnerHTML = { {
 							__html: marked(group.description.description),
 						} }
 					/>
-
-					<Divider/>
+				</Block.Content>
+			</Block>
 					
-					<H3>Recent News</H3>
+			<Block>
+				<Block.Header as ="h3">
+					Recent News
+				</Block.Header>
 
+				<Block.Content>
 					{news.length >= 1 ? (
 						<div>
 							{news
@@ -101,9 +101,9 @@ const GroupTemplate = ( { data, }, ) => {
 					)
 						: <div>No recent news</div>
 					}
-				</div>
-			</div>
-		</div>
+				</Block.Content>
+			</Block>
+		</Page>
 	);
 };
 
