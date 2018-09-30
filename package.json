@@ -8,8 +8,8 @@
   "dependencies": {
     "codogo-nav": "^2.4.1",
     "codogo-utility-functions": "^1.0.5",
-    "contentful": "^5.1.3",
-    "gatsby": "^1.9.277",
+    "contentful": "^7.0.4",
+    "gatsby": "^2.0.12",
     "gatsby-link": "^1.6.46",
     "gatsby-plugin-favicon": "^2.1.1",
     "gatsby-plugin-google-analytics": "^1.0.31",
@@ -17,7 +17,9 @@
     "gatsby-plugin-sitemap": "^1.2.25",
     "gatsby-plugin-styled-components": "^2.0.11",
     "gatsby-source-contentful": "^1.3.38",
-    "marked": "^0.3.19",
+    "hwg-labour-components": "^0.1.0",
+    "marked": "^0.5.1",
+    "mcclowes-scripts": "^0.5.3",
     "moment": "^2.20.1",
     "momentjs": "^2.0.0",
     "prop-types": "^15.6.2",
@@ -25,9 +27,7 @@
     "slugify": "^1.3.1",
     "styled-components": "^3.4.9"
   },
-  "devDependencies": {
-    "mcclowes-scripts": "^0.3.6"
-  },
+  "devDependencies": {},
   "eslintConfig": {
     "extends": "mcclowes"
   },
