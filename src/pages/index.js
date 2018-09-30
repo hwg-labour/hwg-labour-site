@@ -100,7 +100,7 @@ const Home = ( { data, }, ) => {
 				<Block.Content>
 					{news.length && (
 						<Grid columns = { 2 } stackable>
-							{news.slice(0,2).map(newsItem => {
+							{news.slice(0, 2).map(newsItem => {
 								return <NewsItem news = { newsItem } />;
 							})}
 						</Grid>
@@ -112,7 +112,7 @@ const Home = ( { data, }, ) => {
 				</Block.Content>
 			</Block>
 		</Page>
-	)
+	);
 };
 
 Home.propTypes = {

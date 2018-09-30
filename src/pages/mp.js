@@ -64,7 +64,7 @@ const MP = () => (
 		</Section>
 
 		<Block>
-			<Block.Header as ="h3">
+			<Block.Header as = "h3">
 				Contact Catherine
 			</Block.Header>
 

@@ -1,4 +1,4 @@
-import { div, Page, Block } from "../components/toolbox";
+import { div, Page, Block, } from "../components/toolbox";
 
 import marked from "marked";
 import PropTypes from "prop-types";
@@ -28,11 +28,12 @@ export const EventItemQuery = graphql`
 // ----------------------------------------------------
 
 const EventTemplate = ( { data, }, ) => (
-	<Page banner = { ( data.contentfulEvent.image && data.contentfulEvent.image.file ) && (
-		data.contentfulEvent.image.file ?
-			`https://res.cloudinary.com/codogo/image/fetch/w_1500,c_fill,g_face,f_auto/https:${ data.contentfulEvent.image.file.url }` : 
-			"https://labour.org.uk/wp-content/uploads/2016/06/Search-homepage.jpg"
-		)}
+	<Page
+		banner = { ( data.contentfulEvent.image && data.contentfulEvent.image.file ) && (
+			data.contentfulEvent.image.file ?
+				`https://res.cloudinary.com/codogo/image/fetch/w_1500,c_fill,g_face,f_auto/https:${ data.contentfulEvent.image.file.url }` : 
+				"https://labour.org.uk/wp-content/uploads/2016/06/Search-homepage.jpg"
+		) }
 	>
 		<Block>
 			<Block.Header>

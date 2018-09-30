@@ -61,10 +61,11 @@ const GroupTemplate = ( { data, }, ) => {
 	console.log(group.id, data.contentfulNews);
 
 	return (
-		<Page banner = {
-			"https://res.cloudinary.com/codogo/image/fetch/w_1500,c_fill,g_face,f_auto/https:" +
+		<Page
+			banner = {
+				"https://res.cloudinary.com/codogo/image/fetch/w_1500,c_fill,g_face,f_auto/https:" +
 			group.image.file.url
-		}>
+			}>
 			<Block>
 				<Block.Header>
 					{group.name}
@@ -80,7 +81,7 @@ const GroupTemplate = ( { data, }, ) => {
 			</Block>
 					
 			<Block>
-				<Block.Header as ="h3">
+				<Block.Header as = "h3">
 					Recent News
 				</Block.Header>
 

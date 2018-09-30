@@ -174,9 +174,9 @@ const Navigation = ( { homepage, wards, groups, }, ) => (
 );
 
 Navigation.propTypes = {
+	groups: PropTypes.object,
 	homepage: PropTypes.bool,
 	wards: PropTypes.object,
-	groups: PropTypes.object,
 };
 
 export default Navigation;

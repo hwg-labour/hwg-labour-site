@@ -1,5 +1,5 @@
 import React from "react";
-import { Page, Block } from "../components/toolbox";
+import { Page, Block, } from "../components/toolbox";
 
 const NotFoundPage = () => (
 	<Page>

@@ -23,11 +23,12 @@ export const TopicItemQuery = graphql`
 // ----------------------------------------------------
 
 const NewsTemplate = ( { data, }, ) => (
-	<Page banner = {
-		data.contentfulTopic.image.file ?
-			`https://res.cloudinary.com/codogo/image/fetch/w_1500,c_fill,g_face,f_auto/https:${ data.contentfulTopic.image.file.url }` : 
-			"https://labour.org.uk/wp-content/uploads/2016/06/Search-homepage.jpg"
-	}
+	<Page
+		banner = {
+			data.contentfulTopic.image.file ?
+				`https://res.cloudinary.com/codogo/image/fetch/w_1500,c_fill,g_face,f_auto/https:${ data.contentfulTopic.image.file.url }` : 
+				"https://labour.org.uk/wp-content/uploads/2016/06/Search-homepage.jpg"
+		}
 	>
 		<Block>
 			<Block.Header>

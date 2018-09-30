@@ -94,10 +94,11 @@ const WardTemplate = ( { data, }, ) => {
 		);
 
 	return (
-		<Page banner = {
-			"https://res.cloudinary.com/codogo/image/fetch/w_1500,c_fill,g_face,f_auto/https:" +
+		<Page
+			banner = {
+				"https://res.cloudinary.com/codogo/image/fetch/w_1500,c_fill,g_face,f_auto/https:" +
 				ward.image.file.url
-		}>
+			}>
 			<Block>
 				<Block.Header>
 					{ward && ward.name}

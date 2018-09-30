@@ -16,7 +16,7 @@ const ContactUs = () => (
 		</Block>
 
 		<Block>
-			<Block.Header as="h3">
+			<Block.Header as = "h3">
 				Contact Details
 			</Block.Header>
 
