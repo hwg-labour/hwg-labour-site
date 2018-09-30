@@ -2,7 +2,7 @@ import {
 	Button,
 	Divider,
 	Section,
-	Container,
+	div,
 	Row,
 	Column,
 	Header,
@@ -39,7 +39,7 @@ const NewsThumbnail = styled(Image)`
 
 const NewsItem = ( { news, } ) => (
 	<Section>
-		<Container>
+		<div>
 			<Row key = { news.id + "-news" }>
 				<Column>
 					<NewsThumbnail
@@ -55,7 +55,7 @@ const NewsItem = ( { news, } ) => (
 
 				<Column>
 					<Link to = { "/news/" + slugify(news.title) }>
-						<Header as = "h3">{news.title}</Header>
+						<h3>{news.title}</Header>
 					</Link>
 
 					<p>
@@ -75,7 +75,7 @@ const NewsItem = ( { news, } ) => (
 			</Row>
 
 			<Divider section />
-		</Container>
+		</div>
 	</Section>
 );
 

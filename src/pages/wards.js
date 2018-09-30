@@ -7,12 +7,12 @@ import styled from "styled-components";
 
 import { TopImage, } from "../components/TopImage";
 import {
-	Container,
+	div,
 	Divider,
 	Grid,
 	Header,
 	Image,
-	Segment,
+	div,
 	Button,
 	Icon,
 	Row,
@@ -59,15 +59,15 @@ const Wards = ( { data, }, ) => (
 	<div>
 		<TopImage src = { banner } />
 
-		<Segment>
-			<Container text>
+		<div>
+			<div text>
 				<Header as = "h1" style = { { fontSize: "2em", } }>
 					Your wards
 				</Header>
 
-				<Header as = "h3">Find your ward</Header>
+				<h3>Find your ward</Header>
 
-				<p style = { { fontSize: "1.33em", } }>
+				<p>
 					If you don't know which is your local ward, you can use the
 					ward-finder tool below.
 				</p>
@@ -79,11 +79,11 @@ const Wards = ( { data, }, ) => (
 				>
 					Find your ward
 				</Button>
-			</Container>
-		</Segment>
+			</div>
+		</div>
 
-		<Segment style = { { padding: "3em 0em", } } vertical>
-			<Container text>
+		<div style = { { padding: "3em 0em", } } vertical>
+			<div text>
 				<Grid columns = { 2 } stackable>
 					{data.contentfulWards.edges
 						.sort((x, y) => {
@@ -106,7 +106,7 @@ const Wards = ( { data, }, ) => (
 								</Column>
 
 								<Column>
-									<Header as = "h3">{ward.node.name}</Header>
+									<h3>{ward.node.name}</Header>
 
 									<Button
 										as = { Link }
@@ -121,8 +121,8 @@ const Wards = ( { data, }, ) => (
 							</Row>
 						))}
 				</Grid>
-			</Container>
-		</Segment>
+			</div>
+		</div>
 	</div>
 );
 

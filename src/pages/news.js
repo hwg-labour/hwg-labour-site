@@ -1,7 +1,7 @@
 import PropTypes from "prop-types";
 import React from "react";
 
-import { Container, Divider, Grid, Header, Segment, } from "../components/toolbox";
+import { div, Divider, Grid, Header, div, } from "../components/toolbox";
 import { NewsItem, } from "../components/ListItems";
 
 // ----------------------------------------------------
@@ -44,27 +44,26 @@ const News = ( { data, }, ) => {
 		});
 
 	return (
-		<div>
-			<Segment vertical style = { { padding: "8em 0em", } }>
-				<Container text>
-					<Header as = "h1">News</Header>
+		<Page>
+			<Block>
+				<Block.Header>
+					News
+				</Block.Header>
 
-					<p style = { { fontSize: "1.33em", } }>
+				<Block.Content>
+					<p>
 						Stay up to date with the latest local Labour news.
 					</p>
 
-					<Divider
-						as = "h4"
-						className = "header"
-						horizontal
-						style = { {
-							margin: "3em 0em",
-							textTransform: "uppercase",
-						} }
-					>
-						Recent News
-					</Divider>
+				</Block.Content>
+			</Block>
 
+			<Block>
+				<Block.Header as = "h4">
+					Recent News
+				</Block.Header>
+
+				<Block.Content>
 					{news.length && (
 						<Grid columns = { 2 } stackable>
 							{news.map(newsItem => {
@@ -72,9 +71,9 @@ const News = ( { data, }, ) => {
 							})}
 						</Grid>
 					)}
-				</Container>
-			</Segment>
-		</div>
+				</Block.Content>
+			</Block>
+		</Page>
 	);
 };
 

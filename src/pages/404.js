@@ -1,11 +1,16 @@
 import React from "react";
+import { Page, Block } from "../components/toolbox";
 
 const NotFoundPage = () => (
-	<div>
-		<h1>NOT FOUND</h1>
+	<Page>
+		<Block>
+			<Block.Header>NOT FOUND</Block.Header>
 		
-		<p>You just hit a route that doesn&#39;t exist... the sadness.</p>
-	</div>
+			<Block.Content>
+				<p>You just hit a route that doesn&#39;t exist... the sadness.</p>
+			</Block.Content>
+		</Block>
+	</Page>
 );
 
 export default NotFoundPage;

@@ -1,5 +1,5 @@
 import { TopImage, } from "../components/TopImage";
-import { Container, Header, Segment, } from "../components/toolbox";
+import { div, Header, div, } from "../components/toolbox";
 
 import marked from "marked";
 import PropTypes from "prop-types";
@@ -40,9 +40,9 @@ const NewsTemplate = ( { data, }, ) => (
 			/>
 		}
 
-		<Segment>
-			<Container text>
-				{ data.contentfulNews.title && <Header as = "h1">{data.contentfulNews.title}</Header> }
+		<div>
+			<div text>
+				{ data.contentfulNews.title && <h1>{data.contentfulNews.title}</Header> }
 
 				{ 
 					data.contentfulNews.description &&
@@ -65,8 +65,8 @@ const NewsTemplate = ( { data, }, ) => (
 						} }
 					/>
 				}
-			</Container>
-		</Segment>
+			</div>
+		</div>
 	</div>
 );
 

@@ -1,4 +1,4 @@
-import { Container, Header, Segment, Grid, Image, } from "../components/toolbox";
+import { div, Header, div, Grid, Image, } from "../components/toolbox";
 
 import Link from "gatsby-link";
 import marked from "marked";
@@ -40,8 +40,8 @@ export const CandidateItemQuery = graphql`
 // ----------------------------------------------------
 
 const CandidateTemplate = ( { data, }, ) => (
-	<Segment>
-		<Container text>
+	<Page>
+		<div>
 			<Grid columns = { 3 } stackable>
 				<Row>
 					<Column width = { 6 }>
@@ -58,7 +58,7 @@ const CandidateTemplate = ( { data, }, ) => (
 					</Column>
 
 					<Column width = { 10 }>
-						<Header as = "h1">
+						<h1>
 							{data.contentfulCandidate.name}
 						</Header>
 
@@ -148,8 +148,8 @@ const CandidateTemplate = ( { data, }, ) => (
 					</Column>
 				</Row>
 			</Grid>
-		</Container>
-	</Segment>
+		</div>
+	</Page>
 );
 
 CandidateTemplate.propTypes = {

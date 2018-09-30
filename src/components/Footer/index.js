@@ -1,4 +1,4 @@
-import { Container, Grid, Header, List, Segment, } from "../toolbox";
+import { div, Grid, Header, List, div, } from "../toolbox";
 
 import React from "react";
 import PropTypes from "prop-types";
@@ -31,8 +31,8 @@ const Footer = ( { events, }, ) => {
 		.slice(1, 3);
 
 	return (
-		<Segment color = "grey" style = { { padding: "5em 0em", } } inverted vertical>
-			<Container>
+		<div color = "grey" style = { { padding: "5em 0em", } } inverted vertical>
+			<div>
 				<Grid divided inverted stackable>
 					<Row>
 						<Column width = { 4 }>
@@ -111,8 +111,8 @@ const Footer = ( { events, }, ) => {
 						</Column>
 					</Row>
 				</Grid>
-			</Container>
-		</Segment>
+			</div>
+		</div>
 	);
 };
 

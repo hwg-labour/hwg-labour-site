@@ -7,11 +7,11 @@ import { TopImage, } from "../components/TopImage";
 import { EventItem, } from "../components/ListItems";
 import {
 	Button,
-	Container,
+	div,
 	Divider,
 	Grid,
 	Header,
-	Segment,
+	div,
 } from "../components/toolbox";
 
 // ----------------------------------------------------
@@ -65,14 +65,14 @@ const WhatsOn = ( { data, }, ) => {
 		});
 
 	return (
-		<div>
-			<TopImage src = { banner } />
+		<Page banner = { banner }>
+			<Block>
+				<Block.Header>
+					What's On
+				</Block.Header>
 
-			<Segment vertical style = { { padding: "8em 0em", } }>
-				<Container text>
-					<Header as = "h1">What's On</Header>
-
-					<p style = { { fontSize: "1.33em", } }>
+				<Block.Content>
+					<p>
 						Social events are advertised here - get involved with labour
 						in your area!
 					</p>
@@ -85,16 +85,15 @@ const WhatsOn = ( { data, }, ) => {
 					<Button size = "huge" as = { Link } to = "/campaigning">
 						Campaigning
 					</Button>
+				</Block.Content>
+			</Block>
 
-					<Divider
-						as = "h4"
-						className = "header"
-						horizontal
-						style = { { margin: "3em 0em", textTransform: "uppercase", } }
-					>
-						Upcoming events
-					</Divider>
+			<Block>
+				<Block.Header as = "h4">
+					Upcoming events
+				</Block.Header>
 
+				<Block.Content>
 					<Grid columns = { 2 } stackable>
 						{ upcomingEvents ? 
 							upcomingEvents
@@ -104,9 +103,9 @@ const WhatsOn = ( { data, }, ) => {
 							: <div>No upcoming events</div>
 						}
 					</Grid>
-				</Container>
-			</Segment>
-		</div>
+				</Block.Content>
+			</Block>
+		</Page>
 	);
 };
 

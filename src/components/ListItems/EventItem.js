@@ -9,7 +9,7 @@ import {
 	Button,
 	Divider,
 	Section,
-	Container,
+	div,
 	Row,
 	Column,
 	Header,
@@ -61,7 +61,7 @@ const EventItem = ( { event, }, ) => (
 					slugify(event.node.title)
 				}
 			>
-				<Header as = "h3">
+				<h3>
 					{event.node.title}
 				</Header>
 			</Link>

@@ -1,4 +1,4 @@
-import { Button, Container, Link, Header, Segment, } from "../components/toolbox";
+import { Button, div, Link, Header, div, } from "../components/toolbox";
 import { TopImage, } from "../components/TopImage";
 
 import banner from "../images/banner-4.jpg";
@@ -9,16 +9,14 @@ import React from "react";
 // ----------------------------------------------------
 
 const Volunteering = () => (
-	<div>
-		<TopImage src = { banner } />
+	<Page banner = { banner }>
+		<Block>
+			<Block.Header>
+				Volunteering
+			</Block.Header>
 
-		<Segment>
-			<Container text>
-				<Header as = "h1" style = { { fontSize: "2em", } }>
-					Volunteering
-				</Header>
-
-				<p style = { { fontSize: "1.33em", } }>
+			<Block.Content>
+				<p>
 					We welcome all volunteers, whatever your skill-set or interests!
 				</p>
 
@@ -33,9 +31,9 @@ const Volunteering = () => (
 				<Button size = "huge" as = { Link } to = "/contact-us">
 					Get in touch
 				</Button>
-			</Container>
-		</Segment>
-	</div>
+			</Block.Content>
+		</Block>
+	</Page>
 );
 
 export default Volunteering;

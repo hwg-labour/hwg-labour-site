@@ -1,11 +1,11 @@
 import { TopImage, } from "../components/TopImage";
 import {
-	Container,
+	div,
 	Divider,
 	Grid,
 	Header,
 	Image,
-	Segment,
+	div,
 	Button,
 	Icon,
 } from "../components/toolbox";
@@ -62,26 +62,23 @@ const Groups = ( { data, }, ) => {
 		});
 
 	return (
-		<div>
-			<TopImage src = { banner } />
+		<Page banner= { banner } />
 
-			<Segment>
-				<Container text>
-					<Header as = "h1" style = { { fontSize: "2em", } }>
-						Forums and groups
-					</Header>
-				</Container>
-			</Segment>
+			<Block>
+				<Block.Header>
+					Forums and groups
+				</Block.Header>
+			</Block>
 
-			<Segment style = { { padding: "3em 0em", } } vertical>
-				<Container text>
+			<Section>
+				<Section.Container>
 					<Grid columns = { 2 } stackable>
 						{
 							groups && 
 							groups
 								.map(group => (
-									<Row key = { group.node.id + "-newsitem" }>
-										<Column>
+									<Section.Row key = { group.node.id + "-newsitem" }>
+										<Section.Column>
 											<GroupThumbnail
 												src = {
 													"https://res.cloudinary.com/codogo/image/fetch/w_800,c_fill,g_face,f_auto/https:" +
@@ -93,10 +90,10 @@ const Groups = ( { data, }, ) => {
 													slugify(group.node.name)
 												}
 											/>
-										</Column>
+										</Section.Column>
 
-										<Column>
-											<Header as = "h3">{group.node.name}</Header>
+										<Section.Column>
+											<h3>{group.node.name}</h3>
 
 											<Button
 												as = { Link }
@@ -108,17 +105,15 @@ const Groups = ( { data, }, ) => {
 											>
 												See more <Icon name = "right arrow" />
 											</Button>
-										</Column>
-
-										<Divider section />
-									</Row>
+										</Section.Column>
+									</Section.Row>
 								)
-								)
+							)
 						}
 					</Grid>
-				</Container>
-			</Segment>
-		</div>
+				</Section.Container>
+			</Section>
+		</Page>
 	);
 };
 

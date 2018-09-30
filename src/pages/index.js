@@ -1,4 +1,4 @@
-import { Button, Container, Header, Segment, Grid, } from "../components/toolbox";
+import { Button, div, Header, div, Grid, } from "../components/toolbox";
 import { NewsItem, } from "../components/ListItems";
 
 import Link from "gatsby-link";
@@ -49,14 +49,14 @@ const Home = ( { data, }, ) => {
 	};
 
 	return (
-		<div>
-			<Segment>
-				<Container text>
-					<Header as = "h1" style = { { fontSize: "2em", } }>
-						For the many, not the few.
-					</Header>
+		<Page>
+			<Block>
+				<Block.Header>
+					For the many, not the few.
+				</Block.Header>
 
-					<p style = { { fontSize: "1.33em", } }>
+				<Block.Content>
+					<p>
 						We want to build a Britain that works for the many, not the
 						few. That means building the homes we need to rent and buy,
 						keeping our communities safe, giving our schools the funding
@@ -71,36 +71,33 @@ const Home = ( { data, }, ) => {
 					>
 						Read our manifesto
 					</Button>
-				</Container>
-			</Segment>
+				</Block.Content>
+			</Block>
 
-			<Segment>
-				<Container text>
-					<Header as = "h1" style = { { fontSize: "2em", } }>
-						Meet your councillors
-					</Header>
+			<Block>
+				<Block.Header>
+					Meet your councillors
+				</Block.Header>
 
-					<p style = { { fontSize: "1.33em", } }>
+				<Block.Content>
+					<p>
 						There are 15 Labour councillors representing you across
 						Hornsey & Wood Green. Find out who is representing your
 						local area.
 					</p>
 
-					<Button size = "huge" as = { Link } to = "/councillors">
+					<Button as = { Link } to = "/councillors">
 						Meet your councillors
 					</Button>
-				</Container>
-			</Segment>
+				</Block.Content>
+			</Block>
 
-			<Segment>
-				<Container text>
-					<Header as = "h3" style = { { fontSize: "2em", } }>
-						Recent News
-					</Header>
+			<Block>
+				<Block.Header>
+					Recent News
+				</Block.Header>
 
-					<br/>
-					<br/>
-
+				<Block.Content>
 					{news.length && (
 						<Grid columns = { 2 } stackable>
 							{news.slice(0,2).map(newsItem => {
@@ -112,9 +109,9 @@ const Home = ( { data, }, ) => {
 					<Button size = "huge" as = { Link } to = "/news">
 						Read more news
 					</Button>
-				</Container>
-			</Segment>
-		</div>
+				</Block.Content>
+			</Block>
+		</Page>
 	)
 };
 

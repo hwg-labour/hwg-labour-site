@@ -4,45 +4,7 @@ import styled from "styled-components";
 
 // ---------------------------------
 
-// Content div
-export const PageWrapper = styled.div`
-	display: flex;
-	min-height: 100vh;
-	flex-direction: column;
-`;
-
-// Main content div
-export const div = styled.div`
-	display: flex;
-	flex: 1;
-	align-items: center;
-	justify-content: center;
-	flex-direction: column;
-	padding-top: 100px;
-`;
-
-// Full height div
-export const Full = styled(div)`
-	width: 100vw;
-	height: 100vh;
-
-	${ props =>
-		props.backgroundColor && `background-color: ${ props.backgroundColor }` };
-`;
-
-// ---------------------------------
-
-//
-export const SectionWrapper = styled.div`
-	width: 100%;
-	background-color: white;
-
-	&:nth-child(2n) {
-		background-color: #f1f6f9;
-	}
-`;
-
-export const Section = styled.div`
+const Section = styled.div`
 	align-items: center;
 	display: flex;
 	flex-direction: column;
@@ -56,9 +18,12 @@ export const Section = styled.div`
 	}
 `;
 
-// ---------------------------------
+Section.Container = styled.div`
+	display: flex;
+	max-width: 700px;
+`;
 
-export const Row = styled.div`
+Section.Row = styled.div`
 	align-items: center;
 	display: flex;
 	flex-direction: row;
@@ -87,7 +52,7 @@ export const Row = styled.div`
 
 // ---------------------------------
 
-export const Column = styled.div`
+Section.Column = styled.div`
 	display: flex;
 	align-items: ${ props => (props.center ? "center" : "flex-start") };
 	justify-content: ${ props => (props.center ? "center" : "flex-start") };
@@ -98,3 +63,5 @@ export const Column = styled.div`
 
 	${ props => props.grow && `flex-grow: ${ props.size || "1" }` };
 `;
+
+export { Section, };

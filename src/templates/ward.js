@@ -1,10 +1,10 @@
 import {
-	Container,
+	div,
 	Divider,
 	Grid,
 	Header,
 	Image,
-	Segment,
+	div,
 } from "../components/toolbox";
 import { NewsItem, } from "../components/ListItems";
 import { TopImage, } from "../components/TopImage";
@@ -105,9 +105,9 @@ const WardTemplate = ( { data, }, ) => {
 				/>
 			)}
 
-			<Segment>
-				<Container text>
-					<Header as = "h1">{ward && ward.name}</Header>
+			<div>
+				<div text>
+					<h1>{ward && ward.name}</Header>
 
 					<div
 						dangerouslySetInnerHTML = {
@@ -216,8 +216,8 @@ const WardTemplate = ( { data, }, ) => {
 					)
 						: <div>No recent news</div>
 					}
-				</Container>
-			</Segment>
+				</div>
+			</div>
 		</div>
 	);
 };

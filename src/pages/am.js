@@ -1,65 +1,75 @@
 import React from "react";
 
-import { Container, Header, Segment, Button, } from "../components/toolbox";
+import { div, Header, div, Button, } from "../components/toolbox";
 
 // ----------------------------------------------------
 
 // ----------------------------------------------------
 
 const AM = () => (
-	<div>
-		<Segment>
-			<Container text>
-				<Header as = "h3">Your local Assembley Member</Header>
+	<Page>
+		<Section>
+			<Section.Container>
+				<Section.Row>
+					<Section.Column>
+						<h3>Your local Assembley Member</h3>
 
-				<Header as = "h1">Joanne McCartney</Header>
+						<h1>Joanne McCartney</h1>
 
-				<p>
-					As the local Assembly Member, Joanne represents Enfield and
-					Haringey constituents on local issues and holds the Mayor to
-					account along with fellow Assembly Members, working hard to
-					ensure local voices are heard in City Hall. She currently
-					sits on the Economy and Transport committees at the London
-					Assembly.
-				</p>
+						<p>
+							As the local Assembly Member, Joanne represents Enfield and
+							Haringey constituents on local issues and holds the Mayor to
+							account along with fellow Assembly Members, working hard to
+							ensure local voices are heard in City Hall. She currently
+							sits on the Economy and Transport committees at the London
+							Assembly.
+						</p>
+					</Section.Column>
+				</Section.Row>
 
-				<p>
-					Joanne was appointed Deputy Mayor for London in May 2016 by
-					Mayor Sadiq Khan and has been re-elected to the London
-					Assembly Member for Enfield & Haringey for the forth time,
-					increasing her majority from 1,400 in 2004 to 51,000 in
-					2016.
-				</p>
+				<Section.Row>
+					<Section.Column>
+						<p>
+							Joanne was appointed Deputy Mayor for London in May 2016 by
+							Mayor Sadiq Khan and has been re-elected to the London
+							Assembly Member for Enfield & Haringey for the forth time,
+							increasing her majority from 1,400 in 2004 to 51,000 in
+							2016.
+						</p>
 
-				<p>
-					Before being elected to the London Assembly Joanne served as
-					a Councillor in Enfield between 1998-2006, and previously
-					Chaired the Enfield Early Years development and Childcare
-					Partnership and been the Director of Millfield Community
-					Theatre in Edmonton.
-				</p>
+						<p>
+							Before being elected to the London Assembly Joanne served as
+							a Councillor in Enfield between 1998-2006, and previously
+							Chaired the Enfield Early Years development and Childcare
+							Partnership and been the Director of Millfield Community
+							Theatre in Edmonton.
+						</p>
 
-				<p>
-					Joanne is a barrister by profession and have specialised in
-					employment law, and has also worked as an adjudicator for
-					the Housing Ombudsman dealing with disputes between
-					landlords and tenants.
-				</p>
+						<p>
+							Joanne is a barrister by profession and have specialised in
+							employment law, and has also worked as an adjudicator for
+							the Housing Ombudsman dealing with disputes between
+							landlords and tenants.
+						</p>
 
-				<Button
-					as = "a"
-					size = "large"
-					href = "https://joannemccartney.co.uk/"
-				>
-					Find out more
-				</Button>
-			</Container>
-		</Segment>
+						<Button
+							as = "a"
+							size = "large"
+							href = "https://joannemccartney.co.uk/"
+						>
+							Find out more
+						</Button>
+					</Section.Column>
+				</Section.Row>
+			</Section.Container>
+		</Section>
 
-		<Segment>
-			<Container text>
-				<Header as = "h3">Contact Joanne</Header>
+		<Block>
+			<Block.Header>
+				Contact Joanne
+			</Block.Header>
 
+			<Block.Content>
 				<p>
 					Please include your full address, postcode and name in any
 					communications with Joanne, or she will be unable to take up
@@ -68,6 +78,7 @@ const AM = () => (
 
 				<p>
 					<b>Email</b>:{" "}
+					
 					<a href = "mailto:joanne.mccartney@london.gov.uk">
 						joanne.mccartney@london.gov.uk
 					</a>
@@ -88,9 +99,9 @@ const AM = () => (
 						@JoanneMcCartney
 					</a>
 				</p>
-			</Container>
-		</Segment>
-	</div>
+			</Block.Content>
+		</Block>
+	</Page>
 );
 
 export default AM;

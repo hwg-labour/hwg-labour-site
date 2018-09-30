@@ -3,15 +3,14 @@ import Link from "gatsby-link";
 import PropTypes from "prop-types";
 import React from "react";
 
-import { TopImage, } from "../components/TopImage";
 import { EventItem, } from "../components/ListItems";
 import {
 	Button,
-	Container,
+	div,
 	Divider,
 	Grid,
 	Header,
-	Segment,
+	div,
 } from "../components/toolbox";
 
 // ----------------------------------------------------
@@ -65,14 +64,14 @@ const Campaigning = ( { data, }, ) => {
 		});
 
 	return (
-		<div>
-			<TopImage src = { banner } />
+		<Page banner = { banner }>
+			<Block>
+				<Block.Header>
+					Campaigning
+				</Block.Header>
 
-			<Segment vertical style = { { padding: "8em 0em", } }>
-				<Container text>
-					<Header as = "h1">Campaigning</Header>
-
-					<p style = { { fontSize: "1.33em", } }>
+				<Block.Content>
+					<p>
 						Thank you to everyone who joined us on the doorstep in the
 						run up to the May local elections!
 					</p>
@@ -87,16 +86,15 @@ const Campaigning = ( { data, }, ) => {
 					<Button size = "huge" as = { Link } to = "/contact-us">
 						Get in touch
 					</Button>
+				</Block.Content>
+			</Block>
 
-					<Divider
-						as = "h4"
-						className = "header"
-						horizontal
-						style = { { margin: "3em 0em", textTransform: "uppercase", } }
-					>
-						Upcoming events
-					</Divider>
+			<Block>
+				<Block.Header as = "h2">
+					Upcoming events
+				</Block.Header>
 
+				<Block.Content>
 					<Grid columns = { 2 } stackable>
 						{ upcomingEvents ?
 							upcomingEvents
@@ -106,9 +104,9 @@ const Campaigning = ( { data, }, ) => {
 							: <div>No upcoming events</div>
 						}
 					</Grid>
-				</Container>
-			</Segment>
-		</div>
+				</Block.Content>
+			</Block>
+		</Page>
 	);
 };
 

@@ -1,10 +1,5 @@
 import {
-	Container,
-	Divider,
-	Grid,
-	Header,
-	Image,
-	Segment,
+	Grid, Image, Block, Page,
 } from "../components/toolbox";
 
 import Link from "gatsby-link";
@@ -65,98 +60,101 @@ const Councillors = ( { data, }, ) => {
 		});
 
 	return (
-		<Segment>
-			<Container text>
-				<Header as = "h1">Your Councillors</Header>
+		<Page>
+			<Block>
+				<Block.Header>
+					Your Councillors
+				</Block.Header>
 
-				<p>
-					There are 15 Labour councillors representing you across Hornsey
-					& Wood Green. Find out who is representing your local area.
-				</p>
+				<Block.Content>
+					<p>
+						There are 15 Labour councillors representing you across Hornsey
+						& Wood Green. Find out who is representing your local area.
+					</p>
+				</Block.Content>
+			</Block>
 
-				<br />
-
-				{wards && 
-					wards.map( ward => (
-						<Container key = { ward.node.id + "-ward" }>
-							<Divider as = "h4" className = "header" horizontal>
-								<Link
-									to = { `/wards/${ slugify(ward.node.name, {
-										lower: true,
-									}) }` }
-								>
-									{ward.node.name}
-								</Link>
-							</Divider>
-							
-							<br />
-
-							{ 
-								councillors.filter(councillor => {
-									return (
-										councillor.node.ward.id === ward.node.id
-									);
-								}) 
-									? (
-										<Grid columns = { 3 }>
-											<Row>
-												{councillors
-													.filter(councillor => {
-														return (
-															councillor.node.ward.id === ward.node.id
-														);
-													})
-													.map(councillor => (
-														<Column
-															key = {
-																councillor.node.id +
-														"-councillor"
-															}
-															verticalAlign = "middle"
-														>
-															<Image
-																src = { `
-															${
-														councillor.node
-															.image
-															? "https://res.cloudinary.com/codogo/image/fetch/h_530,w_430,c_fill,g_face,f_auto/https:" +
-																		councillor
-																			.node
-																			.image
-																			.file
-																			.url
-															: profileImage
-														}` }
-																as = { Link }
-																to = { `/councillors/${ slugify(
-																	councillor.node
-																		.name,
-																	{ lower: true, },
-																) }` }
-															/>
-
-															<Header
-																as = "h4"
-																textAlign = "center"
+			
+			{wards && 
+				wards.map( ward => (
+							<Block key = { ward.node.id + "-ward" }>
+								<Block.Header as ="h4">
+									<Link
+										to = { `/wards/${ slugify(ward.node.name, {
+											lower: true,
+										}) }` }
+									>
+										{ward.node.name}
+									</Link>
+								</Block.Header>
+								
+								<Block.Content>
+									{ 
+									councillors.filter(councillor => {
+										return (
+											councillor.node.ward.id === ward.node.id
+										);
+									}) 
+										? (
+											<Grid columns = { 3 }>
+												<Row>
+													{councillors
+														.filter(councillor => {
+															return (
+																councillor.node.ward.id === ward.node.id
+															);
+														})
+														.map(councillor => (
+															<Column
+																key = {
+																	councillor.node.id +
+															"-councillor"
+																}
+																verticalAlign = "middle"
 															>
-																{councillor.node.name}
-															</Header>
-														</Column>
-													))}
-											</Row>
-										</Grid>
-									) : (
-										<div>
-											There are currently no Labour councillors in
-											this ward.
-										</div>
-									)}
-							<br />
-							<br />
-						</Container>
-					))}
-			</Container>
-		</Segment>
+																<Image
+																	src = { `
+																${
+															councillor.node
+																.image
+																? "https://res.cloudinary.com/codogo/image/fetch/h_530,w_430,c_fill,g_face,f_auto/https:" +
+																			councillor
+																				.node
+																				.image
+																				.file
+																				.url
+																: profileImage
+															}` }
+																	as = { Link }
+																	to = { `/councillors/${ slugify(
+																		councillor.node
+																			.name,
+																		{ lower: true, },
+																	) }` }
+																/>
+
+																<Header
+																	as = "h4"
+																	textAlign = "center"
+																>
+																	{councillor.node.name}
+																</Header>
+															</Column>
+														))}
+												</Row>
+											</Grid>
+										) : (
+											<div>
+												There are currently no Labour councillors in
+												this ward.
+											</div>
+										)
+									}
+								</Block.Content>
+							</Block>
+					))
+			}
+		</Page>
 	);
 };
 

@@ -1,27 +1,26 @@
+import { Page, Block, } from "../components/toolbox";
+
 import banner from "../images/banner-5.jpg";
 import React from "react";
-
-import { TopImage, } from "../components/TopImage";
-import { Container, Header, Segment, } from "../components/toolbox";
 
 // ----------------------------------------------------
 
 // ----------------------------------------------------
 
 const ContactUs = () => (
-	<div>
-		<TopImage src = { banner } />
+	<Page banner = { banner }>
+		<Block>
+			<Block.Header>
+				Contact Us
+			</Block.Header>
+		</Block>
 
-		<Segment>
-			<Container text>
-				<Header as = "h1">Contact Us</Header>
-			</Container>
-		</Segment>
+		<Block>
+			<Block.Header as="h3">
+				Contact Details
+			</Block.Header>
 
-		<Segment>
-			<Container text>
-				<Header as = "h3">Contact Details</Header>
-
+			<Block.Content>
 				<p>
 					<b>Email</b>:{" "}
 					
@@ -51,9 +50,9 @@ const ContactUs = () => (
 						HornseyWoodGreenLabour
 					</a>
 				</p>
-			</Container>
-		</Segment>
-	</div>
+			</Block.Content>
+		</Block>
+	</Page>
 );
 
 export default ContactUs;

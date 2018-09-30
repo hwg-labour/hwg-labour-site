@@ -1,5 +1,5 @@
 import { TopImage, } from "../components/TopImage";
-import { Container, Header, Segment, } from "../components/toolbox";
+import { div, Header, div, } from "../components/toolbox";
 
 import marked from "marked";
 import PropTypes from "prop-types";
@@ -40,8 +40,8 @@ const EventTemplate = ( { data, }, ) => (
 			/>
 		)}
 
-		<Segment>
-			<Container text>
+		<div>
+			<div text>
 				{
 					data.contentfulEvent.membersOnly &&
 					<p style = { { color: "#aaaaaa", } }>Members only</p>
@@ -49,7 +49,7 @@ const EventTemplate = ( { data, }, ) => (
 
 				{
 					data.contentfulEvent.title &&
-					<Header as = "h1">{data.contentfulEvent.title}</Header>
+					<h1>{data.contentfulEvent.title}</Header>
 				}
 
 				{ 
@@ -71,8 +71,8 @@ const EventTemplate = ( { data, }, ) => (
 						} }
 					/>
 				}
-			</Container>
-		</Segment>
+			</div>
+		</div>
 	</div>
 );
 
