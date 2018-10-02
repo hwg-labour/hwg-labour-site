@@ -122,8 +122,8 @@ const WardTemplate = ( { data, }, ) => {
 
 					<Section.Row>
 						{ 
-							( candidates && candidates.length ) >= 1 ? (
-								{candidates &&
+							candidates.length  >= 1 ? 
+								(
 									candidates
 										.sort((x, y) => {
 											return x.node.name.toUpperCase() <
@@ -138,14 +138,13 @@ const WardTemplate = ( { data, }, ) => {
 													key = {councillor.node.id +"-councillor"}
 												/>
 											);
-										})}
-
-							) : 
-							(
-								<div>
-									There are currently no Labour Councillors in this ward.
-								</div>
-							)
+										})
+								) : 
+								(
+									<div>
+										There are currently no Labour Councillors in this ward.
+									</div>
+								)
 						}
 					</Section.Row>
 				</Seciton.Container>
