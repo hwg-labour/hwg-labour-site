@@ -134,8 +134,8 @@ const WardTemplate = ( { data, }, ) => {
 										.map(councillor => {
 											return (
 												<CouncillorItem 
-													councillor = {councillor}
-													key = {councillor.node.id +"-councillor"}
+													councillor = { councillor }
+													key = { councillor.node.id + "-councillor" }
 												/>
 											);
 										})
