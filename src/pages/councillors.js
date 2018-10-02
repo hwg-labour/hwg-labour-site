@@ -1,6 +1,9 @@
-import {
-	Grid, Image, Block, Page,
-} from "../components/toolbox";
+import { graphql, } from "graphql";
+import { 
+	Page,
+	Block,
+	Button,
+} from "hwg-labour-components";
 
 import Link from "gatsby-link";
 import profileImage from "../images/profile-pic.png";

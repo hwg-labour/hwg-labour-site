@@ -1,13 +1,10 @@
-import {
-	div,
-	Divider,
-	Grid,
-	Header,
-	Image,
-	div,
-} from "../components/toolbox";
-import { NewsItem, } from "../components/ListItems";
-import { TopImage, } from "../components/TopImage";
+import { graphql, } from "graphql";
+import { 
+	Page,
+	Block,
+	Section,
+	Button,
+} from "hwg-labour-components";
 
 import Link from "gatsby-link";
 import marked from "marked";
@@ -115,15 +112,17 @@ const WardTemplate = ( { data, }, ) => {
 				</Block.Content>
 			</Block>
 
-			<Block>
-				<Block.Header as = "h4">
-					Your Councillors
-				</Block.Header>
+			<Section>
+				<Seciton.Container>
+					<Section.Row>
+						<Section.Column>
+							<h3>Your Councillors</h3>
+						</Section.Column>
+					</Section.Row>
 
-				<Block.Content>
-					{ ( candidates && candidates.length ) >= 1 ? (
-						<Grid columns = { 3 }>
-							<Row>
+					<Section.Row>
+						{ 
+							( candidates && candidates.length ) >= 1 ? (
 								{candidates &&
 									candidates
 										.sort((x, y) => {
@@ -134,53 +133,23 @@ const WardTemplate = ( { data, }, ) => {
 										})
 										.map(councillor => {
 											return (
-												<Column
-													key = {
-														councillor.node.id +
-														"-councillor"
-													}
-													verticalAlign = "middle"
-												>
-													<Image
-														src = { `
-														${
-												councillor.node
-													.image
-													? "https://res.cloudinary.com/codogo/image/fetch/h_530,w_430,c_fill,g_face,f_auto/https:" +
-																	councillor
-																		.node
-																		.image
-																		.file
-																		.url
-													: profileImage
-												}` }
-														as = { Link }
-														to = { `/councillors/${ slugify(
-															councillor.node
-																.name,
-															{ lower: true, },
-														) }` }
-													/>
-
-													<Header
-														as = "h4"
-														textAlign = "center"
-													>
-														{councillor.node.name}
-													</Header>
-												</Column>
+												<CouncillorItem 
+													councillor = {councillor}
+													key = {councillor.node.id +"-councillor"}
+												/>
 											);
 										})}
-							</Row>
-						</Grid>
-					) : (
-						<div>
-							There are currently no Labour Councillors in this
-							ward.
-						</div>
-					)}
-				</Block.Content>
-			</Block>
+
+							) : 
+							(
+								<div>
+									There are currently no Labour Councillors in this ward.
+								</div>
+							)
+						}
+					</Section.Row>
+				</Seciton.Container>
+			</Section>
 
 			<Block>
 				<Block.Header as = "h4">

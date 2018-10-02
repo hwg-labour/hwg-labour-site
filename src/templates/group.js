@@ -1,6 +1,9 @@
-import { div, Divider, H3, Header, div, } from "../components/toolbox";
-import { NewsItem, } from "../components/ListItems";
-import { TopImage, } from "../components/TopImage";
+import { graphql, } from "graphql";
+import { 
+	Page,
+	Block,
+	Button,
+} from "hwg-labour-components";
 
 import marked from "marked";
 import PropTypes from "prop-types";

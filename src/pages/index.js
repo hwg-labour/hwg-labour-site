@@ -1,5 +1,9 @@
-import { Button, div, Header, div, Grid, } from "../components/toolbox";
-import { NewsItem, } from "../components/ListItems";
+import { graphql, } from "graphql";
+import { 
+	Page,
+	Block,
+	Button,
+} from "hwg-labour-components";
 
 import Link from "gatsby-link";
 import React from "react";

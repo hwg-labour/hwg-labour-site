@@ -1,4 +1,9 @@
-import { Button, div, Header, div, } from "../components/toolbox";
+import { graphql, } from "graphql";
+import { 
+	Page,
+	Block,
+	Button,
+} from "hwg-labour-components";
 
 import React from "react";
 

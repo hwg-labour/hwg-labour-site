@@ -1,14 +1,9 @@
-import { TopImage, } from "../components/TopImage";
+import { graphql, } from "graphql";
 import {
-	div,
-	Divider,
-	Grid,
-	Header,
-	Image,
-	div,
-	Button,
-	Icon,
-} from "../components/toolbox";
+	Page,
+	Block,
+	Section,
+} from "hwg-labour-components";
 
 import banner from "../images/banner-4.jpg";
 import Link from "gatsby-link";
@@ -62,7 +57,7 @@ const Groups = ( { data, }, ) => {
 		});
 
 	return (
-		<Page banner= { banner } />
+		<Page banner = { banner }>
 
 			<Block>
 				<Block.Header>
@@ -72,45 +67,43 @@ const Groups = ( { data, }, ) => {
 
 			<Section>
 				<Section.Container>
-					<Grid columns = { 2 } stackable>
-						{
-							groups && 
-							groups
-								.map(group => (
-									<Section.Row key = { group.node.id + "-newsitem" }>
-										<Section.Column>
-											<GroupThumbnail
-												src = {
-													"https://res.cloudinary.com/codogo/image/fetch/w_800,c_fill,g_face,f_auto/https:" +
-													group.node.image.file.url
-												}
-												as = { Link }
-												to = {
-													"/groups/" +
-													slugify(group.node.name)
-												}
-											/>
-										</Section.Column>
+					{
+						groups && 
+						groups
+							.map(group => (
+								<Section.Row key = { group.node.id + "-newsitem" }>
+									<Section.Column>
+										<GroupThumbnail
+											src = {
+												"https://res.cloudinary.com/codogo/image/fetch/w_800,c_fill,g_face,f_auto/https:" +
+												group.node.image.file.url
+											}
+											as = { Link }
+											to = {
+												"/groups/" +
+												slugify(group.node.name)
+											}
+										/>
+									</Section.Column>
 
-										<Section.Column>
-											<h3>{group.node.name}</h3>
+									<Section.Column>
+										<h3>{group.node.name}</h3>
 
-											<Button
-												as = { Link }
-												size = "small"
-												to = {
-													"/groups/" +
-													slugify(group.node.name)
-												}
-											>
-												See more <Icon name = "right arrow" />
-											</Button>
-										</Section.Column>
-									</Section.Row>
-								)
+										<Button
+											as = { Link }
+											size = "small"
+											to = {
+												"/groups/" +
+												slugify(group.node.name)
+											}
+										>
+											See more <Icon name = "right arrow" />
+										</Button>
+									</Section.Column>
+								</Section.Row>
 							)
-						}
-					</Grid>
+							)
+					}
 				</Section.Container>
 			</Section>
 		</Page>

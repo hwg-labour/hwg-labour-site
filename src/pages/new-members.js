@@ -1,11 +1,14 @@
-import React from "react";
-import Link from "gatsby-link";
-
-import { TopImage, } from "../components/TopImage";
+import { graphql, } from "graphql";
+import { 
+	Page,
+	Block,
+	Button,
+} from "hwg-labour-components";
 
 import banner from "../images/banner-1.jpg";
+import Link from "gatsby-link";
+import React from "react";
 
-import { Button, div, Header, div, } from "../components/toolbox";
 
 // ----------------------------------------------------
 
@@ -35,7 +38,7 @@ const NewMembers = () => (
 		</Block>
 
 		<Block>
-			<Block.Header as ="h2">
+			<Block.Header as = "h2">
 				Join the Labour Party
 			</Block.Header>
 
@@ -53,9 +56,8 @@ const NewMembers = () => (
 		</Block>
 
 		<Block>
-			<Block.Header as ="h2">
+			<Block.Header as = "h2">
 				Find your ward
-				</Header>
 			</Block.Header>
 
 			<Block.Content>
@@ -74,7 +76,7 @@ const NewMembers = () => (
 		</Block>
 
 		<Block>
-			<Block.Header as ="h2">
+			<Block.Header as = "h2">
 				Campaign with us
 			</Block.Header>
 
@@ -90,7 +92,7 @@ const NewMembers = () => (
 		</Block>
 
 		<Block>
-			<Block.Header as ="h2">
+			<Block.Header as = "h2">
 				Social events
 			</Block.Header>
 

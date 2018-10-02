@@ -1,3 +1,11 @@
+import { graphql, } from "graphql";
+import {
+	Page,
+	Block,
+	Section,
+	Button,
+} from "hwg-labour-components";
+
 import banner from "../images/banner-1.jpg";
 import Link from "gatsby-link";
 import PropTypes from "prop-types";
@@ -5,20 +13,6 @@ import React from "react";
 import slugify from "slugify";
 import styled from "styled-components";
 
-import { TopImage, } from "../components/TopImage";
-import {
-	div,
-	Divider,
-	Grid,
-	Header,
-	Image,
-	div,
-	Button,
-	Icon,
-	Row,
-	Column,
-	Section,
-} from "../components/toolbox";
 
 // ----------------------------------------------------
 
@@ -56,17 +50,20 @@ export const WardListQuery = graphql`
 // ----------------------------------------------------
 
 const Wards = ( { data, }, ) => (
-	<div>
-		<TopImage src = { banner } />
+	<Page banner = { banner }>
+		<Block>
+			<Block.Header>
+				Your wards
+			</Block.Header>
+		</Block>
 
-		<div>
-			<div text>
-				<Header as = "h1" style = { { fontSize: "2em", } }>
-					Your wards
-				</Header>
 
-				<h3>Find your ward</Header>
+		<Block>
+			<Block.Header as = "h3">
+				Find your ward
+			</Block.Header>
 
+			<Block.Content>
 				<p>
 					If you don't know which is your local ward, you can use the
 					ward-finder tool below.
@@ -79,51 +76,48 @@ const Wards = ( { data, }, ) => (
 				>
 					Find your ward
 				</Button>
-			</div>
-		</div>
+			</Block.Content>
+		</Block>
 
-		<div style = { { padding: "3em 0em", } } vertical>
-			<div text>
-				<Grid columns = { 2 } stackable>
-					{data.contentfulWards.edges
-						.sort((x, y) => {
-							return x.node.name.toUpperCase() <
-								y.node.name.toUpperCase()
-								? -1
-								: 1;
-						})
-						.map(ward => (
-							<Row key = { ward.node.id + "-newsitem" }>
-								<Column>
-									<WardThumbnail
-										src = {
-											"https://res.cloudinary.com/codogo/image/fetch/w_800,c_fill,g_face,f_auto/https:" +
-											ward.node.image.file.url
-										}
-										as = { Link }
-										to = { "/wards/" + slugify(ward.node.name) }
-									/>
-								</Column>
+		<Section>
+			<Section.Container>
+				{data.contentfulWards.edges
+					.sort((x, y) => {
+						return x.node.name.toUpperCase() <
+							y.node.name.toUpperCase()
+							? -1
+							: 1;
+					})
+					.map(ward => (
+						<Section.Row key = { ward.node.id + "-newsitem" }>
+							<Section.Column>
+								<WardThumbnail
+									src = {
+										"https://res.cloudinary.com/codogo/image/fetch/w_800,c_fill,g_face,f_auto/https:" +
+										ward.node.image.file.url
+									}
+									as = { Link }
+									to = { "/wards/" + slugify(ward.node.name) }
+								/>
+							</Section.Column>
 
-								<Column>
-									<h3>{ward.node.name}</Header>
+							<Section.Column>
+								<h3>{ward.node.name}</h3>
 
-									<Button
-										as = { Link }
-										size = "small"
-										to = { "/wards/" + slugify(ward.node.name) }
-									>
-										See more <Icon name = "right arrow" />
-									</Button>
-								</Column>
-
-								<Divider section />
-							</Row>
-						))}
-				</Grid>
-			</div>
-		</div>
-	</div>
+								<Button
+									as = { Link }
+									size = "small"
+									to = { "/wards/" + slugify(ward.node.name) }
+								>
+									See more <Icon name = "right arrow" />
+								</Button>
+							</Section.Column>
+						</Section.Row>
+					))
+				}
+			</Section.Container>
+		</Section>
+	</Page>
 );
 
 Wards.propTypes = {

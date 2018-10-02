@@ -1,4 +1,9 @@
-import { Page, Block, } from "../components/toolbox";
+import { graphql, } from "graphql";
+import { 
+	Page,
+	Block,
+	Button,
+} from "hwg-labour-components";
 
 import banner from "../images/banner-5.jpg";
 import React from "react";

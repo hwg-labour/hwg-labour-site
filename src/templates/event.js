@@ -1,4 +1,5 @@
-import { div, Page, Block, } from "../components/toolbox";
+import { graphql, } from "graphql";
+import { div, Page, Block, } from "hwg-labour-components";
 
 import marked from "marked";
 import PropTypes from "prop-types";

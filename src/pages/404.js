@@ -1,5 +1,7 @@
+import { graphql, } from "graphql";
+import { Page, Block, } from "hwg-labour-components";
+
 import React from "react";
-import { Page, Block, } from "../components/toolbox";
 
 const NotFoundPage = () => (
 	<Page>

@@ -1,5 +1,8 @@
-import { TopImage, } from "../components/TopImage";
-import { div, Header, div, } from "../components/toolbox";
+import { graphql, } from "graphql";
+import { 
+	Block,
+	Page, 
+} from "hwg-labour-components";
 
 import marked from "marked";
 import PropTypes from "prop-types";
@@ -29,15 +32,16 @@ export const NewsItemQuery = graphql`
 // ----------------------------------------------------
 
 const NewsTemplate = ( { data, }, ) => (
-	<Page banner = {
-		data.contentfulNews.image.file ?
-			`https://res.cloudinary.com/codogo/image/fetch/w_1500,c_fill,g_face,f_auto/https:${ data.contentfulNews.image.file.url }` : 
-			"https://labour.org.uk/wp-content/uploads/2016/06/Search-homepage.jpg"
+	<Page
+		banner = {
+			data.contentfulNews.image.file ?
+				`https://res.cloudinary.com/codogo/image/fetch/w_1500,c_fill,g_face,f_auto/https:${ data.contentfulNews.image.file.url }` : 
+				"https://labour.org.uk/wp-content/uploads/2016/06/Search-homepage.jpg"
 		}
 	>
 		<Block>
 			<Block.Header>
-				{ data.contentfulNews.title && {data.contentfulNews.title} }
+				{ data.contentfulNews.title} }
 			</Block.Header>
 
 			<Block.Content>

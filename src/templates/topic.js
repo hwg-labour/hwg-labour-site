@@ -1,5 +1,9 @@
-import { TopImage, } from "../components/TopImage";
-import { div, Header, Subheader, div, } from "../components/toolbox";
+import { graphql, } from "graphql";
+import { 
+	Page,
+	Block,
+	Button,
+} from "hwg-labour-components";
 
 import marked from "marked";
 import PropTypes from "prop-types";
@@ -36,7 +40,7 @@ const NewsTemplate = ( { data, }, ) => (
 			</Block.Header>
 
 			<Block.Content>
-				{ data.contentfulTopic.type && <Subheader as = "h1">{data.contentfulTopic.type}</Subheader> }
+				{ data.contentfulTopic.type && <h2>{data.contentfulTopic.type}</h2> }
 
 				{ 
 					data.contentfulTopic.description &&

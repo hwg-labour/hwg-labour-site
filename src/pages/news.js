@@ -1,8 +1,13 @@
+import { graphql, } from "graphql";
+
+import { 
+	Page,
+	Block,
+	Button,
+} from "hwg-labour-components";
+
 import PropTypes from "prop-types";
 import React from "react";
-
-import { div, Divider, Grid, Header, div, } from "../components/toolbox";
-import { NewsItem, } from "../components/ListItems";
 
 // ----------------------------------------------------
 

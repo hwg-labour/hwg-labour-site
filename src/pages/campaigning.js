@@ -1,17 +1,16 @@
+import { graphql, } from "graphql";
+import { 
+	Page,
+	Block,
+	Button,
+} from "hwg-labour-components";
+
 import banner from "../images/banner-2.jpg";
 import Link from "gatsby-link";
 import PropTypes from "prop-types";
 import React from "react";
 
-import { EventItem, } from "../components/ListItems";
-import {
-	Button,
-	div,
-	Divider,
-	Grid,
-	Header,
-	div,
-} from "../components/toolbox";
+
 
 // ----------------------------------------------------
 

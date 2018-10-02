@@ -1,4 +1,8 @@
-import { div, Header, div, Grid, Image, } from "../components/toolbox";
+import { graphql, } from "graphql";
+import { 
+	Page,
+	Section,
+} from "hwg-labour-components";
 
 import Link from "gatsby-link";
 import marked from "marked";
@@ -41,22 +45,23 @@ export const CandidateItemQuery = graphql`
 
 const CandidateTemplate = ( { data, }, ) => (
 	<Page>
-		<Block>
-			<Block.Content>
-				<Grid>
+		<Section>
+			<Section.Container>
+				<Section.Row>
+					<Section.Column>
 						<Image
 							src = { `
 								${
 	data.contentfulCandidate.image
 		? "https://res.cloudinary.com/codogo/image/fetch/h_530,w_430,c_fill,g_face,f_auto/https:" +
-											data.contentfulCandidate.image
-												.file.url
+																			data.contentfulCandidate.image
+																				.file.url
 		: profileImage
 	}` }
 						/>
-					</Column>
+					</Section.Column>
 
-					<Column width = { 10 }>
+					<Section.Column>
 						<h1>
 							{data.contentfulCandidate.name}
 						</h1>
@@ -144,10 +149,10 @@ const CandidateTemplate = ( { data, }, ) => (
 								</a>
 							</p>
 						)}
-					</Column>
-				</Row>
-			</Grid>
-		</div>
+					</Section.Column>
+				</Section.Row>
+			</Section.Container>
+		</Section>
 	</Page>
 );
 

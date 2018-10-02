@@ -1,6 +1,12 @@
-import React from "react";
+import { graphql, } from "graphql";
+import { 
+	Page,
+	Block,
+	Section,
+	Button,
+} from "hwg-labour-components";
 
-import { div, Header, div, Button, } from "../components/toolbox";
+import React from "react";
 
 // ----------------------------------------------------
 
