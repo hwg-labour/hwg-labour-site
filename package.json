@@ -20,7 +20,7 @@
     "marked": "^0.3.19",
     "moment": "^2.20.1",
     "momentjs": "^2.0.0",
-    "prop-types": "^15.7.1",
+    "prop-types": "^15.7.2",
     "react-helmet": "^5.2.0",
     "semantic-ui-css": "^2.4.1",
     "semantic-ui-react": "^0.78.2",
