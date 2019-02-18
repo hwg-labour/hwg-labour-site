@@ -43,14 +43,15 @@ const EventItem = ( { event, }, ) => (
 		<Grid.Column>
 			<EventThumbnail
 				src = {
-					( event.node.image ) ?
+					event.node.image ?
 						`https://res.cloudinary.com/codogo/image/fetch/w_800,c_fill,g_face,f_auto/https:
-					${ event.node.image.file.url }` : "https://images.ctfassets.net/j8b2h64cwsnc/1ZTuenkUXyQ2Ysg2yi2q2S/13fd01df20e971e456e7763413b01d0f/Artboard_1.png"
+					${ event.node.image.file.url }` : 
+					"https://images.ctfassets.net/j8b2h64cwsnc/1ZTuenkUXyQ2Ysg2yi2q2S/13fd01df20e971e456e7763413b01d0f/Artboard_1.png"
 				}
 				as = { Link }
 				to = {
 					"/events/" +
-					slugify(event.node.title)
+					slugify(event.node.title, { lower: true })
 				}
 			/>
 		</Grid.Column>
@@ -59,7 +60,7 @@ const EventItem = ( { event, }, ) => (
 			<Link
 				to = {
 					"/events/" +
-					slugify(event.node.title)
+					slugify(event.node.title, { lower: true })
 				}
 			>
 				<Header as = "h3">
@@ -86,7 +87,7 @@ const EventItem = ( { event, }, ) => (
 				size = "small"
 				to = {
 					"/events/" +
-					slugify(event.node.title)
+					slugify(event.node.title, { lower: true })
 				}
 			>
 				Read more{" "}
