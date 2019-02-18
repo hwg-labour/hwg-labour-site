@@ -48,12 +48,12 @@ const NewsItem = ( { news, } ) => (
 					${ news.image.file.url }` : "https://images.ctfassets.net/j8b2h64cwsnc/jYzRGcSiDQksQC2SQQSoy/77f3eddbf1cece8f652c8f6cf0752a42/Artboard_1.png"
 				}
 				as = { Link }
-				to = { "/news/" + slugify(news.title) }
+				to = { "/news/" + slugify(news.title, { lower: true }) }
 			/>
 		</Grid.Column>
 
 		<Grid.Column>
-			<Link to = { "/news/" + slugify(news.title) }>
+			<Link to = { "/news/" + slugify(news.title, { lower: true }) }>
 				<Header as = "h3">{news.title}</Header>
 			</Link>
 
@@ -66,7 +66,7 @@ const NewsItem = ( { news, } ) => (
 			<Button
 				as = { Link }
 				size = "small"
-				to = { "/news/" + slugify(news.title) }
+				to = { "/news/" + slugify(news.title, { lower: true }) }
 			>
 				Read more <Icon name = "right arrow" />
 			</Button>

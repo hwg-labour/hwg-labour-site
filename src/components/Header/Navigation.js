@@ -107,7 +107,7 @@ const WardsDropdown = ({ edges, }) =>
 const Navigation = ( { homepage, wards, groups, }, ) => (
 	<Nav
 		logo = { <Logo /> }
-		fontSize = { { xs: "1.1em", other: "0.9em", } }
+		fontSize = { { xs: "1.1em", other: "1em", } }
 		textTransform = { { xs: "capitalize", other: "capitalize", } }
 		color = { { xs: "white", other: "white", } }
 		backgroundColor = { { xs: "#D9292F", other: "#D9292F", } }
