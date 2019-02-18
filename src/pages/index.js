@@ -1,5 +1,5 @@
 import { Button, Container, Header, Segment, Grid, } from "../components/toolbox";
-import { NewsItem, } from "../components/ListItems";
+import { NewsItem, EventItem, } from "../components/ListItems";
 
 import Link from "gatsby-link";
 import React from "react";
@@ -18,6 +18,23 @@ export const HomeQuery = graphql`
 					}
 					publishingDate
 					newsSection
+					image {
+						file {
+							url
+						}
+					}
+				}
+			}
+		}
+		allContentfulEvent {
+			edges {
+				node {
+					id
+					title
+					description
+					socialEvent
+					membersOnly
+					date
 					image {
 						file {
 							url
@@ -48,9 +65,29 @@ const Home = ( { data, }, ) => {
 			});
 	};
 
+	const upcomingEvents = data.allContentfulEvent.edges
+		.filter( event => {
+			return (
+				new Date(event.node.date).getTime() >=
+					new Date().getTime() ||
+				(new Date(event.node.date).getFullYear() ===
+					new Date().getFullYear() &&
+					new Date(event.node.date).getMonth() ===
+						new Date().getMonth() &&
+					new Date(event.node.date).getDate() ===
+						new Date().getDate())
+			);
+		})
+		.sort(function(a, b) {
+			return (
+				new Date(a.node.date).getTime() -
+				new Date(b.node.date).getTime()
+			);
+		});
+
 	return (
 		<div>
-			<Segment style = { { padding: "8em 0em", } } vertical>
+			<Segment style = { { padding: "4.5em 0em", } } vertical>
 				<Container text>
 					<Header as = "h1" style = { { fontSize: "2em", } }>
 						For the many, not the few.
@@ -74,7 +111,7 @@ const Home = ( { data, }, ) => {
 				</Container>
 			</Segment>
 
-			<Segment style = { { padding: "8em 0em", } } vertical>
+			<Segment style = { { padding: "4.5em 0em", } } vertical>
 				<Container text>
 					<Header as = "h1" style = { { fontSize: "2em", } }>
 						Meet your councillors
@@ -92,7 +129,7 @@ const Home = ( { data, }, ) => {
 				</Container>
 			</Segment>
 
-			<Segment style = { { padding: "8em 0em", } } vertical>
+			<Segment style = { { padding: "4.5em 0em", } } vertical>
 				<Container text>
 					<Header as = "h3" style = { { fontSize: "2em", } }>
 						Recent News
@@ -111,6 +148,29 @@ const Home = ( { data, }, ) => {
 
 					<Button size = "huge" as = { Link } to = "/news">
 						Read more news
+					</Button>
+				</Container>
+			</Segment>
+
+			<Segment style = { { padding: "4.5em 0em", } } vertical>
+				<Container text>
+					<Header as = "h3" style = { { fontSize: "2em", } }>
+						Upcoming Events
+					</Header>
+
+					<br/>
+					<br/>
+
+					{upcomingEvents.length && (
+						<Grid columns = { 2 } stackable>
+							{upcomingEvents.slice(0,2).map(eventItem => {
+								return <EventItem event = { eventItem } />;
+							})}
+						</Grid>
+					)}
+
+					<Button size = "huge" as = { Link } to = "/events">
+						See all events
 					</Button>
 				</Container>
 			</Segment>
