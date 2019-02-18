@@ -58,12 +58,12 @@ const PeopleDropdown = [
 	},
 	{
 		to: "/mayor/",
-		content: "Your Mayor",
+		content: "Sadiq Khan",
 		as: "gatsby-link",
 	},
 	{
 		to: "/councillors/",
-		content: "Councillor Candidates",
+		content: "Councillors",
 		as: "gatsby-link",
 	},
 ];
