@@ -78,7 +78,7 @@ const Wards = ( { data, }, ) => (
 				<Button
 					size = "huge"
 					as = { "a" }
-					to = "http://www.haringey.gov.uk/local-democracy/councillors-and-mps/find-my-ward"
+					href = "http://www.haringey.gov.uk/local-democracy/councillors-and-mps/find-my-ward"
 				>
 					Find your ward
 				</Button>
