@@ -5,8 +5,6 @@ import Link from "gatsby-link";
 import React from "react";
 import PropTypes from "prop-types";
 
-// ----------------------------------------------------
-
 export const HomeQuery = graphql`
 	query HomeQuery {
 		allContentfulNews {
@@ -28,8 +26,6 @@ export const HomeQuery = graphql`
 		}
 	}
 `;
-
-// ----------------------------------------------------
 
 const Home = ( { data, }, ) => {
 	let news = data.allContentfulNews && data.allContentfulNews.edges;

@@ -15,17 +15,6 @@ import banner8 from "../../images/banner-1.jpg";
 
 // ----------------------------------------------------
 
-const BannerArray = [
-	banner,
-	banner2,
-	banner3,
-	banner4,
-	banner5,
-	banner6,
-	banner7,
-	banner8,
-];
-
 const BannerImage = styled(Image)`
 	position: absolute !important;
 	width: 100%;
@@ -46,65 +35,75 @@ const BannerContent = styled.div`
 	width: 100% !important;
 `;
 
-const BannerRandomiser = () => {
-	var i = Math.floor(Math.random() * BannerArray.length);
-	return BannerArray[i];
-};
-
 // ----------------------------------------------------
 
-const Banner = props => (
-	<BannerWrapper>
-		{!props.mobile && <BannerImage src = { BannerRandomiser() } />}
+const Banner = props => {
+	const BannerArray = [
+		banner,
+		banner2,
+		banner3,
+		banner4,
+		banner5,
+		banner6,
+		banner7,
+		banner8,
+	];
+	
+	const randomBannerItem = Math.floor(Math.random() * BannerArray.length);
 
-		<BannerContent text>
-			<Header
-				as = "h1"
-				content = "Hornsey & Wood Green Labour"
-				inverted
-				style = { {
-					fontSize: props.mobile ? "1.5em" : "3em",
-					fontWeight: "normal",
-					marginBottom: 0,
-				} }
-			/>
+	return (
+		<BannerWrapper>
+			{!props.mobile && <BannerImage src = { BannerArray[randomBannerItem] } />}
 
-			<Header
-				as = "h2"
-				content = "Offering a positive vision for Hornsey and Wood Green."
-				inverted
-				style = { {
-					fontSize: props.mobile ? "1.5em" : "1.7em",
-					fontWeight: "normal",
-					marginTop: props.mobile ? "0.5em" : "1.5em",
-				} }
-			/>
+			<BannerContent text>
+				<Header
+					as = "h1"
+					content = "Hornsey & Wood Green Labour"
+					inverted
+					style = { {
+						fontSize: props.mobile ? "1.5em" : "3em",
+						fontWeight: "normal",
+						marginBottom: 0,
+					} }
+				/>
 
-			<Button
-				as = { Link }
-				size = "huge"
-				to = "/whats-on/"
-				style = { {
-					marginTop: props.mobile ? "0.5em" : "1em",
-				} }
-			>
-				What's On
-			</Button>
+				<Header
+					as = "h2"
+					content = "Offering a positive vision for Hornsey and Wood Green."
+					inverted
+					style = { {
+						fontSize: props.mobile ? "1.5em" : "1.7em",
+						fontWeight: "normal",
+						marginTop: props.mobile ? "0.5em" : "1.5em",
+					} }
+				/>
 
-			<Button
-				as = { Link }
-				size = "huge"
-				to = "/new-members/"
-				inverted
-				style = { {
-					marginTop: props.mobile ? "0.5em" : "1em",
-				} }
-			>
-				New Members
-			</Button>
-		</BannerContent>
-	</BannerWrapper>
-);
+				<Button
+					as = { Link }
+					size = "huge"
+					to = "/whats-on/"
+					style = { {
+						marginTop: props.mobile ? "0.5em" : "1em",
+					} }
+				>
+					What's On
+				</Button>
+
+				<Button
+					as = { Link }
+					size = "huge"
+					to = "/new-members/"
+					inverted
+					style = { {
+						marginTop: props.mobile ? "0.5em" : "1em",
+					} }
+				>
+					New Members
+				</Button>
+			</BannerContent>
+		</BannerWrapper>
+	)
+};
 
 Banner.propTypes = {
 	mobile: PropTypes.bool,
