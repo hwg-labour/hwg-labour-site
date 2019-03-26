@@ -73,15 +73,22 @@ const Campaigning = ( { data, }, ) => {
 					<Header as = "h1">Campaigning</Header>
 
 					<p style = { { fontSize: "1.33em", } }>
-						Thank you to everyone who joined us on the doorstep in the
-						run up to the May local elections!
+						Get involved with Labour on the doorstep and share our message. You will find campaigning activities, like street stalls and door knocking sessions, here. 
 					</p>
 
 					<p>
-						Get involved with Labour on the doorstep and share our
-						message. You will find campaigning activities, like street
-						stalls and door knocking sessions, here. Let us know if
-						you'd like to get involved!
+						Let us know if you'd like to get involved!
+					</p>
+
+					<p>
+						Subscribe to our events calendar on 
+						<a href="https://calendar.google.com/calendar/ical/haringeylabour.org.uk_v4lj35b8umtec4k047i01ciba8%40group.calendar.google.com/public/basic.ics">
+							Apple Calendars
+						</a> or 
+
+						<a href="https://calendar.google.com/calendar/r/settings/calendar/aGFyaW5nZXlsYWJvdXIub3JnLnVrX3Y0bGozNWI4dW10ZWM0azA0N2kwMWNpYmE4QGdyb3VwLmNhbGVuZGFyLmdvb2dsZS5jb20?cid=haringeylabour.org.uk_v4lj35b8umtec4k047i01ciba8%40group.calendar.google.com">
+							Google Calendars
+						</a>.
 					</p>
 
 					<Button size = "huge" as = { Link } to = "/contact-us">

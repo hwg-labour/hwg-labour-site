@@ -78,6 +78,17 @@ const WhatsOn = ( { data, }, ) => {
 					</p>
 
 					<p>
+						Subscribe to our events calendar on 
+						<a href="https://calendar.google.com/calendar/ical/haringeylabour.org.uk_v4lj35b8umtec4k047i01ciba8%40group.calendar.google.com/public/basic.ics">
+							Apple Calendars
+						</a> or 
+
+						<a href="https://calendar.google.com/calendar/r/settings/calendar/aGFyaW5nZXlsYWJvdXIub3JnLnVrX3Y0bGozNWI4dW10ZWM0azA0N2kwMWNpYmE4QGdyb3VwLmNhbGVuZGFyLmdvb2dsZS5jb20?cid=haringeylabour.org.uk_v4lj35b8umtec4k047i01ciba8%40group.calendar.google.com">
+							Google Calendars
+						</a>.
+					</p>
+
+					<p>
 						If you're interested in campaigning with us, you can see our
 						campaigns calendar <Link to = "/campaigning">here</Link>.
 					</p>
