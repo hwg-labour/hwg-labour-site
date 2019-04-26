@@ -28,7 +28,7 @@
     "styled-components": "^3.1.6"
   },
   "devDependencies": {
-    "mcclowes-scripts": "^0.8.0"
+    "mcclowes-scripts": "^0.11.1"
   },
   "eslintConfig": {
     "extends": "mcclowes"
