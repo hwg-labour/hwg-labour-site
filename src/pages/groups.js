@@ -89,17 +89,20 @@ const Groups = ( { data, }, ) => {
 								.map(group => (
 									<Grid.Row key = { group.node.id + "-newsitem" }>
 										<Grid.Column>
-											<GroupThumbnail
-												src = {
-													"https://res.cloudinary.com/codogo/image/fetch/w_800,c_fill,g_face,f_auto/https:" +
-													group.node.image.file.url
-												}
-												as = { Link }
-												to = {
-													"/groups/" +
-													slugify(group.node.name)
-												}
-											/>
+											{
+												group.node.image
+													&& <GroupThumbnail
+													src = {
+														"https://res.cloudinary.com/codogo/image/fetch/w_800,c_fill,g_face,f_auto/https:" +
+														group.node.image.file.url
+													}
+													as = { Link }
+													to = {
+														"/groups/" +
+														slugify(group.node.name)
+													}
+												/>
+											}
 										</Grid.Column>
 
 										<Grid.Column>
