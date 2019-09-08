@@ -4,6 +4,7 @@ import { Container, Header, Segment, } from "semantic-ui-react";
 import marked from "marked";
 import PropTypes from "prop-types";
 import React from "react";
+import styled from "styled-components"
 
 // ----------------------------------------------------
 
@@ -26,7 +27,15 @@ export const NewsItemQuery = graphql`
 	}
 `;
 
-// ----------------------------------------------------
+//----------------------------------------------------
+
+const ContentWrapper = styled.div`
+	p > img {
+		margin-top: 0.5em;
+		margin-bottom: 0.5em;
+		max-width: 100%;
+	}
+`;
 
 const NewsTemplate = ( { data, }, ) => (
 	<div>
@@ -57,7 +66,7 @@ const NewsTemplate = ( { data, }, ) => (
 
 				{ 
 					data.contentfulNews.content &&
-					<div
+					<ContentWrapper
 						dangerouslySetInnerHTML = { {
 							__html: marked(
 								data.contentfulNews.content.content,
