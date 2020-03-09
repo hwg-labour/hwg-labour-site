@@ -1,4 +1,4 @@
-import Footer from "../index";
+import Head from "../index";
 import React from "react";
 import { shallow } from "enzyme";
 
@@ -14,9 +14,9 @@ const EVENTS_MOCK = {
   ]
 };
 
-describe("Footer", () => {
+describe("Head", () => {
   it("renders component", () => {
-    const wrapper = shallow(<Footer events={EVENTS_MOCK} />);
+    const wrapper = shallow(<Head events={EVENTS_MOCK} />);
 
     expect(wrapper).toMatchSnapshot();
   });

@@ -1,0 +1,124 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Footer renders component 1`] = `
+<Segment
+  color="grey"
+  inverted={true}
+  style={
+    Object {
+      "padding": "5em 0em",
+    }
+  }
+  vertical={true}
+>
+  <Container>
+    <Grid
+      divided={true}
+      inverted={true}
+      stackable={true}
+    >
+      <GridRow>
+        <GridColumn
+          width={4}
+        >
+          <Header
+            as="h4"
+            content="About"
+            inverted={true}
+          />
+          <List
+            inverted={true}
+            link={true}
+          >
+            <ListItem
+              as={[Function]}
+              to="/contact-us/"
+            >
+              Contact Us
+            </ListItem>
+            <ListItem
+              as={[Function]}
+              href="https://join.labour.org.uk/"
+              to="a"
+            >
+              Join
+            </ListItem>
+            <ListItem
+              as={[Function]}
+              to="/new-members/"
+            >
+              Donate
+            </ListItem>
+            <ListItem
+              as={[Function]}
+              to="/sitemap/"
+            >
+              Sitemap
+            </ListItem>
+            <ListItem
+              as="a"
+              to="https://twitter.com/mcclowes"
+            >
+              Site by @mcclowes
+            </ListItem>
+          </List>
+        </GridColumn>
+        <GridColumn
+          width={4}
+        >
+          <Header
+            as="h4"
+            content="Getting Involved"
+            inverted={true}
+          />
+          <List
+            inverted={true}
+            link={true}
+          >
+            <ListItem
+              as={[Function]}
+              to="/new-members/"
+            >
+              New Members
+            </ListItem>
+            <ListItem
+              as={[Function]}
+              to="/whats-on/"
+            >
+              What's On
+            </ListItem>
+            <ListItem
+              as={[Function]}
+              to="/campaigning/"
+            >
+              Campaigning
+            </ListItem>
+            <ListItem
+              as={[Function]}
+              to="/donate/"
+            >
+              Donate
+            </ListItem>
+            <ListItem
+              as="a"
+              to="https://labourinlondon.org.uk/"
+            >
+              https://labourinlondon.org.uk/
+            </ListItem>
+          </List>
+        </GridColumn>
+        <GridColumn
+          width={8}
+        >
+          <Header
+            as="h4"
+            inverted={true}
+          >
+            Upcoming events:
+          </Header>
+        </GridColumn>
+      </GridRow>
+    </Grid>
+  </Container>
+</Segment>
+`;

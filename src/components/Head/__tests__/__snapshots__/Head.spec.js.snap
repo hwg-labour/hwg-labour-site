@@ -1,0 +1,25 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Head renders component 1`] = `
+<HelmetWrapper
+  defer={true}
+  encodeSpecialCharacters={true}
+  meta={
+    Array [
+      Object {
+        "content": "Hornsey and Wood Green Labour Party Website",
+        "name": "description",
+      },
+      Object {
+        "content": "Hornsey, Wood green, Labour, Party, Crouch End, Highgate, Alexandra, Stroud Green",
+        "name": "keywords",
+      },
+      Object {
+        "content": "Zg3zItwnIwzK5-NXu7KC5JuBu6PM4CY_nkxU78-CQtQ",
+        "name": "google-site-verification",
+      },
+    ]
+  }
+  title="Hornsey & Wood Green Labour"
+/>
+`;
