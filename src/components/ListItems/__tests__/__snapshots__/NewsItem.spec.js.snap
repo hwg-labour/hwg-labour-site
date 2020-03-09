@@ -1,0 +1,51 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`NewsItem renders component 1`] = `
+<GridRow
+  key="82842695-2c07-42ef-aa7d-6170aea375f0-news"
+>
+  <GridColumn>
+    <NewsItem__NewsThumbnail
+      as={[Function]}
+      src="https://res.cloudinary.com/codogo/image/fetch/w_800,c_fill,g_face,f_auto/https:
+					image.png"
+      to="/news/news-event-title"
+    />
+  </GridColumn>
+  <GridColumn>
+    <GatsbyLink
+      to="/news/news-event-title"
+    >
+      <Header
+        as="h3"
+      >
+        News EVent Title
+      </Header>
+    </GatsbyLink>
+    <p
+      style={
+        Object {
+          "color": "#aaaaaa",
+        }
+      }
+    >
+      March 9th 2020
+    </p>
+    <p />
+    <Button
+      as={[Function]}
+      size="small"
+      to="/news/news-event-title"
+    >
+      Read more 
+      <Icon
+        as="i"
+        name="right arrow"
+      />
+    </Button>
+  </GridColumn>
+  <NewsItem__NewsDivider
+    section={true}
+  />
+</GridRow>
+`;

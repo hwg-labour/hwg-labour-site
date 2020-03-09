@@ -5,22 +5,18 @@ import Navigation from "./Navigation";
 
 import Banner from "../Banner";
 
-// ----------------------------------------------------
-
 const Header = props => (
-	<div>
-		<Navigation { ...props } />
+  <div>
+    <Navigation {...props} />
 
-		{props.homepage && <Banner />}
+    {props.homepage && <Banner />}
 
-		{props.children}
-	</div>
+    {props.children}
+  </div>
 );
 
 Header.propTypes = {
-	children: PropTypes.node,
+  children: PropTypes.node
 };
-
-// ----------------------------------------------------
 
 export default Header;
