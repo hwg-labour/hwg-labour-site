@@ -4,6 +4,8 @@
 
 [![Deploy to Netlify](https://www.netlify.com/img/deploy/button.svg)](https://app.netlify.com/start/deploy?repository=https://github.com/mcclowes/hwg-labour-site)
 
+[![CircleCI](https://circleci.com/gh/hwg-labour/hwg-labour-site.svg?style=svg&circle-token=29066f907a9fcb11c0d4431b488f52180e543f1f)](https://circleci.com/gh/hwg-labour/hwg-labour-site)
+
 ---
 
 ## Our plan for a better, fairer Britain
