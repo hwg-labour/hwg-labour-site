@@ -9,7 +9,7 @@ import {
 	Button,
 	Icon,
 } from "../components/toolbox";
-
+import { graphql } from 'gatsby'
 import banner from "../images/banner-4.jpg";
 import Link from "gatsby-link";
 import PropTypes from "prop-types";
@@ -59,7 +59,8 @@ export const GroupListQuery = graphql`
 
 // ----------------------------------------------------
 
-const Groups = ( { data, }, ) => {
+const Groups = ( props ) => {
+const {data } = props
 	const groups = data.contentfulGroups.edges
 		.sort((x, y) => {
 			return x.node.name.toUpperCase() <

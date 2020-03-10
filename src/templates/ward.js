@@ -15,7 +15,7 @@ import marked from "marked";
 import PropTypes from "prop-types";
 import React from "react";
 import slugify from "slugify";
-
+import { graphql } from 'gatsby'
 // ----------------------------------------------------
 
 export const WardItemQuery = graphql`
@@ -75,7 +75,8 @@ export const WardItemQuery = graphql`
 
 // ----------------------------------------------------
 
-const WardTemplate = ( { data, }, ) => {
+const WardTemplate = ( props ) => {
+	const { data } = props
 	const ward = data.contentfulWard;
 
 	const candidates =

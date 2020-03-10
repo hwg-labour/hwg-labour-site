@@ -1,12 +1,11 @@
-import { Container, Header, Segment, Grid, Image, } from "semantic-ui-react";
-
 import Link from "gatsby-link";
 import marked from "marked";
 import profileImage from "../images/profile-pic.png";
 import PropTypes from "prop-types";
 import React from "react";
 import slugify from "slugify";
-
+import { Container, Header, Segment, Grid, Image, } from "semantic-ui-react";
+import { graphql } from 'gatsby'
 
 // ----------------------------------------------------
 

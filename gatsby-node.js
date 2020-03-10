@@ -7,12 +7,12 @@ var path = require("path");
  * See: https://www.gatsbyjs.org/docs/node-apis/
  */
 
-exports.modifyWebpackConfig = ({ config, stage }) => {
-	if (stage === "build-html") {
-		config.loader("null", {
-			test: /velocity/,
-			loader: "null-loader",
-		});
+exports.onCreateWebpackConfig = ({ stage, actions }) => {
+	switch(stage) {
+		case (stage === "build-html"):
+			actions.setWebpackConfig({
+        plugins: [webpackFooPlugin],
+      })
 	}
 };
 

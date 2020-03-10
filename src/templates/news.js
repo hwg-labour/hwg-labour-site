@@ -5,7 +5,7 @@ import marked from "marked";
 import PropTypes from "prop-types";
 import React from "react";
 import styled from "styled-components"
-
+import { graphql } from 'gatsby'
 // ----------------------------------------------------
 
 export const NewsItemQuery = graphql`

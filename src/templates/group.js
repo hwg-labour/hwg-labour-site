@@ -5,7 +5,7 @@ import { TopImage, } from "../components/TopImage";
 import marked from "marked";
 import PropTypes from "prop-types";
 import React from "react";
-
+import { graphql } from 'gatsby'
 // ----------------------------------------------------
 
 export const GroupItemQuery = graphql`
@@ -46,7 +46,8 @@ export const GroupItemQuery = graphql`
 
 // ----------------------------------------------------
 
-const GroupTemplate = ( { data, }, ) => {
+const GroupTemplate = ( props ) => {
+const {data } = props
 	const group = data.contentfulGroup;
 
 	const news =

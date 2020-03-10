@@ -2,7 +2,7 @@ import banner from "../images/banner-2.jpg";
 import Link from "gatsby-link";
 import PropTypes from "prop-types";
 import React from "react";
-
+import { graphql } from 'gatsby'
 import { TopImage, } from "../components/TopImage";
 import { EventItem, } from "../components/ListItems";
 import {
@@ -42,7 +42,8 @@ export const CampaigningQuery = graphql`
 
 // ----------------------------------------------------
 
-const Campaigning = ( { data, }, ) => {
+const Campaigning = ( props ) => {
+const {data } = props
 	const upcomingEvents = data.contentfulEvents.edges
 		.filter( event => event.node.socialEvent === false ) // Campaigning only shows non-social
 		.filter( event => {

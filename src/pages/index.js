@@ -1,54 +1,15 @@
 import { Button, Container, Header, Segment, Grid, } from "../components/toolbox";
 import { NewsItem, EventItem, } from "../components/ListItems";
-
+import { graphql } from 'gatsby'
 import Link from "gatsby-link";
 import React from "react";
 import PropTypes from "prop-types";
+import Layout from "../components/Layout"
 
 // ----------------------------------------------------
 
-export const HomeQuery = graphql`
-	query HomeQuery {
-		allContentfulNews {
-			edges {
-				node {
-					title
-					description {
-						description
-					}
-					publishingDate
-					newsSection
-					image {
-						file {
-							url
-						}
-					}
-				}
-			}
-		}
-		allContentfulEvent {
-			edges {
-				node {
-					id
-					title
-					description
-					socialEvent
-					membersOnly
-					date
-					image {
-						file {
-							url
-						}
-					}
-				}
-			}
-		}
-	}
-`;
-
-// ----------------------------------------------------
-
-const Home = ( { data, }, ) => {
+const Home = ( props ) => {
+	const { data, } = props
 	let news = data.allContentfulNews && data.allContentfulNews.edges;
 
 	news = news.map( entry => {
@@ -86,7 +47,7 @@ const Home = ( { data, }, ) => {
 		});
 
 	return (
-		<div>
+		<Layout { ...props }>
 			<Segment style = { { padding: "4.5em 0em", } } vertical>
 				<Container text>
 					<Header as = "h1" style = { { fontSize: "2em", } }>
@@ -174,7 +135,7 @@ const Home = ( { data, }, ) => {
 					</Button>
 				</Container>
 			</Segment>
-		</div>
+		</Layout>
 	)
 };
 
@@ -185,3 +146,44 @@ Home.propTypes = {
 };
 
 export default Home;
+
+// ----------------------------------------------------
+
+export const HomeQuery = graphql`
+	query HomeQuery {
+		allContentfulNews {
+			edges {
+				node {
+					title
+					description {
+						description
+					}
+					publishingDate
+					newsSection
+					image {
+						file {
+							url
+						}
+					}
+				}
+			}
+		}
+		allContentfulEvent {
+			edges {
+				node {
+					id
+					title
+					description
+					socialEvent
+					membersOnly
+					date
+					image {
+						file {
+							url
+						}
+					}
+				}
+			}
+		}
+	}
+`;

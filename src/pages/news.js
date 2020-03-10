@@ -3,7 +3,7 @@ import React from "react";
 
 import { Container, Divider, Grid, Header, Segment, } from "../components/toolbox";
 import { NewsItem, } from "../components/ListItems";
-
+import { graphql } from 'gatsby'
 // ----------------------------------------------------
 
 // ----------------------------------------------------
@@ -33,7 +33,8 @@ export const NewsQuery = graphql`
 
 // ----------------------------------------------------
 
-const News = ( { data, }, ) => {
+const News = ( props ) => {
+const {data } = props
 	const news = data.contentfulNews.edges
 		.filter(news => news.node.newsSection === true)
 		.sort(function(a, b) {

@@ -6,7 +6,7 @@ import {
 	Image,
 	Segment,
 } from "../components/toolbox";
-
+import { graphql } from 'gatsby'
 import Link from "gatsby-link";
 import profileImage from "../images/profile-pic.png";
 import PropTypes from "prop-types";
@@ -47,7 +47,8 @@ export const WardAndCandidateQuery = graphql`
 
 // ----------------------------------------------------
 
-const Councillors = ( { data, }, ) => {
+const Councillors = ( props ) => {
+const {data } = props
 	const wards = data.contentfulWards.edges
 		.sort((x, y) => {
 			return x.node.name.toUpperCase() <

@@ -1,9 +1,9 @@
-import { TopImage, } from "../components/TopImage";
-import { Container, Header, Segment, } from "semantic-ui-react";
-
 import marked from "marked";
 import PropTypes from "prop-types";
 import React from "react";
+import { Container, Header, Segment, } from "semantic-ui-react";
+import { graphql } from 'gatsby'
+import { TopImage, } from "../components/TopImage";
 
 // ----------------------------------------------------
 

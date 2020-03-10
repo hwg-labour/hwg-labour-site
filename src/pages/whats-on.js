@@ -13,7 +13,7 @@ import {
 	Header,
 	Segment,
 } from "../components/toolbox";
-
+import { graphql } from 'gatsby'
 // ----------------------------------------------------
 
 // ----------------------------------------------------
@@ -42,7 +42,8 @@ export const WhatsOnQuery = graphql`
 
 // ----------------------------------------------------
 
-const WhatsOn = ( { data, }, ) => {
+const WhatsOn = ( props ) => {
+const {data } = props
 	const upcomingEvents = data.contentfulEvents.edges
 		.filter( event => event.node.socialEvent === true ) // Campaigning only shows non-social
 		.filter( event => {

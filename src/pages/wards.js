@@ -16,7 +16,7 @@ import {
 	Button,
 	Icon,
 } from "../components/toolbox";
-
+import { graphql } from 'gatsby'
 // ----------------------------------------------------
 
 const WardThumbnail = styled(Image)`
