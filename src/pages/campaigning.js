@@ -14,9 +14,9 @@ import {
 	Segment,
 } from "../components/toolbox";
 
-// ----------------------------------------------------
 
-// ----------------------------------------------------
+
+
 
 export const CampaigningQuery = graphql`
 	query CampaigningQuery {
@@ -40,7 +40,7 @@ export const CampaigningQuery = graphql`
 	}
 `;
 
-// ----------------------------------------------------
+
 
 const Campaigning = ( props ) => {
 const {data } = props

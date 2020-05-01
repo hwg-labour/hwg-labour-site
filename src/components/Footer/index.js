@@ -5,9 +5,9 @@ import PropTypes from "prop-types";
 import moment from "moment";
 import Link from "gatsby-link";
 
-// ----------------------------------------------------
 
-// ----------------------------------------------------
+
+
 
 const Footer = ( { events, }, ) => {
 	const upcomingEvents = events.edges

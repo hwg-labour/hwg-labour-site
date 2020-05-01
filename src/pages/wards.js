@@ -17,7 +17,7 @@ import {
 	Icon,
 } from "../components/toolbox";
 import { graphql } from 'gatsby'
-// ----------------------------------------------------
+
 
 const WardThumbnail = styled(Image)`
 	.ui.label {
@@ -30,7 +30,7 @@ const WardThumbnail = styled(Image)`
 	}
 `;
 
-// ----------------------------------------------------
+
 
 export const WardListQuery = graphql`
 	query WardListQuery {
@@ -56,7 +56,7 @@ const WardDivider = styled(Divider)`
 	text-transform: uppercase;
 `;
 
-// ----------------------------------------------------
+
 
 const Wards = ( { data, }, ) => (
 	<div>

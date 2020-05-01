@@ -22,3 +22,36 @@ We are a friendly enthusiastic group of campaigners who form the largest CLP in 
 - [Contribute to this website](mailto:admin@hornseywoodgreenlabour.org.uk)
 
 ---
+
+# The Project
+
+## Setup
+
+Install gatsby cli globally
+
+```
+npm install --global gatsby-cli
+```
+
+Install deps
+
+```
+npm install
+```
+
+## Developing
+
+To run the project:
+
+```
+gatsby develop
+```
+
+If there's an _unexpected_ build issue, try running `gatsby clean` first.
+
+## Semantic UI
+
+This project uses[Semantic UI (https://semantic-ui.com/)](https://react.semantic-ui.com/), which provides some components and styling.
+
+Ideally this would be removed at some point.
+

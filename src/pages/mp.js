@@ -2,9 +2,9 @@ import React from "react";
 
 import { Button, Container, Header, Segment, } from "../components/toolbox";
 
-// ----------------------------------------------------
 
-// ----------------------------------------------------
+
+
 
 const MP = () => (
 	<div>

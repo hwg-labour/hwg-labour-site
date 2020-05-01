@@ -2,9 +2,9 @@ import { Button, Container, Header, Segment, } from "../components/toolbox";
 
 import React from "react";
 
-// ----------------------------------------------------
 
-// ----------------------------------------------------
+
+
 
 const Mayor = () => (
 	<Segment style = { { padding: "8em 0em", } } vertical>

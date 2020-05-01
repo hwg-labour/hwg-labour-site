@@ -1,4 +1,4 @@
-export { 
+import { 
 	Button,
 	Container,
 	Divider,
@@ -9,3 +9,18 @@ export {
 	List,
 	Segment, 
 } from "semantic-ui-react";
+
+import Nav from './Nav';
+
+export {
+  Button,
+  Container,
+  Divider,
+  Grid,
+  Header,
+  Icon,
+  Image,
+  List,
+  Nav,
+  Segment, 
+};

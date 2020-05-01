@@ -6,7 +6,7 @@ import marked from "marked";
 import PropTypes from "prop-types";
 import React from "react";
 import { graphql } from 'gatsby'
-// ----------------------------------------------------
+
 
 export const GroupItemQuery = graphql`
 	query GroupItemQuery($id: String!) {
@@ -44,7 +44,7 @@ export const GroupItemQuery = graphql`
 	}
 `;
 
-// ----------------------------------------------------
+
 
 const GroupTemplate = ( props ) => {
 const {data } = props

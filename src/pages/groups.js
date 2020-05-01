@@ -17,7 +17,7 @@ import React from "react";
 import slugify from "slugify";
 import styled from "styled-components";
 
-// ----------------------------------------------------
+
 
 const GroupThumbnail = styled(Image)`
 	.ui.label {
@@ -37,7 +37,7 @@ const GroupDivider = styled(Divider)`
 `;
 
 
-// ----------------------------------------------------
+
 
 export const GroupListQuery = graphql`
 	query GroupListQuery {
@@ -57,7 +57,7 @@ export const GroupListQuery = graphql`
 	}
 `;
 
-// ----------------------------------------------------
+
 
 const Groups = ( props ) => {
 const {data } = props

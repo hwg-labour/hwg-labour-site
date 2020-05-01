@@ -4,9 +4,9 @@ import React from "react";
 import { TopImage, } from "../components/TopImage";
 import { Container, Header, Segment, } from "../components/toolbox";
 
-// ----------------------------------------------------
 
-// ----------------------------------------------------
+
+
 
 const ContactUs = () => (
 	<div>

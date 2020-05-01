@@ -14,7 +14,7 @@ import {
 	Image,
 } from "../toolbox";
 
-// ----------------------------------------------------
+
 
 const EventThumbnail = styled(Image)`
 	.ui.image {
@@ -36,7 +36,7 @@ const NewsDivider = styled(Divider)`
 	width: 100%;
 `;
 
-// ----------------------------------------------------
+
 
 const EventItem = ( { event, }, ) => (
 	<Grid.Row key = { event.node.id + "-newsitem" }>

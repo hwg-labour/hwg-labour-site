@@ -13,7 +13,7 @@ import PropTypes from "prop-types";
 import React from "react";
 import slugify from "slugify";
 
-// ----------------------------------------------------
+
 
 export const WardAndCandidateQuery = graphql`
 	query WardAndCandidateQuery {
@@ -45,7 +45,7 @@ export const WardAndCandidateQuery = graphql`
 	}
 `;
 
-// ----------------------------------------------------
+
 
 const Councillors = ( props ) => {
 const {data } = props

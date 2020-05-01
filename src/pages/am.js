@@ -2,9 +2,9 @@ import React from "react";
 
 import { Container, Header, Segment, Button, } from "../components/toolbox";
 
-// ----------------------------------------------------
 
-// ----------------------------------------------------
+
+
 
 const AM = () => (
 	<div>

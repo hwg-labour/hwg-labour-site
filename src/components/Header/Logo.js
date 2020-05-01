@@ -5,8 +5,6 @@ import logo from "../../images/logo.png";
 import React from "react";
 import styled from "styled-components";
 
-// ----------------------------------------------------
-
 const LogoWrapper = styled(Link)`
 	${ bpEither("left", "30px") };
 	display: flex;
@@ -25,8 +23,6 @@ const LogoImage = styled.img`
 	object-fit: contain;
 	object-position: left;
 `;
-
-// ----------------------------------------------------
 
 const Logo = () => (
 	<LogoWrapper to = "/">

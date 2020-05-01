@@ -5,7 +5,7 @@ import { Container, Header, Segment, } from "semantic-ui-react";
 import { graphql } from 'gatsby'
 import { TopImage, } from "../components/TopImage";
 
-// ----------------------------------------------------
+
 
 export const EventItemQuery = graphql`
 	query EventItemQuery($id: String!) {
@@ -26,7 +26,7 @@ export const EventItemQuery = graphql`
 	}
 `;
 
-// ----------------------------------------------------
+
 
 const EventTemplate = ( { data, }, ) => (
 	<div>

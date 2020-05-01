@@ -13,8 +13,6 @@ import banner6 from "../../images/banner-1.jpg"; // To increase the chance of th
 import banner7 from "../../images/banner-1.jpg";
 import banner8 from "../../images/banner-1.jpg";
 
-// ----------------------------------------------------
-
 const BannerArray = [
 	banner,
 	banner2,
@@ -50,8 +48,6 @@ const BannerRandomiser = () => {
 	var i = Math.floor(Math.random() * BannerArray.length);
 	return BannerArray[i];
 };
-
-// ----------------------------------------------------
 
 const Banner = props => (
 	<BannerWrapper>

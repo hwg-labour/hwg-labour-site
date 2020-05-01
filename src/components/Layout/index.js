@@ -6,8 +6,6 @@ import PropTypes from "prop-types";
 import React from "react";
 import { StaticQuery, graphql } from 'gatsby'
 
-// ----------------------------------------------------
-
 const Layout = ( props ) => {
 	console.log(props)
 	const { location, data, children, } = props
@@ -40,8 +38,6 @@ Layout.propTypes = {
 };
 
 export default Layout;
-
-// ----------------------------------------------------
 
 export const menuGroupsAndWardsQuery = graphql`
 	query MenuGroupsWardsEvents {

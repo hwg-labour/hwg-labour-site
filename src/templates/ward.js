@@ -16,7 +16,7 @@ import PropTypes from "prop-types";
 import React from "react";
 import slugify from "slugify";
 import { graphql } from 'gatsby'
-// ----------------------------------------------------
+
 
 export const WardItemQuery = graphql`
 	query WardItemQuery($id: String!) {
@@ -71,9 +71,9 @@ export const WardItemQuery = graphql`
 	}
 `;
 
-// ----------------------------------------------------
 
-// ----------------------------------------------------
+
+
 
 const WardTemplate = ( props ) => {
 	const { data } = props

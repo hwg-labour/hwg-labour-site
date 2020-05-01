@@ -4,9 +4,9 @@ import React from "react";
 import { Container, Divider, Grid, Header, Segment, } from "../components/toolbox";
 import { NewsItem, } from "../components/ListItems";
 import { graphql } from 'gatsby'
-// ----------------------------------------------------
 
-// ----------------------------------------------------
+
+
 
 export const NewsQuery = graphql`
 	query NewsQuery {
@@ -31,7 +31,7 @@ export const NewsQuery = graphql`
 	}
 `;
 
-// ----------------------------------------------------
+
 
 const News = ( props ) => {
 const {data } = props

@@ -7,9 +7,9 @@ import banner from "../images/banner-1.jpg";
 
 import { Button, Container, Header, Segment, } from "../components/toolbox";
 
-// ----------------------------------------------------
 
-// ----------------------------------------------------
+
+
 
 const NewMembers = () => (
 	<div>

@@ -6,7 +6,7 @@ import PropTypes from "prop-types";
 import React from "react";
 import styled from "styled-components"
 import { graphql } from 'gatsby'
-// ----------------------------------------------------
+
 
 export const NewsItemQuery = graphql`
 	query NewsItemQuery($id: String!) {

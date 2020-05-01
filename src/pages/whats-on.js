@@ -14,9 +14,9 @@ import {
 	Segment,
 } from "../components/toolbox";
 import { graphql } from 'gatsby'
-// ----------------------------------------------------
 
-// ----------------------------------------------------
+
+
 
 export const WhatsOnQuery = graphql`
 	query WhatsOnQuery {
@@ -40,7 +40,7 @@ export const WhatsOnQuery = graphql`
 	}
 `;
 
-// ----------------------------------------------------
+
 
 const WhatsOn = ( props ) => {
 const {data } = props
@@ -111,7 +111,7 @@ const {data } = props
 						{ upcomingEvents ? 
 							upcomingEvents
 								.map(event => (
-									<EventItem event = { event }/>
+									<EventItem key={event.id} event = { event }/>
 								))
 							: <div>No upcoming events</div>
 						}

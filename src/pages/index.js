@@ -6,8 +6,6 @@ import React from "react";
 import PropTypes from "prop-types";
 import Layout from "../components/Layout"
 
-// ----------------------------------------------------
-
 const Home = ( props ) => {
 	const { data, } = props
 	let news = data.allContentfulNews && data.allContentfulNews.edges;
@@ -146,8 +144,6 @@ Home.propTypes = {
 };
 
 export default Home;
-
-// ----------------------------------------------------
 
 export const HomeQuery = graphql`
 	query HomeQuery {

@@ -14,7 +14,7 @@ import React from "react";
 import slugify from "slugify";
 import styled from "styled-components";
 
-// ----------------------------------------------------
+
 
 const NewsThumbnail = styled(Image)`
 	.ui.image {
@@ -36,7 +36,7 @@ const NewsDivider = styled(Divider)`
 	width: 100%;
 `;
 
-// ----------------------------------------------------
+
 
 const NewsItem = ( { news, } ) => (
 	<Grid.Row key = { news.id + "-news" }>
