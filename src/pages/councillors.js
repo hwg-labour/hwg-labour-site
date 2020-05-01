@@ -13,42 +13,8 @@ import PropTypes from "prop-types";
 import React from "react";
 import slugify from "slugify";
 
-
-
-export const WardAndCandidateQuery = graphql`
-	query WardAndCandidateQuery {
-		contentfulWards: allContentfulWard {
-			edges {
-				node {
-					id
-					name
-				}
-			}
-		}
-		contentfulCandidates: allContentfulCandidate {
-			edges {
-				node {
-					id
-					name
-					shortBiography
-					image {
-						file {
-							url
-						}
-					}
-					ward {
-						id
-					}
-				}
-			}
-		}
-	}
-`;
-
-
-
 const Councillors = ( props ) => {
-const {data } = props
+	const {data } = props
 	const wards = data.contentfulWards.edges
 		.sort((x, y) => {
 			return x.node.name.toUpperCase() <
@@ -169,3 +135,33 @@ Councillors.propTypes = {
 };
 
 export default Councillors;
+
+const WardAndCandidateQuery = graphql`
+	query WardAndCandidateQuery {
+		contentfulWards: allContentfulWard {
+			edges {
+				node {
+					id
+					name
+				}
+			}
+		}
+		contentfulCandidates: allContentfulCandidate {
+			edges {
+				node {
+					id
+					name
+					shortBiography
+					image {
+						file {
+							url
+						}
+					}
+					ward {
+						id
+					}
+				}
+			}
+		}
+	}
+`;

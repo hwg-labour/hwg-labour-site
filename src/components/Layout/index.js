@@ -49,22 +49,23 @@ export const menuGroupsAndWardsQuery = graphql`
 				}
 			}
 		}
-		contentfulGroups: allContentfulGroup {
-			edges {
-				node {
-					id
-					name
-				}
-			}
-		}
-		contentfulEvents: allContentfulEvent {
-			edges {
-				node {
-					title
-					date
-					socialEvent
-				}
-			}
-		}
 	}
 `;
+
+		// contentfulGroups: allContentfulGroup {
+		// 	edges {
+		// 		node {
+		// 			id
+		// 			name
+		// 		}
+		// 	}
+		// }
+		// contentfulEvents: allContentfulEvent {
+		// 	edges {
+		// 		node {
+		// 			title
+		// 			date
+		// 			socialEvent
+		// 		}
+		// 	}
+		// }

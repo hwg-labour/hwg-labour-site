@@ -18,7 +18,6 @@ import {
 } from "../components/toolbox";
 import { graphql } from 'gatsby'
 
-
 const WardThumbnail = styled(Image)`
 	.ui.label {
 		background-color: rgba(255, 255, 255, 0.7);
@@ -30,33 +29,11 @@ const WardThumbnail = styled(Image)`
 	}
 `;
 
-
-
-export const WardListQuery = graphql`
-	query WardListQuery {
-		contentfulWards: allContentfulWard {
-			edges {
-				node {
-					id
-					name
-					image {
-						file {
-							url
-						}
-					}
-				}
-			}
-		}
-	}
-`;
-
 const WardDivider = styled(Divider)`
 	width: 100%;
 	margin: 3em 0em;
 	text-transform: uppercase;
 `;
-
-
 
 const Wards = ( { data, }, ) => (
 	<div>
@@ -136,3 +113,21 @@ Wards.propTypes = {
 };
 
 export default Wards;
+
+const WardListQuery = graphql`
+	query WardListQuery {
+		contentfulWards: allContentfulWard {
+			edges {
+				node {
+					id
+					name
+					image {
+						file {
+							url
+						}
+					}
+				}
+			}
+		}
+	}
+`;

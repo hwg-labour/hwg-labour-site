@@ -7,45 +7,6 @@ import PropTypes from "prop-types";
 import React from "react";
 import { graphql } from 'gatsby'
 
-
-export const GroupItemQuery = graphql`
-	query GroupItemQuery($id: String!) {
-		contentfulGroup(id: { eq: $id }) {
-			id
-			name
-			description {
-				description
-			}
-			image {
-				file {
-					url
-				}
-			}
-		}
-		contentfulNews: allContentfulNews {
-			edges {
-				node {
-					title
-					description {
-						description
-					}
-					publishingDate
-					image {
-						file {
-							url
-						}
-					}
-					groupRef {
-						id
-					}
-				}
-			}
-		}
-	}
-`;
-
-
-
 const GroupTemplate = ( props ) => {
 const {data } = props
 	const group = data.contentfulGroup;
@@ -124,3 +85,45 @@ GroupTemplate.propTypes = {
 };
 
 export default GroupTemplate;
+
+const GroupItemQuery = graphql`
+	query GroupItemQuery($id: String!) {
+		contentfulGroup(id: { eq: $id }) {
+			id
+			name
+			description {
+				description
+			}
+			image {
+				file {
+					url
+				}
+			}
+		}
+	}
+`;
+
+const GroupItemNewsQuery = graphql`
+	query NewsQuery {
+		contentfulNews: allContentfulNews {
+			edges {
+				node {
+					title
+					description {
+						description
+					}
+					publishingDate
+					image {
+						file {
+							url
+						}
+					}
+					groupRef {
+						id
+					}
+				}
+			}
+		}
+	}
+`;
+

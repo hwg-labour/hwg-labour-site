@@ -17,8 +17,6 @@ import React from "react";
 import slugify from "slugify";
 import styled from "styled-components";
 
-
-
 const GroupThumbnail = styled(Image)`
 	.ui.label {
 		background-color: rgba(255, 255, 255, 0.7);
@@ -35,29 +33,6 @@ const GroupDivider = styled(Divider)`
 	margin: 3em 0em;
 	text-transform: uppercase;
 `;
-
-
-
-
-export const GroupListQuery = graphql`
-	query GroupListQuery {
-		contentfulGroups: allContentfulGroup {
-			edges {
-				node {
-					id
-					name
-					image {
-						file {
-							url
-						}
-					}
-				}
-			}
-		}
-	}
-`;
-
-
 
 const Groups = ( props ) => {
 const {data } = props
@@ -139,5 +114,22 @@ Groups.propTypes = {
 	}),
 };
 
-
 export default Groups;
+
+const GroupListQuery = graphql`
+	query GroupListQuery {
+		contentfulGroups: allContentfulGroup {
+			edges {
+				node {
+					id
+					name
+					image {
+						file {
+							url
+						}
+					}
+				}
+			}
+		}
+	}
+`;

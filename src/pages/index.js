@@ -100,7 +100,7 @@ const Home = ( props ) => {
 					{news.length && (
 						<Grid columns = { 2 } stackable>
 							{news.slice(0,2).map(newsItem => {
-								return <NewsItem news = { newsItem } />;
+								return <NewsItem key={newsItem.id} news = { newsItem } />;
 							})}
 						</Grid>
 					)}
@@ -123,7 +123,7 @@ const Home = ( props ) => {
 					{upcomingEvents.length && (
 						<Grid columns = { 2 } stackable>
 							{upcomingEvents.slice(0,2).map(eventItem => {
-								return <EventItem event = { eventItem } />;
+								return <EventItem key={eventItem.id} event = { eventItem } />;
 							})}
 						</Grid>
 					)}

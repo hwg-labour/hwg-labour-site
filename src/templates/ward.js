@@ -17,64 +17,6 @@ import React from "react";
 import slugify from "slugify";
 import { graphql } from 'gatsby'
 
-
-export const WardItemQuery = graphql`
-	query WardItemQuery($id: String!) {
-		contentfulWard(id: { eq: $id }) {
-			id
-			name
-			description {
-				description
-			}
-			image {
-				file {
-					url
-				}
-			}
-		}
-		contentfulCandidates: allContentfulCandidate {
-			edges {
-				node {
-					id
-					name
-					shortBiography
-					image {
-						file {
-							url
-						}
-					}
-					ward {
-						id
-					}
-				}
-			}
-		}
-		contentfulNews: allContentfulNews {
-			edges {
-				node {
-					title
-					description {
-						description
-					}
-					publishingDate
-					image {
-						file {
-							url
-						}
-					}
-					wardRef {
-						id
-					}
-				}
-			}
-		}
-	}
-`;
-
-
-
-
-
 const WardTemplate = ( props ) => {
 	const { data } = props
 	const ward = data.contentfulWard;
@@ -232,3 +174,56 @@ WardTemplate.propTypes = {
 };
 
 export default WardTemplate;
+
+const WardItemQuery = graphql`
+	query WardItemQuery($id: String!) {
+		contentfulWard(id: { eq: $id }) {
+			id
+			name
+			description {
+				description
+			}
+			image {
+				file {
+					url
+				}
+			}
+		}
+		contentfulCandidates: allContentfulCandidate {
+			edges {
+				node {
+					id
+					name
+					shortBiography
+					image {
+						file {
+							url
+						}
+					}
+					ward {
+						id
+					}
+				}
+			}
+		}
+		contentfulNews: allContentfulNews {
+			edges {
+				node {
+					title
+					description {
+						description
+					}
+					publishingDate
+					image {
+						file {
+							url
+						}
+					}
+					wardRef {
+						id
+					}
+				}
+			}
+		}
+	}
+`;

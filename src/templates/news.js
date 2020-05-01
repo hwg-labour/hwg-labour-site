@@ -7,28 +7,6 @@ import React from "react";
 import styled from "styled-components"
 import { graphql } from 'gatsby'
 
-
-export const NewsItemQuery = graphql`
-	query NewsItemQuery($id: String!) {
-		contentfulNews(id: { eq: $id }) {
-			title
-			description {
-				description
-			}
-			content {
-				content
-			}
-			image {
-				file {
-					url
-				}
-			}
-		}
-	}
-`;
-
-//----------------------------------------------------
-
 const ContentWrapper = styled.div`
 	p > img {
 		margin-top: 0.5em;
@@ -86,3 +64,22 @@ NewsTemplate.propTypes = {
 };
 
 export default NewsTemplate;
+
+const NewsItemQuery = graphql`
+	query NewsItemQuery($id: String!) {
+		contentfulNews(id: { eq: $id }) {
+			title
+			description {
+				description
+			}
+			content {
+				content
+			}
+			image {
+				file {
+					url
+				}
+			}
+		}
+	}
+`;
